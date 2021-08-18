@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*
+----------------------
+ ESTILO DEL CONTENEDOR
+----------------------
+*/
+.container {
+    height: 800px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*
+-----------------------------------------
+ESTILOS DE LOS BOTONES DE LOS FORMULARIOS
+-----------------------------------------
+*/
+.botones {
+    margin: 2%;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column  ;
+    justify-content: center;
+    align-items: center;
+    border-radius: 28px;
+    background: linear-gradient(225deg, #e6e6e6, #ffffff);
+    box-shadow:  -27px 27px 55px #d9d9d9,
+             27px -27px 55px #ffffff;
+}
+
+/*
+-----------------------------------------------------------
+CAMBIOS DE ESTILOS EN LOS BOTONES CON EL DISENO DE BOOSTRAB
+-----------------------------------------------------------
+*/
+
+.btn { 
+    margin: 10px;
+    height: auto;
+    width: 200px;  
+}
+
+/*
+----------------------------------
+ESTILOS DE LOS H1 EN EL DIV DE LAS
+----------------------------------
+*/
+.botones h1 {
+  position:absolute;
+  margin-bottom: 300px;
+}
+
+/*
+--------------------------
+ESTILOS DE LA VENTANA MODAL
+---------------------------
+*/
+.modal-body {
+    display: flex;
+    flex-direction: column; 
+}
+
+/*
+------------
+ESTILOS DE LA CAJA DE TEXTO
+------------
+*/
+.modal-body input {
+    margin: 5px;
+}
+/*
+------------------------------------------
+CAMBIO INVIDIDUAL PARA DEL ID DE LA CEDULA
+------------------------------------------
+*/
+#cedula {
+    width: 300px;
+}
