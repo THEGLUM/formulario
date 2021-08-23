@@ -1,0 +1,25 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.caja{
+    width: 600px;
+    margin-bottom: 50px;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.dire{
+    margin-top: 10px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 40px;
+}
