@@ -1,2 +1,2 @@
 # formulario
-es un formulario creado con C#
+es un formulario creado con js, css y html
