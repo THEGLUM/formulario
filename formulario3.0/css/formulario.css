@@ -1,0 +1,57 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.caja{
+    width: 600px;
+    margin-bottom: 50px;
+}
+
+.formulario-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.dire{
+    margin-top: 10px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+
+.exampleModalLabel{
+    justify-content: center;
+}
+
+.form-check{
+    margin-top: 20px;
+}
+
+.tratamientosDatos{
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+body::-webkit-scrollbar{
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgba(107, 104, 104, 0.548);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(255, 255, 255);  /* creates padding around scroll thumb */
+  }

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <link rel="icon" href="../img/logo.png">
+        <!-- conexion con los estilos de boostrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!-- conexion con los estilos de boostrap y los Javascripts -->
+<link rel="stylesheet" href="../css/home.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
+
+<link rel="stylesheet" href="../css/formulario.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navegator">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="../html/home.html">Almacontact</a>
+                      <a href="../html/home.html">
+                        <img src="../img/logo.png" alt="" width="30px" height="30px"> 
+                      </a>
+                    </div>
+                  </nav>
+        </div>
+    </header>
+
+    <section class="formulario-container"> 
+        <form action="formulario" method="GET" >
+            <div class="titulo">Sistema de creación de usuario</div>
+            <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
+                                    <!--
+                  -----------------
+                  TIPO DE DOCUMENTO
+                  -----------------
+                -->
+                <div class="caja">
+                <label for="tipoDeDocumento">Tipo de Documento*</label>
+                <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento">
+                  <option selected>tipo de documentos</option>
+                  <option value="1">Cedula ciudadania</option>
+                  <option value="3">tarjeta de indentidad</option>
+                  <option value="2">cedula extrangera</option>
+                  <option value="3">permiso de trabajo</option>
+                </select>
+              </div>
+                </div>
+              <!--
+                -----------------
+                NUMERO DE DOCUMENTO
+                -----------------
+              -->
+              <div class="caja">
+                <label for="numeroDeDocumento">Numero de Documento*</label>
+                <div  id="input" class="input-group input-group-sm mb-3">
+                  <input type="text" class="form-control" required="true"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento">
+                </div>
+              </div>
+
+              <!--
+                -----------------
+                PRIMER APELLIDO
+                -----------------
+              -->
+              <div class="caja">
+                <label for="PrimerApellido">Primer Apellido*</label>
+                <div class="input-group input-group-sm mb-3">
+                  <input type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="PrimerApellido">
+                </div>
+              </div>
+              
+              <!--
+                -----------------
+                SEGUNDO APELLIDO
+                -----------------
+              -->
+              <div class="caja">
+                <label for="segundoApellido">Segundo Apellido*</label>
+                <div class="input-group input-group-sm mb-3">
+                  <input type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="segundoApellido">
+                </div>
+              </div>
+              
+              <!--
+                -----------------
+                PRIMER NOMBRE
+                -----------------
+              -->
+              <div class="caja">
+                <label for="primeroNombre">Primer Nombre*</label>
+                <div class="input-group input-group-sm mb-3">
+                  <input type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="primeroNombre">
+                </div>
+              </div>
+              
+              <!--
+                -----------------
+                SEGUNDO NOMBRE
+                -----------------
+              -->
+              <div class="caja">
+                <label for="segundoNombre">Segundo Nombre</label>
+                <div class="input-group input-group-sm mb-3">
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="segundoNombre">
+                </div>
+                <div>
+                </div>  
+              </div>
+              
+              <!--
+                -----------------
+                AREA 
+                -----------------
+              -->
+              <div class="caja">
+                <label for="area">Área*</label>
+                <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="area">
+                  <option selected> selecciona</option>
+                      <option value="2">LATAM Bogota</option>
+                      <option value="3">LATAM Medellin</option>
+                      <option value="4">Claro Premium</option>
+                      <option value="5">Claro Swat</option>
+                      <option value="7">Claro TMK Medellin</option>
+                      <option value="8">Claro TMK Bogota</option>
+                      <option value="9">Leal</option>
+                      <option value="10">Samsung</option>
+                      <option value="11">Fundacion Social</option>
+                      <option value="13">Shopee</option>
+                      <option value="14">Direccion General</option>
+                      <option value="15">Direccion Comercial</option>
+                      <option value="16">Implementacion</option>
+                      <option value="17">Planeacion</option>
+                      <option value="18">Reporting</option>
+                      <option value="20">Operaciones</option>
+                      <option value="21">Formacion</option>
+                      <option value="22">Calidad</option>
+                      <option value="23">Gestion Humana</option>
+                      <option value="24">Tecnologia Infomacion</option>
+                      <option value="25">Infraesctructura y Seguridad fisica</option>
+                      <option value="26">Financiera & compras</option>
+                      <option value="27">Sistema integrado de gestion de la calidad </option>
+                    </select>
+                    
+                  </div>
+                  
+                  <!--
+                    -----------------
+                    DIRECCION
+                    -----------------
+                  -->
+                  <div class="caja">
+                    <label for="direccion">Direccion*</label>
+                    <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="direccion">
+                      <option selected>tipo de avenida</option>
+                      <option value="1">Avenida</option>
+                      <option value="3">calle</option>
+                      <option value="2">Circular</option>
+                      <option value="4">Diagonal</option>
+                      <option value="5">Tramo</option>
+                      <option value="6">Transversal</option>
+                      <option value="7">Transversal</option>
+                      <option value="8">Carrera</option>
+                      <option value="9">Avenida Carrera</option>
+                      <option value="9">Circunvalar</option>
+                      <option value="10">Manzana</option>
+                      <option value="11">Via</option>
+                    </select>
+                    <div class="dire input-group input-group-sm">
+                      <span> Recidencia</span>
+                      <input type="text" aria-label="Last name" class="form-control">
+                      <span class="input-group-text">#</span>
+                      <input type="text" aria-label="First name" class="form-control">
+                      <span class="input-group-text">-</span>
+                      <input type="text" aria-label="Last name" class="form-control">
+                    </div>
+                  </div>                  
+                <!--  -----------------
+                  MUNCIPIO DE RECIDENCIA
+                  -----------------
+                -->
+                <div class="caja">
+                  <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
+                  <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
+                    <option selected>selecciona </option>
+                    <option value="1">Barbosa</option>
+                    <option value="3">Bello</option>
+                    <option value="2">Bogota</option>
+                    <option value="3">Caldas</option>
+                    <option value="4">Copacabana</option>
+                    <option value="5">Envigado</option>
+                    <option value="6">Girardota</option>
+                    <option value="7">itagui</option>
+                    <option value="7">La Estrella</option>
+                    <option value="7">Medellin</option>
+                    <option value="7">sabaneta</option>
+                  </select>
+                </div>
+                  <!--
+                    -----------------
+                    SEDE LABORAL
+                    -----------------
+                  -->
+                  <div class="caja">
+                    <label for="sedeLaboral">Sede Laboral*</label>
+                    <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
+                      <option selected>selecciona</option>
+                      <option value="1">BOGOTA</option>
+                      <option value="3">SABANETA</option>
+                    </select>
+                  </div>
+
+                  <div class="caja">
+                    <label for="telefono"> Telefono fijo</label>
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
+                    </div>
+                  </div>
+
+                  <div class="caja">
+                    <label for="Movil">Movil</label>
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Telefono">
+                    </div>
+                    <div>
+                    </div>  
+                  </div>
+
+
+                  <div class="caja">
+                    <label for="telefonoEmergencia">Telefono en caso de emergencia</label>
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
+                    </div> 
+                  </div>
+
+
+                  <div class="caja">
+                    <label for="correoElectronico">Correo electronico*</label>
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="email" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="correoElectronico">
+                    </div>  
+                  </div>
+
+
+                  <div class="caja">
+                    <label for="fechaNacimiento">Fecha nacimiento*</label>
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento">
+                    </div>
+                  </div>
+
+                  <div class="caja">
+                    <label for="genero">Genero</label>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="genero">
+                      <option selected>selecciona tu genero</option>
+                      <option value="0">Hombre</option>
+                      <option value="1">Mujer</option>
+                    </select>
+                  </div>
+
+
+                  <div class="caja">
+                    <label for="idioma">selecciona idiomas*</label>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="">
+                      <label class="form-check-label" for="flexSwitchCheckDefault">español</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="">
+                      <label class="form-check-label" for="flexSwitchCheckDefault">ingles</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="">
+                      <label class="form-check-label" for="flexSwitchCheckDefault">Aleman</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="">
+                      <label class="form-check-label" for="flexSwitchCheckDefault">Portuges</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="">
+                      <label class="form-check-label" for="flexSwitchCheckDefault">frances</label>
+                    </div>
+                  </div>
+
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" required="true">
+                    <label class="form-check-label" for="flexCheckIndeterminate">
+                      <a href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos</a>
+                    </label>
+                  </div>
+                  <!--
+                    -----------------
+                    BOTONES DEL FORMULARIO
+                    -----------------
+                  -->
+                  <a href="../html/home.html"><button type="button" class="btn btn-primary">atras</button></a>
+                  <button type="submit" class="btn btn-primary">crear</button>
+                </form>
+    </section>
+</body>
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
+<!-- Include plugin -->
+<script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
+</html>
