@@ -8,19 +8,30 @@
     <link rel="icon" href="../img/logo.png">
         <!-- conexion con los estilos de boostrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<!-- conexion con los estilos de boostrap y los Javascripts -->
-<link rel="stylesheet" href="../css/home.css">
+ <!-- conexion con los estilos de boostrap y los Javascripts --> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
 
 <link rel="stylesheet" href="../css/formulario.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="../js/multi.js"></script>
 </head>
+
+
+
 <body>
-    <header>
-        <div class="navegator">
-                <nav class="navbar navbar-light bg-light">
+  <header>
+    <div class="navegator">
+      <nav class="navbar navbar-light bg-light">
                     <div class="container-fluid">
                       <a class="navbar-brand" href="../html/home.html">Almacontact</a>
                       <a href="../html/home.html">
@@ -28,22 +39,22 @@
                       </a>
                     </div>
                   </nav>
-        </div>
+                </div>
     </header>
-
+    
     <section class="formulario-container"> 
         <form action="formulario" method="GET" >
-            <div class="titulo">Sistema de creación de usuario</div>
-            <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
+          <div class="titulo">Sistema de creación de usuario</div>
+          <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
                                     <!--
                   -----------------
                   TIPO DE DOCUMENTO
                   -----------------
                 -->
                 <div class="caja">
-                <label for="tipoDeDocumento">Tipo de Documento*</label>
+                  <label for="tipoDeDocumento">Tipo de Documento*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento">
-                  <option selected>tipo de documentos</option>
+                  <option selected value="">tipo de documentos</option>
                   <option value="1">Cedula ciudadania</option>
                   <option value="3">tarjeta de indentidad</option>
                   <option value="2">cedula extrangera</option>
@@ -122,12 +133,12 @@
                 <label for="area">Área*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="area">
                   <option selected> selecciona</option>
-                      <option value="2">LATAM Bogota</option>
-                      <option value="3">LATAM Medellin</option>
-                      <option value="4">Claro Premium</option>
-                      <option value="5">Claro Swat</option>
-                      <option value="7">Claro TMK Medellin</option>
-                      <option value="8">Claro TMK Bogota</option>
+                  <option value="2">LATAM Bogota</option>
+                  <option value="3">LATAM Medellin</option>
+                  <option value="4">Claro Premium</option>
+                  <option value="5">Claro Swat</option>
+                  <option value="7">Claro TMK Medellin</option>
+                  <option value="8">Claro TMK Bogota</option>
                       <option value="9">Leal</option>
                       <option value="10">Samsung</option>
                       <option value="11">Fundacion Social</option>
@@ -201,7 +212,7 @@
                     <option value="7">sabaneta</option>
                   </select>
                 </div>
-                  <!--
+                <!--
                     -----------------
                     SEDE LABORAL
                     -----------------
@@ -214,7 +225,7 @@
                       <option value="3">SABANETA</option>
                     </select>
                   </div>
-
+                  
                   <div class="caja">
                     <label for="telefono"> Telefono fijo</label>
                     <div class="input-group input-group-sm mb-3">
@@ -230,7 +241,7 @@
                     <div>
                     </div>  
                   </div>
-
+                  
 
                   <div class="caja">
                     <label for="telefonoEmergencia">Telefono en caso de emergencia</label>
@@ -238,8 +249,8 @@
                       <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
                     </div> 
                   </div>
-
-
+                  
+                  
                   <div class="caja">
                     <label for="correoElectronico">Correo electronico*</label>
                     <div class="input-group input-group-sm mb-3">
@@ -247,14 +258,14 @@
                     </div>  
                   </div>
 
-
+                  
                   <div class="caja">
                     <label for="fechaNacimiento">Fecha nacimiento*</label>
                     <div class="input-group input-group-sm mb-3">
                       <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento">
                     </div>
                   </div>
-
+                  
                   <div class="caja">
                     <label for="genero">Genero</label>
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="genero">
@@ -264,33 +275,19 @@
                     </select>
                   </div>
 
-
-                  <div class="caja">
-                    <label for="idioma">selecciona idiomas*</label>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">español</label>
+                    
+                    <div class="caja">
+                      <label for="idiomas">Idiomas*</label>
+                      <select  id="multipleSelect" class="idiomas" multiple aria-label="multiple select" required="true">
+                        <option value="1">Español</option>
+                        <option value="2">Ingles</option>
+                        <option value="3">Aleman</option>
+                        <option value="3">Portuges</option>
+                        <option value="3">Frances</option>
+                      </select>
                     </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">ingles</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">Aleman</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">Portuges</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">frances</label>
-                    </div>
-                  </div>
-
-                  
-                  <div class="form-check">
+                    
+                    <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" required="true">
                     <label class="form-check-label" for="flexCheckIndeterminate">
                       <a href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos</a>
@@ -304,9 +301,7 @@
                   <a href="../html/home.html"><button type="button" class="btn btn-primary">atras</button></a>
                   <button type="submit" class="btn btn-primary">crear</button>
                 </form>
-    </section>
-</body>
-<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
-<!-- Include plugin -->
-<script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
+
+
+  </body>
 </html>
