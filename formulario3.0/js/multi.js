@@ -1,4 +1,3 @@
-
-    $(function () {
-      $('#multipleSelect').selectpicker()       
-    })
+$(function () {
+	$('#multipleSelect').selectpicker()
+})
