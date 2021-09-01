@@ -16,6 +16,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -55,10 +58,10 @@
                   <label for="tipoDeDocumento">Tipo de Documento*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento" name="tipoDedocumento">
                   <option selected value="">tipo de documentos</option>
-                  <option value="cedula">Cedula ciudadania</option>
-                  <option value="3">tarjeta de indentidad</option>
-                  <option value="2">cedula extrangera</option>
-                  <option value="3">permiso de trabajo</option>
+                  <option value="1">Cedula ciudadania</option>
+                  <option value="2">tarjeta de indentidad</option>
+                  <option value="3">cedula extrangera</option>
+                  <option value="4">permiso de trabajo</option>
                 </select>
               </div>
                 </div>
@@ -70,7 +73,7 @@
               <div class="caja">
                 <label for="numeroDeDocumento">Numero de Documento*</label>
                 <div  id="input" class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento">
+                  <input type="text" class="form-control" required="true"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
                 </div>
               </div>
 
@@ -82,7 +85,7 @@
               <div class="caja">
                 <label for="PrimerApellido">Primer Apellido*</label>
                 <div class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="PrimerApellido">
+                  <input name="PrimerApellido" type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="PrimerApellido">
                 </div>
               </div>
 
@@ -94,7 +97,7 @@
               <div class="caja">
                 <label for="segundoApellido">Segundo Apellido*</label>
                 <div class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="segundoApellido">
+                  <input  name="segundoApellido" type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="segundoApellido">
                 </div>
               </div>
 
@@ -106,7 +109,7 @@
               <div class="caja">
                 <label for="primeroNombre">Primer Nombre*</label>
                 <div class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="primeroNombre">
+                  <input name="primeroNombre" type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="primeroNombre">
                 </div>
               </div>
 
@@ -118,7 +121,7 @@
               <div class="caja">
                 <label for="segundoNombre">Segundo Nombre</label>
                 <div class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="segundoNombre">
+                  <input name="segundoNombre" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="segundoNombre">
                 </div>
                 <div>
                 </div>
@@ -131,7 +134,7 @@
               -->
               <div class="caja">
                 <label for="area">Área*</label>
-                <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="area">
+                <select class="form-select form-select-sm" name="area" required="true" aria-label=".form-select-sm example" id="area">
                   <option selected> selecciona</option>
                   <option value="2">LATAM Bogota</option>
                   <option value="3">LATAM Medellin</option>
@@ -167,29 +170,45 @@
                   -->
                   <div class="caja">
                     <label for="direccion">Direccion*</label>
-                    <select class="form-select form-select-sm"  aria-label=".form-select-sm example" id="direccion" required="true">
+                    <select class="form-select form-select-sm" name="direccion"  aria-label=".form-select-sm example" id="direccion" required="true">
                       <option value="">tipo de avenida</option>
                       <option value="1">Avenida</option>
-                      <option value="3">calle</option>
-                      <option value="2">Circular</option>
+                      <option value="2">calle</option>
+                      <option value="3">Circular</option>
                       <option value="4">Diagonal</option>
                       <option value="5">Tramo</option>
                       <option value="6">Transversal</option>
                       <option value="7">Transversal</option>
                       <option value="8">Carrera</option>
                       <option value="9">Avenida Carrera</option>
-                      <option value="9">Circunvalar</option>
-                      <option value="10">Manzana</option>
-                      <option value="11">Via</option>
+                      <option value="10">Circunvalar</option>
+                      <option value="11">Manzana</option>
+                      <option value="12">Via</option>
                     </select>
                     <div class="dire input-group input-group-sm">
-                      <span> Recidencia</span>
-                      <input type="text" aria-label="Last name" class="form-control">
+                      <input type="text" aria-label="Last name" name="numeroVia" class="form-control" placeholder="copia la direccion">
                       <span class="input-group-text">#</span>
                       <input type="text" aria-label="First name" class="form-control">
                       <span class="input-group-text">-</span>
-                      <input type="text" aria-label="Last name" class="form-control">
+                      <input type="text" aria-label="Last name" class="form-control" name="numeroVia">
                     </div>
+
+                    <label for="flexRadioDefault1"> interiores</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" value="casa" id="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        <ion-icon name="home-outline"></ion-icon>
+                        casa
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" value="edificio" id="flexRadioDefault2" checked>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        <ion-icon name="business-outline"></ion-icon>
+                        edificio
+                      </label>
+                    </div>
+                    
                   </div>
                 <!--  -----------------
                   MUNCIPIO DE RECIDENCIA
@@ -197,7 +216,26 @@
                 -->
                 <div class="caja">
                   <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
-                  <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
+                  <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
+                    <option selected value="">selecciona </option>
+                    <option value="1">Barbosa</option>
+                    <option value="3">Bello</option>
+                    <option value="2">Bogota</option>
+                    <option value="3">Caldas</option>
+                    <option value="4">Copacabana</option>
+                    <option value="5">Envigado</option>
+                    <option value="6">Girardota</option>
+                    <option value="7">itagui</option>
+                    <option value="7">La Estrella</option>
+                    <option value="7">Medellin</option>
+                    <option value="7">sabaneta</option>
+                  </select>
+                </div>
+
+
+                <div class="caja">
+                  <label for="barrio">Barrio*</label>
+                  <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
                     <option selected value="">selecciona </option>
                     <option value="1">Barbosa</option>
                     <option value="3">Bello</option>
@@ -219,7 +257,7 @@
                   -->
                   <div class="caja">
                     <label for="sedeLaboral">Sede Laboral*</label>
-                    <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
+                    <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
                       <option selected value="">selecciona</option>
                       <option value="1">BOGOTA</option>
                       <option value="3">SABANETA</option>
@@ -229,14 +267,14 @@
                   <div class="caja">
                     <label for="telefono"> Telefono fijo</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
+                      <input type="number" class="form-control" name="telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
                     </div>
                   </div>
 
                   <div class="caja">
                     <label for="Movil">Movil</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Telefono">
+                      <input type="number" name="movil" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Movil">
                     </div>
                     <div>
                     </div>
@@ -246,7 +284,7 @@
                   <div class="caja">
                     <label for="telefonoEmergencia">Telefono en caso de emergencia</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
+                      <input type="text" name="telefonoEmergencia" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
                     </div>
                   </div>
 
@@ -254,7 +292,7 @@
                   <div class="caja">
                     <label for="correoElectronico">Correo electronico*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="email" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="correoElectronico">
+                      <input type="email" name="correo" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="correoElectronico">
                     </div>
                   </div>
 
@@ -262,13 +300,13 @@
                   <div class="caja">
                     <label for="fechaNacimiento">Fecha nacimiento*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento">
+                      <input type="date" name="fechaNacimiento" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento">
                     </div>
                   </div>
 
                   <div class="caja">
                     <label for="genero">Genero</label>
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="genero">
+                    <select class="form-select form-select-sm" name="genero" aria-label=".form-select-sm example" id="genero">
                       <option selected>selecciona tu genero</option>
                       <option value="0">Hombre</option>
                       <option value="1">Mujer</option>
@@ -277,7 +315,7 @@
 
                     <div class="caja">
                       <label for="idiomas">Idiomas*</label>
-                      <select  id="multipleSelect" class="idiomas" multiple aria-label="multiple select" required="true">
+                      <select  id="multipleSelect" name="idiomas" class="idiomas" multiple aria-label="multiple select" required="true">
                         <option value="1">Español</option>
                         <option value="2">Ingles</option>
                         <option value="3">Aleman</option>
