@@ -3,28 +3,28 @@
 $conn = require_once('conexion.php');
 
 
-// $tipoDedocumento = trim($_POST["tipoDedocumento"]);
-// $numeroDeDocumento = trim($_POST["numeroDeDocumento"]);
-// $primerApellido = trim($_POST["PrimerApellido"]);
-// $segundoApellido = trim($_POST["segundoApellido"]);
-// $primerNombre = trim($_POST["primeroNombre"]);
-// $segundoNombre = trim($_POST["segundoNombre"]);
-// $area = trim($_POST["area"]);
-// $direccion = trim($_POST["direccion"]);
-// $interior = trim($_POST["flexRadioDefault"]);
-// $municipioRecidencia = trim($_POST["municipioRecidencia"]);
-// $barrio = trim($_POST["barrio"]);
-// $sedeLaboral = trim($_POST["sedeLaboral"]);
-// $telefonoFijo = trim($_POST["telefono"]);
-// $movil = trim($_POST["movil"]);
-// $telefonoEmergencia = trim($_POST["telefonoEmergencia"]);
-// $correo = trim($_POST["correo"]);
-// $fechaNacimiento = trim($_POST["fechaNacimiento"]);
-// $genero = trim($_POST["genero"]);
-// $idiomas = trim($_POST["idiomas"]);
-// $numeroDeDireccion = trim($_POST["numeroVia"]);
+$tipoDedocumento = trim($_POST["tipoDedocumento"]);
+$numeroDeDocumento = trim($_POST["numeroDeDocumento"]);
+$primerApellido = trim($_POST["PrimerApellido"]);
+$segundoApellido = trim($_POST["segundoApellido"]);
+$primerNombre = trim($_POST["primeroNombre"]);
+$segundoNombre = trim($_POST["segundoNombre"]);
+$area = trim($_POST["area"]);
+$direccion = trim($_POST["direccion"]);
+$interior = trim($_POST["flexRadioDefault"]);
+$municipioRecidencia = trim($_POST["municipioRecidencia"]);
+$barrio = trim($_POST["barrio"]);
+$sedeLaboral = trim($_POST["sedeLaboral"]);
+$telefonoFijo = trim($_POST["telefono"]);
+$movil = trim($_POST["movil"]);
+$telefonoEmergencia = trim($_POST["telefonoEmergencia"]);
+$correo = trim($_POST["correo"]);
+$fechaNacimiento = trim($_POST["fechaNacimiento"]);
+$genero = trim($_POST["genero"]);
+$idiomas = trim($_POST["idiomas"]);
+$numeroDeDireccion = trim($_POST["numeroVia"]);
 
-$tipoDedocumento = 1;
+/* $tipoDedocumento = 1;
 $numeroDeDocumento = "" ;
 $primerApellido =  "";
 $segundoApellido = "";
@@ -44,7 +44,7 @@ $fechaNacimiento = '';
 $genero = 1;
 $idiomas = 1;
 $numeroDeDireccion = "";
-
+ */
 $query = $conn->prepare('call spInsertarUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
 $query->bindParam(1, $tipoDedocumento, PDO::PARAM_INT);
