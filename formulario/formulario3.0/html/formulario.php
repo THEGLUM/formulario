@@ -60,7 +60,16 @@
                 <div class="caja">
                   <label for="tipoDeDocumento">Tipo de Documento*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento" name="tipoDedocumento">
-                  <option selected value="">tipo de documentos</option>
+                  <option selected value="">tipo de documento</option>
+                  <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM TipoDocumento");
+                        $select->execute();
+                        $data = $select->fetchAll();  
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["id_tipo_documento"].'">'.$valores["Nombre_tipo_documento"].'</option>';
+                        endforeach;
+                        ?>
                 </select>
               </div>
                 </div>
@@ -135,6 +144,15 @@
                 <label for="area">Área*</label>
                 <select class="form-select form-select-sm" name="area" required="true" aria-label=".form-select-sm example" id="area">
                   <option selected> selecciona</option>
+                    <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM TipoArea");
+                        $select->execute();
+                        $data = $select->fetchAll();  
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["id_area"].'">'.$valores["Nombre_area"].'</option>';
+                        endforeach;
+                        ?>
                     </select>
 
                   </div>
@@ -148,7 +166,15 @@
                     <label for="direccion">Direccion*</label>
                     <select class="form-select form-select-sm" name="direccion"  aria-label=".form-select-sm example" id="direccion" required="true">
                       <option value="">tipo de avenida</option>
-
+                      <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM TipoVia");
+                        $select->execute();
+                        $data = $select->fetchAll();  
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["id_tipo_via"].'">'.$valores["Nombre_tipo_via"].'</option>';
+                        endforeach;
+                        ?>
                     </select>
                     <div class="dire input-group input-group-sm">
                       <span class="input-group-text">#</span>
@@ -183,12 +209,12 @@
                   <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
                     <option selected value="">selecciona </option>
                         <?php
-                        $conn = include_once("../../conexion.php");
-                        $query = $db->prepare("SELECT * FROM Municipio");
-                        $query->execute();
-                        $data = $query->fetchAll();
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM Municipio");
+                        $select->execute();
+                        $data = $select->fetchAll();  
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["id_municipio"].'">'.$valores["Nombre_Municipio"].'</option>';
+                        echo '<option value="'.$valores["Nombre_municipio"].'">'.$valores["Nombre_municipio"].'</option>';
                         endforeach;
                         ?>
                   </select>
@@ -211,8 +237,15 @@
                     <label for="sedeLaboral">Sede Laboral*</label>
                     <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
                       <option selected value="">selecciona</option>
-                      <option value="1">BOGOTA</option>
-                      <option value="2">SABANETA</option>
+                      <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM Sede");
+                        $select->execute();
+                        $data = $select->fetchAll();  
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["Id_sede"].'">'.$valores["Nombre_sede"].'</option>';
+                        endforeach;
+                        ?>
                     </select>
                   </div>
 
@@ -260,8 +293,15 @@
                     <label for="genero">Genero</label>
                     <select class="form-select form-select-sm" name="genero" aria-label=".form-select-sm example" id="genero">
                       <option selected>selecciona tu genero</option>
-                      <option value="0">Hombre</option>
-                      <option value="1">Mujer</option>
+                      <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM Genero");
+                        $select->execute();
+                        $data = $select->fetchAll();  
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["Genero"].'">'.$valores["Nombre_genero"].'</option>';
+                        endforeach;
+                        ?>
                     </select>
                   </div>
 
@@ -269,6 +309,15 @@
                       <label for="idiomas">Idiomas*</label>
                       <select  id="multipleSelect" name="idiomas" class="idiomas" multiple aria-label="multiple select" required="true">
                         <option selected>seleciona un idioma</option>
+                        <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM Idioma");
+                        $select->execute();
+                        $data = $select->fetchAll();  
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["Nombre_idiomao"].'">'.$valores["Nombre_idiomao"].'</option>';
+                        endforeach;
+                        ?>
                       </select>
                     </div>
 
