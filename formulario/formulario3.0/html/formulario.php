@@ -22,6 +22,7 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+<!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -148,7 +149,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM TipoArea");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll(); 
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["id_area"].'">'.$valores["Nombre_area"].'</option>';
                         endforeach;
@@ -200,6 +201,28 @@
                     </div>
 
                   </div>
+                    <!--
+                    -----------------
+                    SEDE LABORAL
+                    -----------------
+                  -->
+                  <div class="caja">
+                    <label for="sedeLaboral">Sede Laboral*</label>
+                    <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
+                      <option selected value="">selecciona</option>
+                      <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM Sede");
+                        $select->execute();
+                        $data = $select->fetchAll();
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["Id_sede"].'">'.$valores["Nombre_sede"].'</option>';
+                        $sede = $valores;
+                        endforeach;
+                        ?>
+                    </select>
+                  </div>
+
                 <!--  -----------------
                   MUNCIPIO DE RECIDENCIA
                   -----------------
@@ -225,29 +248,18 @@
                   <label for="barrio">Barrio*</label>
                   <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
                     <option selected value="">selecciona </option>
-
-                  </select>
-                </div>
-                <!--
-                    -----------------
-                    SEDE LABORAL
-                    -----------------
-                  -->
-                  <div class="caja">
-                    <label for="sedeLaboral">Sede Laboral*</label>
-                    <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
-                      <option selected value="">selecciona</option>
-                      <?php
+                    <?php
                         $select = include_once("../../conexion.php");
-                        $select = $conn->prepare("SELECT * FROM Sede");
+                        $select = $conn->prepare("SELECT * FROM Barrio");
                         $select->execute();
                         $data = $select->fetchAll();
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["Id_sede"].'">'.$valores["Nombre_sede"].'</option>';
+                        echo '<option value="'.$valores["id_barrio"].'">'.$valores["Nombre_barrios"].'</option>';
                         endforeach;
                         ?>
-                    </select>
-                  </div>
+                  </select>
+                </div>
+
 
                   <div class="caja">
                     <label for="telefono"> Telefono fijo</label>
@@ -308,7 +320,7 @@
                     <div class="caja">
                       <label for="idiomas">Idiomas*</label>
                       <select  id="multipleSelect" name="idiomas" class="idiomas" multiple aria-label="multiple select" required="true">
-                        <option selected>seleciona un idioma</option>
+                        <option value="0">seleciona un idioma</option>
                         <?php
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM Idioma");
@@ -336,5 +348,14 @@
                   <button type="submit" class="btn btn-primary">crear</button>
                 </form>
   </body>
+    <script>
+      $(document).ready(function(e) {
+        $("#sedeLaboral").change(function(){
+          let id = $("sede").val()
+          alert(id)
+        })
+
+      })
+    </script>
 
 </html>
