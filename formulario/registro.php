@@ -65,7 +65,7 @@ $query->bindParam(15, $telefonoEmergencia, PDO::PARAM_INT);
 $query->bindParam(16, $correo, PDO::PARAM_STR);
 $query->bindParam(17, $fechaNacimiento, PDO::PARAM_STR);
 $query->bindParam(18, $genero, PDO::PARAM_INT);
-$query->bindParam(19, $idiomas, PDO::PARAM_INT);
+$query->bindParam(19, $idiomas, PDO::PARAM_STR);
 $query->bindParam(20, $numeroDeDireccion, PDO::PARAM_STR);
 
 $query->execute();

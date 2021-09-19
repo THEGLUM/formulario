@@ -1,10 +1,10 @@
 <?php
 
-     $host = '10.96.16.53';
-     $user = 'personalma';
-     $password = 'personalma';
-     $db = 'Empleados_Almacontact';
-     $conn; 
+        $host = '10.96.16.53';
+        $user = 'personalma';
+        $password = 'personalma';
+        $db = 'Empleados_Almacontact';
+        $conn;
 
     try {
         $conexionString = "mysql:host=".$host.";dbname=".$db.";charset=utf8";
@@ -18,4 +18,3 @@
 
     return $conn;
 
-    

@@ -49,7 +49,7 @@
     </header>
 
     <section class="formulario-container">
-        <form action="../../registro.php" method="POST" >
+        <form action="../registro.php" method="POST" >
           <div class="titulo">Sistema de creación de usuario</div>
           <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
                   <!--
@@ -170,7 +170,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM TipoVia");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["id_tipo_via"].'">'.$valores["Nombre_tipo_via"].'</option>';
                         endforeach;
@@ -198,7 +198,7 @@
                         edificio
                       </label>
                     </div>
-                    
+
                   </div>
                 <!--  -----------------
                   MUNCIPIO DE RECIDENCIA
@@ -212,7 +212,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM Municipio");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["Nombre_municipio"].'">'.$valores["Nombre_municipio"].'</option>';
                         endforeach;
@@ -241,7 +241,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM Sede");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["Id_sede"].'">'.$valores["Nombre_sede"].'</option>';
                         endforeach;
@@ -297,7 +297,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM Genero");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["Genero"].'">'.$valores["Nombre_genero"].'</option>';
                         endforeach;
@@ -313,7 +313,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM Idioma");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["Nombre_idiomao"].'">'.$valores["Nombre_idiomao"].'</option>';
                         endforeach;
@@ -335,7 +335,6 @@
                   <a href="../html/home.html"><button type="button" class="btn btn-primary">atras</button></a>
                   <button type="submit" class="btn btn-primary">crear</button>
                 </form>
-
-
   </body>
+
 </html>
