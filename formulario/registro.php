@@ -3,7 +3,7 @@
 $conn = require_once('conexion.php');
 
 
-$tipoDedocumento = trim($_POST["tipoDedocumento"]);
+/* $tipoDedocumento = trim($_POST["tipoDedocumento"]);
 $numeroDeDocumento = trim($_POST["numeroDeDocumento"]);
 $primerApellido = trim($_POST["PrimerApellido"]);
 $segundoApellido = trim($_POST["segundoApellido"]);
@@ -22,51 +22,54 @@ $correo = trim($_POST["correo"]);
 $fechaNacimiento = trim($_POST["fechaNacimiento"]);
 $genero = trim($_POST["genero"]);
 $idiomas = trim($_POST["idiomas"]);
-$numeroDeDireccion = trim($_POST["numeroVia"]);
+$numeroDeDireccion = trim($_POST["numeroVia"]); */
 
-/* $tipoDedocumento = 1;
-$numeroDeDocumento = "" ;
-$primerApellido =  "";
-$segundoApellido = "";
-$primerNombre = "";
-$segundoNombre = "";
-$area = 1;
-$direccion = "";
-$interior = "";
-$municipioRecidencia = "";
-$barrio = "";
-$sedeLaboral =  1;
-$telefonoFijo = 1;
-$movil = 1;
-$telefonoEmergencia = '';
-$correo = '';
-$fechaNacimiento = '';
-$genero = 1;
-$idiomas = 1;
-$numeroDeDireccion = "";
- */
-$query = $conn->prepare('call spInsertarUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+$AutorizaTratamiento = trim($_POST["tipoDedocumento"]);
+$Fk_TipoDocumento = trim($_POST["tipoDedocumento"]);
+$Pk_NumeroDocumento = trim($_POST["numeroDeDocumento"]) ;
+$PrimerApellido =  trim($_POST["PrimerApellido"]);
+$SegundoApellido = trim($_POST["segundoApellido"]);
+$PrimerNombre = trim($_POST["primeroNombre"]);
+$SegundoNombre =  trim($_POST["segundoNombre"]);
+$Fk_Sede =  trim($_POST["sedeLaboral"]);
+$Fk_Area = trim($_POST["area"]);
+$Fk_TipoVia = trim($_POST["direccion"]);
+$NumeroVia = trim($_POST["flexRadioDefault"]); //revisar
+$Interior = trim($_POST["flexRadioDefault"]);
+$Municipio = trim($_POST["municipioRecidencia"]);
+$Barrios = trim($_POST["barrio"]);
+$Telefonofijo = trim($_POST["telefono"]);
+$Movil = trim($_POST["movil"]);
+$TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
+$CorreoElectronico = trim($_POST["correo"]);
+$FechaNacimiento = trim($_POST["fechaNacimiento"]);
+$Fk_Genero = trim($_POST["genero"]);
+$Fk_idioma =  trim($_POST["idiomas"]);
+$Guion = "-";
+$query = $conn->prepare('call spInsertarUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?');
 
-$query->bindParam(1, $tipoDedocumento, PDO::PARAM_INT);
-$query->bindParam(2, $numeroDeDocumento, PDO::PARAM_STR);
-$query->bindParam(3, $primerApellido, PDO::PARAM_STR);
-$query->bindParam(4, $segundoApellido, PDO::PARAM_STR);
-$query->bindParam(5, $primerNombre, PDO::PARAM_STR);
-$query->bindParam(6, $segundoNombre, PDO::PARAM_STR);
-$query->bindParam(7, $area, PDO::PARAM_INT);
-$query->bindParam(8, $direccion, PDO::PARAM_STR);
-$query->bindParam(9, $interior, PDO::PARAM_STR);
-$query->bindParam(10,$municipioRecidencia, PDO::PARAM_STR);
-$query->bindParam(11, $barrio, PDO::PARAM_STR);
-$query->bindParam(12, $sedeLaboral, PDO::PARAM_INT);
-$query->bindParam(13, $telefonoFijo, PDO::PARAM_INT);
-$query->bindParam(14, $movil, PDO::PARAM_INT);
-$query->bindParam(15, $telefonoEmergencia, PDO::PARAM_INT);
-$query->bindParam(16, $correo, PDO::PARAM_STR);
-$query->bindParam(17, $fechaNacimiento, PDO::PARAM_STR);
-$query->bindParam(18, $genero, PDO::PARAM_INT);
-$query->bindParam(19, $idiomas, PDO::PARAM_STR);
-$query->bindParam(20, $numeroDeDireccion, PDO::PARAM_STR);
+$query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
+$query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
+$query->bindParam(3, $Pk_NumeroDocumento, PDO::PARAM_STR);
+$query->bindParam(4, $PrimerApellido, PDO::PARAM_STR);
+$query->bindParam(5, $SegundoApellido, PDO::PARAM_STR); 
+$query->bindParam(5, $PrimerNombre, PDO::PARAM_STR);
+$query->bindParam(6, $SegundoNombre, PDO::PARAM_STR);
+$query->bindParam(12, $Fk_Sede, PDO::PARAM_INT);
+$query->bindParam(7, $Fk_Area, PDO::PARAM_INT);
+$query->bindParam(8, $Fk_TipoVia, PDO::PARAM_INT);
+$query->bindParam(20, $NumeroVia, PDO::PARAM_STR);
+$query->bindParam(22, $Guion, PDO::PARAM_STR);
+$query->bindParam(9, $Interior, PDO::PARAM_STR);
+$query->bindParam(10,$Municipio, PDO::PARAM_STR);
+$query->bindParam(11, $Barrios, PDO::PARAM_STR);
+$query->bindParam(13, $Telefonofijo, PDO::PARAM_INT);
+$query->bindParam(14, $Movil, PDO::PARAM_INT);
+$query->bindParam(15, $TelefonoEmergencia, PDO::PARAM_INT);
+$query->bindParam(16, $CorreoElectronico, PDO::PARAM_STR);
+$query->bindParam(17, $FechaNacimiento, PDO::PARAM_STR);
+$query->bindParam(18, $Fk_Genero, PDO::PARAM_INT);
+$query->bindParam(19, $Fk_idioma, PDO::PARAM_INT);
 
 $query->execute();
 
