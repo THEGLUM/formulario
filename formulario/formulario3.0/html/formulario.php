@@ -231,32 +231,14 @@
                   <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
                   <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
                     <option selected value="">selecciona </option>
-                        <?php
-                        $select = include_once("../../conexion.php");
-                        $select = $conn->prepare("SELECT * FROM Municipio");
-                        $select->execute();
-                        $data = $select->fetchAll();
-                        foreach ($data as $valores):
-                        echo '<option value="'.$valores["Nombre_municipio"].'">'.$valores["Nombre_municipio"].'</option>';
-                        endforeach;
-                        ?>
                   </select>
                 </div>
 
 
                 <div class="caja">
                   <label for="barrio">Barrio*</label>
-                  <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
+                  <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio">
                     <option selected value="">selecciona </option>
-                    <?php
-                        $select = include_once("../../conexion.php");
-                        $select = $conn->prepare("SELECT * FROM Barrio");
-                        $select->execute();
-                        $data = $select->fetchAll();
-                        foreach ($data as $valores):
-                        echo '<option value="'.$valores["id_barrio"].'">'.$valores["Nombre_barrios"].'</option>';
-                        endforeach;
-                        ?>
                   </select>
                 </div>
 
@@ -351,8 +333,35 @@
     <script>
       $(document).ready(function(e) {
         $("#sedeLaboral").change(function(){
-          let id = $("sede").val()
-          alert(id)
+          let parametros = "id= "+$("#sedeLaboral").val()
+          $.ajax({
+            data: parametros,
+            url:  '../../municipio.php',
+            type: 'post',
+            beforeSend: function(){},
+            success: function(response){
+              $("#municipioDeRecidencia").html(response)
+            },
+            error: function(){
+              alert("error")
+            }
+          })
+        })
+
+        $("#municipioDeRecidencia").change(function(){
+          let parametros = "id_municipio= "+$("#municipioDeRecidencia").val()
+          $.ajax({
+            data: parametros,
+            url:  '../../barrio.php',
+            type: 'post',
+            beforeSend: function(){},
+            success: function(response){
+              $("#Barrio").html(response)
+            },
+            error: function(){
+              alert("error")
+            }
+          })
         })
 
       })
