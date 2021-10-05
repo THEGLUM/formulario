@@ -31,6 +31,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="../js/multi.js"></script>
+
+
+<script src="../js/query/jquery-ui.min.js"></script>
+<script src="../js/query/jquery-ui.js"></script>
+<link rel="stylesheet" href="../css/jquery-ui.css">
 </head>
 
 
@@ -50,7 +55,7 @@
     </header>
 
     <section class="formulario-container">
-        <form action="../registro.php" method="POST" >
+        <form action="../../registro.php" method="POST" >
           <div class="titulo">Sistema de creación de usuario</div>
           <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
                   <!--
@@ -68,7 +73,7 @@
                         $select->execute();
                         $data = $select->fetchAll();  
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["id_tipo_documento"].'">'.$valores["Nombre_tipo_documento"].'</option>';
+                        echo '<option value="'.$valores["Id_tipo_documento"].'">'.$valores["Nombre_tipo_documento"].'</option>';
                         endforeach;
                         ?>
                 </select>
@@ -151,7 +156,7 @@
                         $select->execute();
                         $data = $select->fetchAll(); 
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["id_area"].'">'.$valores["Nombre_area"].'</option>';
+                        echo '<option value="'.$valores["Id_area"].'">'.$valores["Nombre_area"].'</option>';
                         endforeach;
                         ?>
                     </select>
@@ -173,7 +178,7 @@
                         $select->execute();
                         $data = $select->fetchAll();
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["id_tipo_via"].'">'.$valores["Nombre_tipo_via"].'</option>';
+                        echo '<option value="'.$valores["Id_tipo_via"].'">'.$valores["Nombre_tipo_via"].'</option>';
                         endforeach;
                         ?>
                     </select>
@@ -181,7 +186,7 @@
                       <span class="input-group-text">#</span>
                       <input type="text" aria-label="First name" class="form-control" name="numeroViaUno">
                       <span class="input-group-text">-</span>
-                      <input type="text" aria-label="Last name" class="form-control" name="numeroVia">
+                      <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
                     </div>
 
                     <label for="flexRadioDefault1"> interiores</label>
@@ -263,7 +268,7 @@
                   <div class="caja">
                     <label for="telefonoEmergencia">Telefono en caso de emergencia</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" name="telefonoEmergencia" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
+                      <input type="number" name="telefonoEmergencia" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
                     </div>
                   </div>
 
@@ -279,10 +284,9 @@
                   <div class="caja">
                     <label for="fechaNacimiento">Fecha nacimiento*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="date" name="fechaNacimiento" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento">
+                      <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento" name="fechaNacimiento">
                     </div>
                   </div>
-
                   <div class="caja">
                     <label for="genero">Genero</label>
                     <select class="form-select form-select-sm" name="genero" aria-label=".form-select-sm example" id="genero">
@@ -293,7 +297,7 @@
                         $select->execute();
                         $data = $select->fetchAll();
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["Genero"].'">'.$valores["Nombre_genero"].'</option>';
+                        echo '<option value="'.$valores["Id_genero"].'">'.$valores["Nombre_genero"].'</option>';
                         endforeach;
                         ?>
                     </select>
@@ -315,12 +319,13 @@
                       </select>
                     </div>
 
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" required="true">
-                    <label class="form-check-label" for="flexCheckIndeterminate">
-                      <a href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos</a>
+                    <div class="form-check" >
+                    <input class="form-check-input" type="checkbox" value="si" id="flexCheckIndeterminate" required="true" name= "autorizacion"  >
+                    <label class="form-check-label" for="flexCheckIndeterminate" >
+                      <a  href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos</a>
                     </label>
                   </div>
+                      
                   <!--
                     -----------------
                     BOTONES DEL FORMULARIO
@@ -331,7 +336,14 @@
                 </form>
   </body>
     <script>
+      $("#fechaNacimiento").val(new Date().toISOString().substring(0, 10));
+
       $(document).ready(function(e) {
+        $( "#fechaNacimiento" ).datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+
+
         $("#sedeLaboral").change(function(){
           let parametros = "id= "+$("#sedeLaboral").val()
           $.ajax({
@@ -345,7 +357,7 @@
             error: function(){
               alert("error")
             }
-          })
+          }) 
         })
 
         $("#municipioDeRecidencia").change(function(){
@@ -363,7 +375,6 @@
             }
           })
         })
-
       })
     </script>
 
