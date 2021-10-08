@@ -1,28 +1,5 @@
 <?php
-// include_once("conexion.php");
 $conn = require_once('conexion.php');
-
-
-/* $tipoDedocumento = trim($_POST["tipoDedocumento"]);
-$numeroDeDocumento = trim($_POST["numeroDeDocumento"]);
-$primerApellido = trim($_POST["PrimerApellido"]);
-$segundoApellido = trim($_POST["segundoApellido"]);
-$primerNombre = trim($_POST["primeroNombre"]);
-$segundoNombre = trim($_POST["segundoNombre"]);
-$area = trim($_POST["area"]);
-$direccion = trim($_POST["direccion"]);
-$interior = trim($_POST["flexRadioDefault"]);
-$municipioRecidencia = trim($_POST["municipioRecidencia"]);
-$barrio = trim($_POST["barrio"]);
-$sedeLaboral = trim($_POST["sedeLaboral"]);
-$telefonoFijo = trim($_POST["telefono"]);
-$movil = trim($_POST["movil"]);
-$telefonoEmergencia = trim($_POST["telefonoEmergencia"]);
-$correo = trim($_POST["correo"]);
-$fechaNacimiento = trim($_POST["fechaNacimiento"]);
-$genero = trim($_POST["genero"]);
-$idiomas = trim($_POST["idiomas"]);
-$numeroDeDireccion = trim($_POST["numeroVia"]); */
 
 $AutorizaTratamiento = trim($_POST["autorizacion"]);
 $Fk_TipoDocumento = trim($_POST["tipoDedocumento"]);
@@ -34,7 +11,7 @@ $SegundoNombre =  trim($_POST["segundoNombre"]);
 $Fk_Sede =  trim($_POST["sedeLaboral"]);
 $Fk_Area = trim($_POST["area"]);
 $Fk_TipoVia = trim($_POST["direccion"]);
-$NumeroVia = trim($_POST["numeroViaUno"]); //revisar
+$NumeroVia = trim($_POST["numeroViaUno"]); 
 $Interior = trim($_POST["flexRadioDefault"]);
 $Municipio = trim($_POST["municipioRecidencia"]);
 $Barrios = trim($_POST["barrio"]);
@@ -47,52 +24,8 @@ $Fk_Genero = trim($_POST["genero"]);
 $Fk_idioma =  trim($_POST["idiomas"]);
 $Guion = "-";
 
-$query = $conn->prepare('call spInsertarUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-// $query = $conn ->prepare('INSERT INTO personal_almacontact  VALUES ("?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?")');
-echo "<br>";
-var_dump($AutorizaTratamiento);
-echo "<br>";
-var_dump($Fk_TipoDocumento);
-echo "<br>";
-var_dump($Pk_NumeroDocumento);
-echo "<br>";
-var_dump($PrimerApellido);
-echo "<br>";
-var_dump($SegundoApellido);
-echo "<br>";
-var_dump($PrimerNombre);
-echo "<br>";
-var_dump($SegundoNombre);
-echo "<br>";
-var_dump($Fk_Sede);
-echo "<br>";
-var_dump($Fk_Area);
-echo "<br>";
-var_dump($Fk_TipoVia);
-echo "<br>";
-var_dump($Interior);
-echo "<br>";
-var_dump($NumeroVia);
-echo "<br>";
-var_dump($Municipio);
-echo "<br>";
-var_dump($Barrios);
-echo "<br>";
-var_dump($Telefonofijo);
-echo "<br>";
-var_dump($TelefonoEmergencia);
-echo "<br>";
-var_dump($CorreoElectronico);
-echo "<br>";
-var_dump($FechaNacimiento);
-echo "<br>";
-var_dump($Fk_Genero);
-echo "<br>";
-var_dump($Fk_idioma);
-echo "<br>";
-var_dump($Guion);
-echo "<br>";
-var_dump($Movil);
+$query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+
 
 $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
 $query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
@@ -119,4 +52,22 @@ $query->bindParam(22, $Fk_idioma, PDO::PARAM_INT);
 
 $query->execute();
 
-echo '<script> alert("registro exitoso")</script>';
+echo '
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+</head>
+<body>
+<div class="alert alert-success" role="alert">
+        Registro exitoso!
+</div>
+</body>
+</html>';
+
+

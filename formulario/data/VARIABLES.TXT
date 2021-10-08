@@ -1,48 +1,100 @@
 VARIABLES DE LA TABALA DE DE DATOS
    
-        AutorizaTratamientoDatos
-        Fk_TipoDocumento
-        Pk_NumeroDocumento
-        PrimerApellido
-        SegundoApellido
-        PrimerNombre
-        SegundoNombre
-        Fk_Sede
-        Fk_Area
-        Fk_TipoVia
-        NumeroVia
-        Guion
-        Interior
-        MunicipioResidencia
-        Barrios
-        Telefonofijo
-        Movil
-        TelefonoEmergencia
-        CorreoElectronico
-        FechaNacimiento
-        Fk_Genero
+        AutorizaTratamientoDatos,
+        Fk_TipoDocumento,
+        Pk_NumeroDocumento,
+        PrimerApellido,
+        SegundoApellido,
+        PrimerNombre,
+        SegundoNombre,
+        Fk_Sede,
+        Fk_Area,
+        Fk_TipoVia,
+        NumeroVia,
+        Guion,
+        Interior,
+        MunicipioResidencia,
+        Barrios,
+        Telefonofijo,
+        Movil,
+        TelefonoEmergencia,
+        CorreoElectronico,
+        FechaNacimiento,
+        Fk_Genero,
         Fk_Idioma
 
 
-            _AutorizaTratamientoDatos
-            _Fk_TipoDocumento
-            _Pk_NumeroDocumento
-            _PrimerApellido
-            _SegundoApellido
-            _PrimerNombre
-            _SegundoNombre
-            _Fk_Sede
-            _Fk_Area
-            _Fk_TipoVia
-            _NumeroVia
-            _Guion
-            _Interior
-            _MunicipioResidencia
-            _Barrios
-            _Telefonofijo
-            _Movil
-            _TelefonoEmergencia
-            _CorreoElectronico
-            _FechaNacimiento
-            _Fk_Genero
+            _AutorizaTratamientoDatos,
+            _Fk_TipoDocumento,
+            _Pk_NumeroDocumento,
+            _PrimerApellido,
+            _SegundoApellido,
+            _PrimerNombre,
+            _SegundoNombre,
+            _Fk_Sede,
+            _Fk_Area,
+            _Fk_TipoVia,
+            _NumeroVia,
+            _Guion,
+            _Interior,
+            _MunicipioResidencia,
+            _Barrios,
+            _Telefonofijo,
+            _Movil,
+            _TelefonoEmergencia,
+            _CorreoElectronico,
+            _FechaNacimiento,
+            _Fk_Genero,
             _Fk_Idioma
+
+
+
+echo "<br>";
+var_dump($AutorizaTratamiento);
+echo "<br>";
+var_dump($Fk_TipoDocumento);
+echo "<br>";
+var_dump($Pk_NumeroDocumento);
+echo "<br>";
+var_dump($PrimerApellido);
+echo "<br>";
+var_dump($SegundoApellido);
+echo "<br>";
+var_dump($PrimerNombre);
+echo "<br>";
+var_dump($SegundoNombre);
+echo "<br>";
+var_dump($Fk_Sede);
+echo "<br>";
+var_dump($Fk_Area);
+echo "<br>";
+var_dump($Fk_TipoVia);
+echo "<br>";
+var_dump($Interior);
+echo "<br>";
+var_dump($NumeroVia);
+echo "<br>";
+var_dump($Municipio);
+echo "<br>";
+var_dump($Barrios);
+echo "<br>";
+var_dump($Telefonofijo);
+echo "<br>";
+var_dump($TelefonoEmergencia);
+echo "<br>";
+var_dump($CorreoElectronico);
+echo "<br>";
+var_dump($FechaNacimiento);
+echo "<br>";
+var_dump($Fk_Genero);
+echo "<br>";
+var_dump($Fk_idioma);
+echo "<br>";
+var_dump($Guion);
+echo "<br>";
+var_dump($Movil);
+
+
+
+
+// $query = $conn ->prepare('INSERT INTO personal_almacontact  VALUES ("?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?")');

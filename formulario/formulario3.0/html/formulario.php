@@ -55,18 +55,20 @@
     </header>
 
     <section class="formulario-container">
-        <form action="../../registro.php" method="POST" >
-          <div class="titulo">Sistema de creación de usuario</div>
-          <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
-                  <!--
-                  -----------------
-                  TIPO DE DOCUMENTO
-                  -----------------
-                -->
+        
+              <form action="../../registro.php" method="POST" >
+              <div class="titulo">Sistema de creación de usuario</div>
+              <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
+              <!--
+                -----------------
+                TIPO DE DOCUMENTO
+                -----------------
+              -->
+              <p>Los campos que tengan asterisco (*) son obligatorios</p> 
                 <div class="caja">
                   <label for="tipoDeDocumento">Tipo de Documento*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento" name="tipoDedocumento">
-                  <option selected value="">tipo de documento</option>
+                  <option selected value="">Tipo de documento</option>
                   <?php
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM TipoDocumento");
@@ -87,9 +89,13 @@
               <div class="caja">
                 <label for="numeroDeDocumento">Numero de Documento*</label>
                 <div  id="input" class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
+                  <input type="text" class="form-control" required="true" maxlength="10" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
                 </div>
               </div>
+
+              <script>
+
+              </script>
 
               <!--
                 -----------------
@@ -99,7 +105,7 @@
               <div class="caja">
                 <label for="PrimerApellido">Primer Apellido*</label>
                 <div class="input-group input-group-sm mb-3">
-                  <input name="PrimerApellido" type="text" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="PrimerApellido">
+                  <input name="PrimerApellido" type="text" pattern="[a-zA-Z]+" class="form-control" required="true" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="PrimerApellido">
                 </div>
               </div>
 
@@ -149,7 +155,7 @@
               <div class="caja">
                 <label for="area">Área*</label>
                 <select class="form-select form-select-sm" name="area" required="true" aria-label=".form-select-sm example" id="area">
-                  <option selected> selecciona</option>
+                  <option value=""> selecciona</option>
                     <?php
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM TipoArea");
@@ -251,14 +257,14 @@
                   <div class="caja">
                     <label for="telefono"> Telefono fijo</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="number" class="form-control" name="telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
+                      <input type="text" class="form-control" name="telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
                     </div>
                   </div>
 
                   <div class="caja">
-                    <label for="Movil">Movil</label>
+                    <label for="Movil">Movil*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="number" name="movil" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Movil">
+                      <input type="text" name="movil"  required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Movil">
                     </div>
                     <div>
                     </div>
@@ -266,9 +272,9 @@
 
 
                   <div class="caja">
-                    <label for="telefonoEmergencia">Telefono en caso de emergencia</label>
+                    <label for="telefonoEmergencia">Telefono en caso de emergencia*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="number" name="telefonoEmergencia" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
+                      <input type="text" name="telefonoEmergencia"  required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
                     </div>
                   </div>
 
@@ -313,7 +319,7 @@
                         $select->execute();
                         $data = $select->fetchAll();
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["Nombre_idiomao"].'">'.$valores["Nombre_idiomao"].'</option>';
+                      echo '<option value="'.$valores["Id_idioma"].'">'.$valores["Nombre_idiomao"].'</option>';
                         endforeach;
                         ?>
                       </select>
@@ -336,11 +342,12 @@
                 </form>
   </body>
     <script>
-      $("#fechaNacimiento").val(new Date().toISOString().substring(0, 10));
+      
 
       $(document).ready(function(e) {
         $( "#fechaNacimiento" ).datepicker({
-            dateFormat: "yy-mm-dd"
+            dateFormat: "yy-mm-dd",
+            maxDate: "0d "
         });
 
 
@@ -376,6 +383,53 @@
           })
         })
       })
+
+
+      jQuery(document).ready(function(){
+      // Listen for the input event.
+      jQuery("#numeroDeDocumento").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+      });
+      jQuery("#telefonoEmergencia").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+      });
+      jQuery("#Movil").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+      });
+      jQuery("#telefono").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+      });
+
+
+
+
+
+      jQuery("#PrimerApellido").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^aA-zZ]/g, ''));
+      });
+
+
+      jQuery("#segundoNombre").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^aA-zZ]/g, ''));
+      });
+
+
+      jQuery("#segundoApellido").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^aA-zZ]/g, ''));
+      });
+    });
+
+    jQuery("#primeroNombre").on('input', function (evt) {
+        // Allow only numbers.
+        jQuery(this).val(jQuery(this).val().replace(/[^aA-zZ]/g, ''));
+      });
     </script>
 
 </html>
