@@ -34,6 +34,10 @@
     width: 50%; 
 }
 
+.formulario form-control{
+    width: 50%; 
+}
+
 #titulo { 
     font-size: 40px;
     font-weight: 900;
@@ -46,6 +50,8 @@
 .btn{
     margin-top: 20px;
 }
+
+
 
 
 body::-webkit-scrollbar {

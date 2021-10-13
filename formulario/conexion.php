@@ -18,6 +18,6 @@
         $conn = 'error en la conexion';
         echo "error:".$e->getMessage()."line".$e->getLine();
     }
-
+    
     return $conn;
 
