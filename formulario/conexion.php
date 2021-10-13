@@ -1,9 +1,4 @@
 <?php
-/*         $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $db = 'empleados_almacontact';
-        $conn;  */ 
         $host = '10.96.16.53';
         $user = 'personalma';
         $password = 'personalma';
