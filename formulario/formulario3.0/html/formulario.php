@@ -194,22 +194,10 @@
                       <span class="input-group-text">#</span>
                       <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
                     </div>
-
-                    <label for="flexRadioDefault1"> interiores</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" value="casa" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        <ion-icon name="home-outline"></ion-icon>
-                        casa
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" value="edificio" id="flexRadioDefault2" checked>
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        <ion-icon name="business-outline"></ion-icon>
-                        edificio
-                      </label>
-                    </div>
+                    
+                    <label for="interiores"> Interior</label>
+                    <input type="text" aria-label="Last name" class="form-control" name="interior" id="interior">
+                    
 
                   </div>
                     <!--

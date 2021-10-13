@@ -33,8 +33,8 @@
     </div>
     </header>
     <section class="contenedor">
-            <div class="formulario">
-            <form action="">
+            <div class="formulario" >
+            <form action="../../">
                  <div id="titulo">
                      <p> Actualiza tus datos</p>
                  </div>  
@@ -104,10 +104,10 @@
                       <span class="input-group-text">#</span>
                       <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
                     </div>
-
-                    <label for="flexRadioDefault1"> interiores</label>
-
-
+                    
+                    <label for="interiores"> Interior</label>
+                    <input type="text" aria-label="Last name" class="form-control" name="interior" id="interior">
+                    
                     <label for="telefonoFijo">telefono fijo</label>
                     <input type="text" id="telefonoFijo" class="form-control">
                     
