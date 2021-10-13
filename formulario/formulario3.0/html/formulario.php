@@ -89,7 +89,7 @@
               <div class="caja">
                 <label for="numeroDeDocumento">Numero de Documento*</label>
                 <div  id="input" class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true" maxlength="10" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
+                  <input type="text" class="form-control" required="true" maxlength="50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
                 </div>
               </div>
 
@@ -189,9 +189,9 @@
                         ?>
                     </select>
                     <div class="dire input-group input-group-sm">
+                      <span class="input-group-text"></span>
+                      <input type="text" aria-label="First name" class="form-control" name="numeroViaDos">
                       <span class="input-group-text">#</span>
-                      <input type="text" aria-label="First name" class="form-control" name="numeroViaUno">
-                      <span class="input-group-text">-</span>
                       <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
                     </div>
 
@@ -347,7 +347,7 @@
       $(document).ready(function(e) {
         $( "#fechaNacimiento" ).datepicker({
             dateFormat: "yy-mm-dd",
-            maxDate: "0d "
+            maxDate: "-15y "
         });
 
 

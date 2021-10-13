@@ -11,7 +11,8 @@ $SegundoNombre =  trim($_POST["segundoNombre"]);
 $Fk_Sede =  trim($_POST["sedeLaboral"]);
 $Fk_Area = trim($_POST["area"]);
 $Fk_TipoVia = trim($_POST["direccion"]);
-$NumeroVia = trim($_POST["numeroViaUno"]); 
+$numeroViaFinal = trim($_POST["numeroViaUno"]); 
+$NumeroViaDos = trim($_POST["numeroViaDos"]); 
 $Interior = trim($_POST["flexRadioDefault"]);
 $Municipio = trim($_POST["municipioRecidencia"]);
 $Barrios = trim($_POST["barrio"]);
@@ -23,6 +24,7 @@ $FechaNacimiento = trim($_POST["fechaNacimiento"]);
 $Fk_Genero = trim($_POST["genero"]);
 $Fk_idioma =  trim($_POST["idiomas"]);
 $Guion = "-";
+$NumeroVia = $NumeroViaDos." ".$numeroViaFinal;
 
 $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
