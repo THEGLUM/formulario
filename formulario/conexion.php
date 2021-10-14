@@ -3,7 +3,7 @@
         $user = 'personalma';
         $password = 'personalma';
         $db = 'Empleados_Almacontact';
-        $conn;   
+        $conn;
 
     try {
         $conexionString = "mysql:host=".$host.";dbname=".$db.";charset=utf8";
@@ -13,6 +13,6 @@
         $conn = 'error en la conexion';
         echo "error:".$e->getMessage()."line".$e->getLine();
     }
-    
+
     return $conn;
 

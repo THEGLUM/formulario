@@ -55,7 +55,7 @@
     </header>
 
     <section class="formulario-container">
-        
+
               <form action="../../registro.php" method="POST" >
               <div class="titulo">Sistema de creación de usuario</div>
               <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
@@ -64,7 +64,7 @@
                 TIPO DE DOCUMENTO
                 -----------------
               -->
-              <p>Los campos que tengan asterisco (*) son obligatorios</p> 
+              <p>Los campos que tengan asterisco (*) son obligatorios</p>
                 <div class="caja">
                   <label for="tipoDeDocumento">Tipo de Documento*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento" name="tipoDedocumento">
@@ -194,10 +194,10 @@
                       <span class="input-group-text">#</span>
                       <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
                     </div>
-                    
+
                     <label for="interiores"> Interior</label>
                     <input type="text" aria-label="Last name" class="form-control" name="interior" id="interior">
-                    
+
 
                   </div>
                     <!--
