@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizacion de datos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<!-- conexion con los estilos de boostrap y los Javascripts -->
-<link rel="stylesheet" href="../css/actualizardatos.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet" href="../css/formulario.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizacion de datos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- conexion con los estilos de boostrap y los Javascripts -->
+  <link rel="stylesheet" href="../css/actualizardatos.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="../css/formulario.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -127,53 +127,7 @@
             <div class="img">
                 <img src="../img/update.svg" alt="" srcset="" width="200px" height="200px">
             </div>
-    </section>
-
-    <script> 
-        jQuery("#telefonoFijo").on('input', function (evt) {
-        // Allow only numbers.
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-      });
-        jQuery("#movil").on('input', function (evt) {
-        // Allow only numbers.
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-      });
-        jQuery("#telefonoEmergencia").on('input', function (evt) {
-        // Allow only numbers.
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-      });
-
-      $("#sedeLaboral").change(function(){
-          let parametros = "id= "+$("#sedeLaboral").val()
-          $.ajax({
-            data: parametros,
-            url:  '../../municipio.php',
-            type: 'post',
-            beforeSend: function(){},
-            success: function(response){
-              $("#municipioDeRecidencia").html(response)
-            },
-            error: function(){
-              alert("error")
-            }
-          }) 
-        })
-
-        $("#municipioDeRecidencia").change(function(){
-          let parametros = "id_municipio= "+$("#municipioDeRecidencia").val()
-          $.ajax({
-            data: parametros,
-            url:  '../../barrio.php',
-            type: 'post',
-            beforeSend: function(){},
-            success: function(response){
-              $("#Barrio").html(response)
-            },
-            error: function(){
-              alert("error")
-            }
-          })
-        })
-    </script>
+          </section>
+      <script src="../js/actualizar.js"></script>
 </body>
 </html>

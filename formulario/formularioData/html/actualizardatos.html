@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizacion de datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!-- conexion con los estilos de boostrap y los Javascripts -->
+<link rel="stylesheet" href="../css/actualizardatos.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
+
+<link rel="stylesheet" href="../css/formulario.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navegator">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="../html/home.html">Almacontact</a>
+                  <a href="../html/home.html">
+                    <img src="../img/logo.png" alt="" width="30px" height="30px"> 
+                  </a>
+                </div>
+              </nav>
+    </div>
+    </header>
+    <section class="contenedor">
+            <div class="formulario">
+            <form action="">
+                 <div id="titulo">
+                     <p> Actualiza tus datos</p>
+                 </div>  
+            
+                 <label for="area">area</label>
+                 <select name="sedeLaboral" id="area" class="form-select form-select-sm">
+                     <option selected>area</option>
+                     <option value="2">LATAM Bogota</option>
+                     <option value="3">LATAM Medellin</option>
+                     <option value="4">Claro Premium</option>
+                     <option value="5">Claro Swat</option>
+                     <option value="7">Claro TMK Medellin</option>
+                     <option value="8">Claro TMK Bogota</option>
+                     <option value="9">Leal</option>
+                     <option value="10">Samsung</option>
+                     <option value="11">Fundacion Social</option>
+                     <option value="13">Shopee</option>
+                     <option value="14">Direccion General</option>
+                     <option value="15">Direccion Comercial</option>
+                     <option value="16">Implementacion</option>
+                     <option value="17">Planeacion</option>
+                     <option value="18">Reporting</option>
+                     <option value="20">Operaciones</option>
+                     <option value="21">Formacion</option>
+                     <option value="22">Calidad</option>
+                     <option value="23">Gestion Humana</option>
+                     <option value="24">Tecnologia Infomacion</option>
+                     <option value="25">Infraesctructura y Seguridad fisica</option>
+                     <option value="26">Financiera & compras</option>
+                     <option value="27">Sistema integrado de gestion de la calidad </option>
+                 </select>
+
+                 <label for="area">municipio de recidencia</label>
+                 <select name="sedeLaboral" id="area" class="form-select form-select-sm">
+                     <option selected>municipio de recidencia</option>
+                     <option value="1">Barbosa</option>
+                     <option value="3">Bello</option>
+                     <option value="2">Bogota</option>
+                     <option value="3">Caldas</option>
+                     <option value="4">Copacabana</option>
+                     <option value="5">Envigado</option>
+                     <option value="6">Girardota</option>
+                     <option value="7">itagui</option>
+                     <option value="7">La Estrella</option>
+                     <option value="7">Medellin</option>
+                     <option value="7">sabaneta</option>
+                 </select>
+
+                <label for="sedeLaboral">sede laboral</label>
+                <select name="sedeLaboral" id="sedeLaboral" class="form-select form-select-sm">
+                    <option selected>sede laboral</option>
+                    <option value="BOGOTA">BOGOTA</option>
+                    <option value="MEDELLIN">MEDELLIN</option>
+                </select>
+
+                <label for="telefonoFijo">telefono fijo</label>
+                <input type="number" id="telefonoFijo" class="form-control">
+
+                <label for="movil">movil</label>
+                <input type="number" id="movil"class="form-control">
+
+                <label for="telefonoEmergencia">telefono en caso de emergencia</label>
+                <input type="number" id="telefonoEmergencia" class="form-control">
+
+                <label for="correo">correo electronico</label>
+                <input type="text" id="correo" class="form-control">
+                  <button type="submit" class="btn btn-primary" value="enviar">actualizar</button>  
+                  <button type="button" class="btn btn-outline-dark ms-">cancelar</button>  
+            </form>
+        </div>
+
+            <div class="img">
+                <img src="../img/update.svg" alt="" srcset="" width="200px" height="200px">
+            </div>
+    </section>
+</body>
+</html>
