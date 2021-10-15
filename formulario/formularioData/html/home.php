@@ -37,8 +37,8 @@
 			<div class="navegator">
 				<nav class="navbar navbar-light bg-light">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="../html/home.html">Almacontact</a>
-						<a href="../html/home.html">
+						<a class="navbar-brand" href="../html/home.php">Almacontact</a>
+						<a href="../html/home.php">
 							<img src="../img/logo.png" alt="" width="30px" height="30px" />
 						</a>
 					</div>
