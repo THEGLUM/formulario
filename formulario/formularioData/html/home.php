@@ -31,6 +31,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+		<script src="../js/query/jquery-ui.min.js"></script>
+		<script src="../js/query/jquery-ui.js"></script>
+		<link rel="stylesheet" href="../css/jquery-ui.css">
 	</head>
 	<body>
 		<header>
@@ -94,26 +99,35 @@
 						></button>
 					</div>
 					<div class="modal-body">
-						<div class="user">
-							<p>ingrese la cedula</p>
-							<input type="text"  class="user-input" name="ingreseCedula" id="ingreseCedula"/>
+						<form action="../../actualizar.php" method="POST">
+
+							<div class="user">
+								<p>Ingrese la cedula</p>
+								<input type="text"  class="user-input" name="ingreseCedula" id="ingreseCedula" required/>
+							</div>
+							<div class="ingreseMovil">
+								<p for="">Ingrese el movil</p>
+								<input type="text" maxlength="" class="movil-input" name="ingreseMovil" id="ingreseMovil" required/>
+							</div>
+							<div class="movil">
+								<p for="fechanacimiento">Fecha de nacimiento</p>
+								<input type="text" maxlength="" class="movil-input" name="fechanacimiento" id="fechanacimiento" required/>
+							</div>
 						</div>
-						<div class="movil">
-							<p>ingrese el movil</p>
-							<input type="text" maxlength="" class="movil-input" name="ingreseMovil" id="ingreseMovil"/>
-						</div>
-					</div>
-					<div class="modal-footer">
+						<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
 							cerrar
 						</button>
 						<a href="./actualizardatos.php"
-							><button type="button" class="btn btn-primary">ingresar</button>
+							><button type="submit" class="btn btn-primary">ingresar</button>
 						</a>
-					</div>
+						</div>
+						</form>
 				</div>
 			</div>
 		</div>
+
+
 		<footer class="footer">
 			<div class="copy">
 				<b>Copyright&copy; 2021 - Todos los derechos reservados</b>
@@ -121,5 +135,4 @@
 		</footer>
 		<script src="../js/home.js"></script>
 	</body>
-	
 </html>

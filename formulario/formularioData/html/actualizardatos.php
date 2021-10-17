@@ -96,7 +96,7 @@
           $select->execute();
           $data = $select->fetchAll();
           foreach ($data as $valores) :
-            
+
             echo '<option value="' . $valores["Id_tipo_via"] . '">' . $valores["Nombre_tipo_via"] . '</option>';
           endforeach;
           ?>

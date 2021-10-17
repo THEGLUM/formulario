@@ -14,4 +14,3 @@ if(isset($id)){
     }
     echo $data;
 }
-

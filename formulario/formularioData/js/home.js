@@ -15,3 +15,10 @@ jQuery('#ingreseMovil').on('input', function (evt) {
 			.replace(/[^0-9]/g, '')
 	)
 })
+
+$(document).ready(function (e) {
+	$('#fechanacimiento').datepicker({
+		dateFormat: 'yy-mm-dd',
+		maxDate: '-15y ',
+	})
+})

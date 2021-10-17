@@ -73,7 +73,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM TipoDocumento");
                         $select->execute();
-                        $data = $select->fetchAll();  
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["Id_tipo_documento"].'">'.$valores["Nombre_tipo_documento"].'</option>';
                         endforeach;
@@ -319,7 +319,7 @@
                       <a  href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos</a>
                     </label>
                   </div>
-                      
+
                   <!--
                     -----------------
                     BOTONES DEL FORMULARIO
