@@ -8,16 +8,18 @@ $conn = require_once('conexion.php');
 
     $cedula = 1;
     $celular = 3;
-    $fechaDate = "2001-06-13";
-
+    $FechaNacimiento = "2001-06-13";
     try{
 
-        $query = $conn->prepare("SELECT * FROM Personal_almacontact ");
-
-        $query->execute();
-        echo $query;
+    $basesdeDatos = $conn->prepare("SELECT * FROM personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ? AND FechaNacimiento = ?;");
+        $basesdeDatos->bindParam(1, $cedula, PDO::PARAM_STR);
+        $basesdeDatos->bindParam(2, $celular, PDO::PARAM_INT);
+        $basesdeDatos->bindParam(3, $FechaNacimiento, PDO::PARAM_STR);
+        $basesdeDatos-> execute();
+        $hola = $basesdeDatos;
+        var_dump($hola);
     }catch(PDOException $e){
-        echo "errrrrrrrrr: ".$e;
+        echo $e;
     }
 
 
