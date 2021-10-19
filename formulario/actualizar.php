@@ -2,25 +2,6 @@
 
 $conn = require_once('conexion.php');
 
-    /*$cedula = trim($_POST["ingreseCedula"]);
-    $celular = trim($_POST["ingreseMovil"]);
-    $fechaDate = trim($_POST["fechanacimiento"]);*/
-
-    $cedula = 1;
-    $celular = 3;
-    $FechaNacimiento = "2001-06-13";
-    try{
-
-    $basesdeDatos = $conn->prepare("SELECT * FROM personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ? AND FechaNacimiento = ?;");
-        $basesdeDatos->bindParam(1, $cedula, PDO::PARAM_STR);
-        $basesdeDatos->bindParam(2, $celular, PDO::PARAM_INT);
-        $basesdeDatos->bindParam(3, $FechaNacimiento, PDO::PARAM_STR);
-        $basesdeDatos-> execute();
-        $hola = $basesdeDatos;
-        var_dump($hola);
-    }catch(PDOException $e){
-        echo $e;
-    }
 
 
 

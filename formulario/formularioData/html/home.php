@@ -99,20 +99,17 @@
 						></button>
 					</div>
 					<div class="modal-body">
-						<form action="../../actualizar.php" method="POST">
+						<form action="../../validarDatos.php" method="POST">
 
 							<div class="user">
-								<p>Ingrese la cedula</p>
-								<input type="text"  class="user-input" name="ingreseCedula" id="ingreseCedula" required/>
+								<p>cedula</p>
+								<input type="text"  class="user-input" name="txtCedula" id="ingreseCedula" required/>
 							</div>
 							<div class="ingreseMovil">
-								<p for="">Ingrese el movil</p>
-								<input type="text" maxlength="" class="movil-input" name="ingreseMovil" id="ingreseMovil" required/>
+								<p for="">corroe</p>
+								<input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" required/>
 							</div>
-							<div class="movil">
-								<p for="fechanacimiento">Fecha de nacimiento</p>
-								<input type="text" maxlength="" class="movil-input" name="fechanacimiento" id="fechanacimiento" required/>
-							</div>
+
 						</div>
 						<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
