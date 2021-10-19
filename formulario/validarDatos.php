@@ -15,6 +15,12 @@ $conn = require_once('conexion.php');
     var_dump($basesdeDatos);
     $hola = $basesdeDatos;
         var_dump($hola);
-        echo "hola como estas";
-   
-
+        
+if ($basesdeDatos == true)
+{
+    echo "Funciona";   # code...
+}
+else
+{
+    echo "No funciona";
+}
