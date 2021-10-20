@@ -5,10 +5,11 @@ try {
 
     $Fk_NumeroDocumento= trim($_POST["txtCedula"]);
     $CorreoElectronico = trim($_POST["txtCorreo"]);
+    $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = '10005632' AND CorreoElectronico = '2342342a@asdasd';");
+    $basesdeDatos->execute();   
+    $data = $basesdeDatos->fetchAll();
+    $data;
     if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
-        $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = '10005632' AND CorreoElectronico = '2342342a@asdasd';");
-        $basesdeDatos->execute();
-        $data = $select->fetchAll();
         if ($basesdeDatos == true) {
 
         } else {
