@@ -36,12 +36,94 @@
   </header>
   <section class="contenedor">
     <div class="formulario">
-    <form action="../../actulizar.php">
+    <form action="../../actualizar.php">
         <div id="titulo">
           <p> Actualiza tus datos</p>
         </div>
 
         <label for="area">Area</label>
+        <select name="sedeLaboral" id="area" class="form-select form-select-sm">
+          <option value="">Selecciona el area</option>
+          <?php
+            include_once("../../validarDatos.php");
+              echo $datos[1];
+          ?>
+        </select>
+
+
+
+        <label for="sedeLaboral">Sede Laboral*</label>
+        <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
+          <option selected value="">selecciona</option>
+          <?php
+          $select = include_once("../../conexion.php");
+          $select = $conn->prepare("SELECT * FROM Sede");
+          $select->execute();
+          $data = $select->fetchAll();
+          foreach ($data as $valores) :
+            echo '<option value="' . $valores["Id_sede"] . '">' . $valores["Nombre_sede"] . '</option>';
+            $sede = $valores;
+          endforeach;
+          ?>
+        </select>
+
+        <!--  -----------------
+                  MUNCIPIO DE RECIDENCIA
+                  -----------------
+                -->
+        <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
+        <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
+          <option selected value="">selecciona </option>
+        </select>
+
+
+        <label for="barrio">Barrio*</label>
+        <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio">
+          <option selected value="">selecciona </option>
+        </select>
+
+        <label for="direccion">Direccion*</label>
+        <select class="form-select form-select-sm" name="direccion" aria-label=".form-select-sm example" id="direccion" required="true">
+          <option value="">tipo de avenida</option>
+          <?php
+          $select = include_once("../../conexion.php");
+          $select = $conn->prepare("SELECT * FROM TipoVia");
+          $select->execute();
+          $data = $select->fetchAll();
+          foreach ($data as $valores) :
+
+            echo '<option value="' . $valores["Id_tipo_via"] . '">' . $valores["Nombre_tipo_via"] . '</option>';
+          endforeach;
+          ?>
+        </select>
+        <div class="dire input-group input-group-sm">
+          <span class="input-group-text"></span>
+          <input type="text" aria-label="First name" class="form-control" name="numeroViaDos">
+          <span class="input-group-text">#</span>
+          <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
+        </div>
+
+        <label for="interiores"> Interior</label>
+        <input type="text" aria-label="Last name" class="form-control" name="interior" id="interior">
+
+        <label for="telefonoFijo">telefono fijo</label>
+        <input type="text" id="telefonoFijo" class="form-control">
+
+        <label for="movil">movil</label>
+        <input type="text" id="movil" class="form-control">
+
+        <label for="telefonoEmergencia">telefono en caso de emergencia</label>
+        <input type="text" id="telefonoEmergencia" class="form-control">
+
+        <label for="correo">correo electronico</label>
+        <input type="text" id="correo" class="form-control">
+        <button type="submit" class="btn btn-primary" value="enviar">actualizar</button>
+        <button type="button" class="btn btn-outline-dark ms-">cancelar</button>
+      </form>
+    </div>
+
+    <div class="img">
+    <label for="area">Area</label>
         <select name="sedeLaboral" id="area" class="form-select form-select-sm">
           <option value="">Selecciona el area</option>
           <?php
@@ -122,13 +204,6 @@
 
         <label for="correo">correo electronico</label>
         <input type="text" id="correo" class="form-control">
-        <button type="submit" class="btn btn-primary" value="enviar">actualizar</button>
-        <button type="button" class="btn btn-outline-dark ms-">cancelar</button>
-      </form>
-    </div>
-
-    <div class="img">
-      <img src="../img/update.svg" alt="" srcset="" width="200px" height="200px">
     </div>
   </section>
   <script src="../js/actualizar.js"></script>

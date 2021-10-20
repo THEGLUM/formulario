@@ -99,7 +99,7 @@
 						></button>
 					</div>
 					<div class="modal-body">
-						<form action="../../actualizar.php" method="POST">
+						<form action="../../validarDatos.php" method="POST">
 
 							<div class="user">
 								<p>cedula</p>
