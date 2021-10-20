@@ -1,12 +1,32 @@
 <?php
 
 $conn = require_once('conexion.php');
+try {
 
+    if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
+        $Fk_NumeroDocumento= trim($_POST["txtCedula"]);
+        $CorreoElectronico = trim($_POST["txtCorreo"]);
 
+        $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
 
+        $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_INT);
+        $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
+        $basesdeDatos->execute();
+        $basesdeDatos -> fetchAll();
+        $hola = $basesdeDatos;
+        var_dump($hola);
+        if ($basesdeDatos == true) {
+            echo "Funciona";
+        } else {
+            echo "No funciona";
+        }
+    }
+    //code...
+} catch (PDOException $e) {
+    echo $e;
+}
 
-
-/*try{
+   /*  try{
         //inner join triple
         //query = SELECT campos FROM Personal_almacontact INNER JOIN MunicipioResidencia ON tabla1.campo = tabla2.campo INNER JOIN tabla3 ON tabla2.campo = tabla3.campo where condicion;
 
@@ -63,6 +83,4 @@ $conn = require_once('conexion.php');
 }
 catch(Exception $e){
     echo $e;
-}
-
-*/
+} */

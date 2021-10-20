@@ -99,7 +99,7 @@
 						></button>
 					</div>
 					<div class="modal-body">
-						<form action="../../validarDatos.php" method="POST">
+						<form action="../../actualizar.php" method="POST">
 
 							<div class="user">
 								<p>cedula</p>
@@ -115,9 +115,7 @@
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
 							cerrar
 						</button>
-						<a href="./actualizardatos.php"
-							><button type="submit" class="btn btn-primary">ingresar</button>
-						</a>
+							<button type="submit" class="btn btn-primary">ingresar</button>
 						</div>
 						</form>
 				</div>
