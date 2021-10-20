@@ -5,10 +5,14 @@ try {
 
     $Fk_NumeroDocumento= trim($_POST["txtCedula"]);
     $CorreoElectronico = trim($_POST["txtCorreo"]);
-    $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = '10005632' AND CorreoElectronico = '2342342a@asdasd';");
-    $basesdeDatos->execute();   
+    $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
+    $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_STR);
+    $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
+    $basesdeDatos->execute();
     $data = $basesdeDatos->fetchAll();
-    $data;
+    foreach($data as $datos):
+        var_dump($data);
+    endforeach;
     if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
         if ($basesdeDatos == true) {
 
@@ -16,10 +20,9 @@ try {
             echo "No funciona";
         }
     }
-    //code...
-} catch (PDOException $e) {
+    } catch (PDOException $e) {
     echo $e;
-}
+    }
 
     /*  try{
         //inner join triple
