@@ -3,20 +3,14 @@
 $conn = require_once('conexion.php');
 try {
 
+    $Fk_NumeroDocumento= trim($_POST["txtCedula"]);
+    $CorreoElectronico = trim($_POST["txtCorreo"]);
     if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
-        $Fk_NumeroDocumento= trim($_POST["txtCedula"]);
-        $CorreoElectronico = trim($_POST["txtCorreo"]);
-
-        $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
-
-        $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_INT);
-        $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
+        $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = '10005632' AND CorreoElectronico = '2342342a@asdasd';");
         $basesdeDatos->execute();
-        $basesdeDatos -> fetchAll();
-        $hola = $basesdeDatos;
-        var_dump($hola);
+        $data = $select->fetchAll();
         if ($basesdeDatos == true) {
-            echo "Funciona";
+
         } else {
             echo "No funciona";
         }
@@ -26,7 +20,7 @@ try {
     echo $e;
 }
 
-   /*  try{
+    /*  try{
         //inner join triple
         //query = SELECT campos FROM Personal_almacontact INNER JOIN MunicipioResidencia ON tabla1.campo = tabla2.campo INNER JOIN tabla3 ON tabla2.campo = tabla3.campo where condicion;
 
