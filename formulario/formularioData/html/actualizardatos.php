@@ -166,41 +166,41 @@ try {
             data-bs-toggle="modal">Buscar personas</button>
             <div class="formulario2">
     <label for="area">Area</label>
-        <input type="text" name="sedeLaboral" id="area" class="form-control form-sm" disabled  placeholder="<?php echo $Areas; ?>" >
+        <input type="text" name="sedeLaboral" id="area" class="form-control form-sm" disabled  placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){ echo $Areas; }?>" >
         </input>
 
 
 
         <label for="sedeLaboral">Sede Laboral*</label>
-        <input  class="form-control form-select-sm" placeholder="<?php echo $userSedeLAboral; ?>" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral" disabled>
+        <input  class="form-control form-select-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){ echo $userSedeLAboral;} ?>" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral" disabled>
         </input>
 
         <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
-        <input type="text" class="form-control form-control-sm" placeholder="<?php echo $userMunicipios; ?>" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia" disabled>
+        <input type="text" class="form-control form-control-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){echo $userMunicipios;} ?>" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia" disabled>
         </input>
 
 
         <label for="barrio">Barrio*</label>
-        <input class="form-control form-control-sm disanble" placeholder="<?php echo $userBarrio; ?>" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio" disabled>
+        <input class="form-control form-control-sm disanble" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){echo $userBarrio;} ?>" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio" disabled>
         </input>
 
         <label for="direccion">Direccion*</label>
-        <input class="form-control form-select-sm" name="direccion" placeholder="<?php echo $userDireccion; ?>" aria-label=".form-select-sm example" id="direccion" required="true" disabled>
+        <input class="form-control form-select-sm" name="direccion" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){echo $userDireccion;} ?>" aria-label=".form-select-sm example" id="direccion" required="true" disabled>
         </input>
         <label for="disabledTextInput"> Interior</label>
-        <input type="text" aria-label="Last name" placeholder="<?php echo $userInterior; ?>" class="form-control"  disabled name="interior" id="disabledTextInput" placeholder="<?php echo $Areas; ?>" >
+        <input type="text" aria-label="Last name" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){ echo $userInterior;} ?>" class="form-control"  disabled name="interior" id="disabledTextInput" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $Areas;} ?>" >
 
         <label for="telefonoFijo">telefono fijo</label>
-        <input type="text" id="telefonoFijo" class="form-control" disabled placeholder="<?php echo $userTelefonoDeEmergencia; ?>">
+        <input type="text" id="telefonoFijo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){ echo $userTelefonoDeEmergencia;} ?>">
 
         <label for="movil">movil</label>
-        <input type="text" id="movil" class="form-control" disabled placeholder="<?php echo $userMovil; ?>">
+        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){echo $userMovil;} ?>">
 
         <label for="telefonoEmergencia">telefono en caso de emergencia</label>
-        <input type="text" id="telefonoEmergencia" class="form-control"disabled placeholder="<?php echo $userTelefonoDeEmergencia; ?>" >
+        <input type="text" id="telefonoEmergencia" class="form-control"disabled placeholder="<?php  if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){echo $userTelefonoDeEmergencia;} ?>" >
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control" disabled placeholder="<?php echo $userInterior; ?>">
+        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))){ echo $userCorreo;} ?>">
     </div>
     </div>
 
