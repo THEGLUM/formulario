@@ -1,5 +1,5 @@
 <?php
-    /*  try{
+    try{
         //inner join triple
         //query = SELECT campos FROM Personal_almacontact INNER JOIN MunicipioResidencia ON tabla1.campo = tabla2.campo INNER JOIN tabla3 ON tabla2.campo = tabla3.campo where condicion;
 
@@ -56,4 +56,4 @@
 }
 catch(Exception $e){
     echo $e;
-} */
+}

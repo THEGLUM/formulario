@@ -13,8 +13,6 @@
 
 .img img {
 	grid-column: 2;
-	height: 100%;
-	width: 90%;
 }
 
 .formulario {
@@ -27,6 +25,11 @@
 }
 
 .formulario form {
+	width: 50%;
+}
+
+.formulario2 {
+	margin-top: 100px;
 	width: 50%;
 }
 

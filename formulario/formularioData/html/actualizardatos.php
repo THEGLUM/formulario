@@ -1,3 +1,34 @@
+<?php
+    $conn = require_once('../../conexion.php');
+try {
+
+
+    if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
+        $Fk_NumeroDocumento = trim($_POST["txtCedula"]);
+        $CorreoElectronico = trim($_POST["txtCorreo"]);
+        $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
+        $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_STR);
+        $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
+        $basesdeDatos->execute();
+        $data = $basesdeDatos->fetchAll();
+        foreach ($data as $datos) :
+            $Areas = $datos['Fk_Area'];
+            $userSedeLAboral = $datos['Fk_Sede'];
+            $userMunicipios = $datos['MunicipioResidencia'];
+            $userBarrio = $datos['Barrios'];
+            $userDireccion = $datos['NumeroVia'];
+            $userInterior = $datos['Interior'];
+            $userFijo = $datos['Telefonofijo'];
+            $userMovil = $datos['Movil'];
+            $userTelefonoDeEmergencia = $datos['TelefonoEmergencia'];
+            $userCorreo = $datos['CorreoElectronico'];
+        endforeach;
+    }
+} catch (PDOException $e) {
+    echo $e;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +53,10 @@
 </head>
 
 <body>
+
+
+
+
   <header>
     <div class="navegator">
       <nav class="navbar navbar-light bg-light">
@@ -45,8 +80,6 @@
         <select name="sedeLaboral" id="area" class="form-select form-select-sm">
           <option value="">Selecciona el area</option>
           <?php
-            include_once("../../validarDatos.php");
-              echo $datos[1];
           ?>
         </select>
 
@@ -122,89 +155,98 @@
       </form>
     </div>
 
-    <div class="img">
+
+
+        <!-- estos son los cambios que podemos guardar -->
+        <div class="img">
+          <button
+            type="button"
+            class="btn btn-outline-dark btn-lg"
+            data-bs-target="#upDate"
+            data-bs-toggle="modal">Buscar personas</button>
+            <div class="formulario2">
     <label for="area">Area</label>
-        <select name="sedeLaboral" id="area" class="form-select form-select-sm">
-          <option value="">Selecciona el area</option>
-          <?php
-          $select = include_once("../../conexion.php");
-          $select = $conn->prepare("SELECT * FROM TipoArea");
-          $select->execute();
-          $data = $select->fetchAll();
-          foreach ($data as $valores) :
-            echo '<option value="' . $valores["Id_area"] . '">' . $valores["Nombre_area"] . '</option>';
-          endforeach;
-          ?>
-        </select>
+        <input type="text" name="sedeLaboral" id="area" class="form-control form-sm" disabled  placeholder="<?php echo $Areas; ?>" >
+        </input>
 
 
 
         <label for="sedeLaboral">Sede Laboral*</label>
-        <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
-          <option selected value="">selecciona</option>
-          <?php
-          $select = include_once("../../conexion.php");
-          $select = $conn->prepare("SELECT * FROM Sede");
-          $select->execute();
-          $data = $select->fetchAll();
-          foreach ($data as $valores) :
-            echo '<option value="' . $valores["Id_sede"] . '">' . $valores["Nombre_sede"] . '</option>';
-            $sede = $valores;
-          endforeach;
-          ?>
-        </select>
+        <input  class="form-control form-select-sm" placeholder="<?php echo $userSedeLAboral; ?>" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral" disabled>
+        </input>
 
-        <!--  -----------------
-                  MUNCIPIO DE RECIDENCIA
-                  -----------------
-                -->
         <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
-        <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
-          <option selected value="">selecciona </option>
-        </select>
+        <input type="text" class="form-control form-control-sm" placeholder="<?php echo $userMunicipios; ?>" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia" disabled>
+        </input>
 
 
         <label for="barrio">Barrio*</label>
-        <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio">
-          <option selected value="">selecciona </option>
-        </select>
+        <input class="form-control form-control-sm disanble" placeholder="<?php echo $userBarrio; ?>" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio" disabled>
+        </input>
 
         <label for="direccion">Direccion*</label>
-        <select class="form-select form-select-sm" name="direccion" aria-label=".form-select-sm example" id="direccion" required="true">
-          <option value="">tipo de avenida</option>
-          <?php
-          $select = include_once("../../conexion.php");
-          $select = $conn->prepare("SELECT * FROM TipoVia");
-          $select->execute();
-          $data = $select->fetchAll();
-          foreach ($data as $valores) :
-
-            echo '<option value="' . $valores["Id_tipo_via"] . '">' . $valores["Nombre_tipo_via"] . '</option>';
-          endforeach;
-          ?>
-        </select>
-        <div class="dire input-group input-group-sm">
-          <span class="input-group-text"></span>
-          <input type="text" aria-label="First name" class="form-control" name="numeroViaDos">
-          <span class="input-group-text">#</span>
-          <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
-        </div>
-
-        <label for="interiores"> Interior</label>
-        <input type="text" aria-label="Last name" class="form-control" name="interior" id="interior">
+        <input class="form-control form-select-sm" name="direccion" placeholder="<?php echo $userDireccion; ?>" aria-label=".form-select-sm example" id="direccion" required="true" disabled>
+        </input>
+        <label for="disabledTextInput"> Interior</label>
+        <input type="text" aria-label="Last name" placeholder="<?php echo $userInterior; ?>" class="form-control"  disabled name="interior" id="disabledTextInput" placeholder="<?php echo $Areas; ?>" >
 
         <label for="telefonoFijo">telefono fijo</label>
-        <input type="text" id="telefonoFijo" class="form-control">
+        <input type="text" id="telefonoFijo" class="form-control" disabled placeholder="<?php echo $userTelefonoDeEmergencia; ?>">
 
         <label for="movil">movil</label>
-        <input type="text" id="movil" class="form-control">
+        <input type="text" id="movil" class="form-control" disabled placeholder="<?php echo $userMovil; ?>">
 
         <label for="telefonoEmergencia">telefono en caso de emergencia</label>
-        <input type="text" id="telefonoEmergencia" class="form-control">
+        <input type="text" id="telefonoEmergencia" class="form-control"disabled placeholder="<?php echo $userTelefonoDeEmergencia; ?>" >
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control">
+        <input type="text" id="correo" class="form-control" disabled placeholder="<?php echo $userInterior; ?>">
     </div>
+    </div>
+
+
+    <!-- aca comienza el modal -->
+    <div
+			class="modal fade"
+			id="upDate"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">actualizar datos</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form action="./actualizardatos.php" method="POST">
+
+							<div class="user">
+								<p>cedula</p>
+								<input type="text"  class="user-input" name="txtCedula" id="ingreseCedula" required/>
+							</div>
+							<div class="ingreseMovil">
+								<p for="">corroe</p>
+								<input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" required/>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							cerrar
+						</button>
+							<button type="submit" class="btn btn-primary">ingresar</button>
+						</div>
+						</form>
+				</div>
+			</div>
+		</div>
   </section>
   <script src="../js/actualizar.js"></script>
 </body>

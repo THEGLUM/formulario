@@ -58,6 +58,8 @@
 						Registrar usuario
 					</button></a
 				>
+
+				<a href="./actualizardatos.php">
 				<button
 					type="button"
 					class="btn btn-outline-dark btn-lg"
@@ -66,8 +68,9 @@
 				>
 					Actualizar datos
 				</button>
+			</a>
 
-				<button type="button" class="btn btn-outline-dark btn-lg">Administrador</button>
+			<button type="button" class="btn btn-outline-dark btn-lg">Administrador</button>
 			</div>
 			<div class="imagen">
 				<img
@@ -80,47 +83,6 @@
 			</div>
 		</section>
 
-		<div
-			class="modal fade"
-			id="upDate"
-			tabindex="-1"
-			aria-labelledby="exampleModalLabel"
-			aria-hidden="true"
-		>
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">actualizar datos</h5>
-						<button
-							type="button"
-							class="btn-close"
-							data-bs-dismiss="modal"
-							aria-label="Close"
-						></button>
-					</div>
-					<div class="modal-body">
-						<form action="../../validarDatos.php" method="POST">
-
-							<div class="user">
-								<p>cedula</p>
-								<input type="text"  class="user-input" name="txtCedula" id="ingreseCedula" required/>
-							</div>
-							<div class="ingreseMovil">
-								<p for="">corroe</p>
-								<input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" required/>
-							</div>
-
-						</div>
-						<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-							cerrar
-						</button>
-							<button type="submit" class="btn btn-primary">ingresar</button>
-						</div>
-						</form>
-				</div>
-			</div>
-		</div>
 
 
 		<footer class="footer">
