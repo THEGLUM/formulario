@@ -15,7 +15,7 @@ $numeroViaFinal = trim($_POST["numeroViaUno"]);
 $NumeroViaDos = trim($_POST["numeroViaDos"]); 
 $Interior = trim($_POST["interior"]);
 $Municipio = trim($_POST["municipioRecidencia"]);
-$Barrios = trim($_POST["barrio"]);
+$Barrios = $_POST["barrio"];
 $Telefonofijo = trim($_POST["telefono"]);
 $Movil = trim($_POST["movil"]);
 $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
@@ -26,7 +26,7 @@ $Fk_idioma =  trim($_POST["idiomas"]);
 $Guion = "-";
 $NumeroVia = $NumeroViaDos." ".$numeroViaFinal;
 
-$query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+$query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?)');
 
 
 $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);

@@ -1,26 +1,62 @@
 <?php
-    try{
-        //inner join triple
-        //query = SELECT campos FROM Personal_almacontact INNER JOIN MunicipioResidencia ON tabla1.campo = tabla2.campo INNER JOIN tabla3 ON tabla2.campo = tabla3.campo where condicion;
+$conn = require_once('conexion.php');
+//inner join triple
+//query = SELECT campos FROM Personal_almacontact INNER JOIN MunicipioResidencia ON tabla1.campo = tabla2.campo INNER JOIN tabla3 ON tabla2.campo = tabla3.campo where condicion;
+try {
 
-        $Fk_Sede =  trim($_POST["sedeLaboral"]);
-        $Fk_Area = trim($_POST["area"]);
-        $Fk_TipoVia = trim($_POST["direccion"]);
-        $numeroViaFinal = trim($_POST["numeroViaUno"]);
-        $NumeroViaDos = trim($_POST["numeroViaDos"]);
-        $Interior = trim($_POST["interior"]);
-        $Municipio = trim($_POST["municipioRecidencia"]);
-        $Barrios = trim($_POST["barrio"]);
-        $Telefonofijo = trim($_POST["telefono"]);
-        $Movil = trim($_POST["movil"]);
-        $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
-        $CorreoElectronico = trim($_POST["correo"]);
-        $FechaNacimiento = trim($_POST["fechaNacimiento"]);
-        $Fk_idioma =  trim($_POST["idiomas"]);
-        $Guion = "-";
-        $NumeroVia = $NumeroViaDos." ".$numeroViaFinal;
+    $idUser = $_POST['idUser'];
+    $Fk_Sede =  trim($_POST["sedeLaboral"]);
+    $Fk_Area = trim($_POST["Area"]);
+    $Fk_TipoVia = trim($_POST["direccion"]);
+    $numeroViaFinal = trim($_POST["numeroViaUno"]);
+    $NumeroViaDos = trim($_POST["numeroViaDos"]);
+    $Interior = trim($_POST["interior"]);
+    $Municipio = trim($_POST["municipioRecidencia"]);
+    $Barrios = trim($_POST["barrio"]);
+    $Telefonofijo = trim($_POST["telefono"]);
+    $Movil = trim($_POST["movil"]);
+    $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
+    $CorreoElectronico = trim($_POST["correo"]);
+    $FechaNacimiento = trim($_POST["fechaNacimiento"]);
+    $Fk_idioma =  trim($_POST["idiomas"]);
+    $Guion = "-";
+    $NumeroVia = $NumeroViaDos . " " . $numeroViaFinal;
 
-    $query = $conn->prepare('UPDATE Personal_almacontact(Fk_TipoVia, NumeroVia, Guion, Interior, MunicipioResidencia, Barrios, Telefonofijo, Movil, TelefonoEmergencia, CorreoElectronico, Fk_Idioma) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+
+
+    echo $idUser;
+    echo '<br>';
+    echo $Fk_Sede;
+    echo '<br>';
+    echo $Fk_Area;
+    echo '<br>';
+    echo $Fk_TipoVia;
+    echo '<br>';
+    echo $NumeroVia;
+    echo '<br>';
+    echo $Interior;
+    echo '<br>';
+    echo $Municipio;
+    echo '<br>';
+    echo $Barrios;
+    echo '<br>';
+    echo $Telefonofijo;
+    echo '<br>';
+    echo $Movil;
+    echo '<br>';
+    echo $TelefonoEmergencia;
+    echo '<br>';
+    echo $CorreoElectronico;
+    echo '<br>';
+    echo $FechaNacimiento;
+    echo '<br>';
+    echo $Fk_idioma;
+
+
+
+    //hacer una consulta para actualizar los datos
+    $query = $conn->prepare();
+
 
     $query->bindParam(1, $Fk_TipoVia, PDO::PARAM_STR);
     $query->bindParam(2, $NumeroVia, PDO::PARAM_INT);
@@ -53,7 +89,6 @@
         </div>
         </body>
         </html>';
-}
-catch(Exception $e){
+} catch (Exception $e) {
     echo $e;
 }
