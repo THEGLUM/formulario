@@ -26,14 +26,14 @@ $Fk_idioma =  trim($_POST["idiomas"]);
 $Guion = "-";
 $NumeroVia = $NumeroViaDos." ".$numeroViaFinal;
 
-$query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?)');
+$query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
 
 $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
 $query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
 $query->bindParam(3,  $Pk_NumeroDocumento, PDO::PARAM_STR);
 $query->bindParam(4, $PrimerApellido, PDO::PARAM_STR);
-$query->bindParam(5, $SegundoApellido, PDO::PARAM_STR); 
+$query->bindParam(5, $SegundoApellido, PDO::PARAM_STR);
 $query->bindParam(6, $PrimerNombre, PDO::PARAM_STR);
 $query->bindParam(7, $SegundoNombre, PDO::PARAM_STR);
 $query->bindParam(8, $Fk_Sede, PDO::PARAM_INT);

@@ -1,7 +1,5 @@
 <?php
 $conn = require_once('conexion.php');
-//inner join triple
-//query = SELECT campos FROM Personal_almacontact INNER JOIN MunicipioResidencia ON tabla1.campo = tabla2.campo INNER JOIN tabla3 ON tabla2.campo = tabla3.campo where condicion;
 try {
 
     $idUser = $_POST['idUser'];
@@ -13,20 +11,18 @@ try {
     $Interior = trim($_POST["interior"]);
     $Municipio = trim($_POST["municipioRecidencia"]);
     $Barrios = trim($_POST["barrio"]);
-    $Telefonofijo = trim($_POST["telefono"]);
+    $Telefonofijo = trim($_POST["telefonofijo"]);
     $Movil = trim($_POST["movil"]);
     $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
     $CorreoElectronico = trim($_POST["correo"]);
-    $FechaNacimiento = trim($_POST["fechaNacimiento"]);
-    $Fk_idioma =  trim($_POST["idiomas"]);
     $Guion = "-";
     $NumeroVia = $NumeroViaDos . " " . $numeroViaFinal;
 
 
 
-    echo $idUser;
+ /*    echo 'esto es id User', $idUser;
     echo '<br>';
-    echo $Fk_Sede;
+    echo "esto es sede: ".$Fk_Sede;
     echo '<br>';
     echo $Fk_Area;
     echo '<br>';
@@ -48,16 +44,13 @@ try {
     echo '<br>';
     echo $CorreoElectronico;
     echo '<br>';
-    echo $FechaNacimiento;
-    echo '<br>';
-    echo $Fk_idioma;
+    echo $NumeroVia; */
 
 
 
-    //hacer una consulta para actualizar los datos
-    $query = $conn->prepare();
-
-
+    //hacer una consulta para actualizar con las variables que se obtienen del formulario
+    $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico' WHERE Pk_NumeroDocumento = '$idUser'");
+/* 
     $query->bindParam(1, $Fk_TipoVia, PDO::PARAM_STR);
     $query->bindParam(2, $NumeroVia, PDO::PARAM_INT);
     $query->bindParam(3, $Guion, PDO::PARAM_STR);
@@ -69,7 +62,7 @@ try {
     $query->bindParam(9, $TelefonoEmergencia, PDO::PARAM_INT);
     $query->bindParam(10, $CorreoElectronico, PDO::PARAM_STR);
     $query->bindParam(11, $Fk_idioma, PDO::PARAM_STR);
-
+ */
     $query->execute();
 
     echo '
