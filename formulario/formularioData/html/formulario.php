@@ -245,14 +245,14 @@
                   <div class="caja">
                     <label for="telefono"> Telefono fijo</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" class="form-control" name="telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
+                      <input type="text" class="form-control" maxlength="10" name="telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefono">
                     </div>
                   </div>
 
                   <div class="caja">
                     <label for="Movil">Movil*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" name="movil"  required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Movil">
+                      <input type="text" name="movil" maxlength="10" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Movil">
                     </div>
                     <div>
                     </div>
@@ -262,7 +262,7 @@
                   <div class="caja">
                     <label for="telefonoEmergencia">Telefono en caso de emergencia*</label>
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" name="telefonoEmergencia"  required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
+                      <input type="text" name="telefonoEmergencia" maxlength="10" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="telefonoEmergencia">
                     </div>
                   </div>
 
