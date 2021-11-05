@@ -10,7 +10,7 @@ if(isset($id)){
     $datos = $res->fetchAll();
     $data = '';
     foreach ($datos as $value) {
-        $data = $data . '<option value='.$value['Nombre_barrio'].'>'.$value['Nombre_barrio'].'</option>';
+        $data = $data . '<option value='.$value['Id_barrio'].'>'.$value['Nombre_barrio'].'</option>';
     }
     echo $data;
 }

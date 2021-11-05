@@ -64,7 +64,7 @@
                 TIPO DE DOCUMENTO
                 -----------------
               -->
-              <p>Los campos que tengan asterisco (*) son obligatorios</p>
+              <p>Los campos que tegan (*) son obligatorios</p>
                 <div class="caja">
                   <label for="tipoDeDocumento">Tipo de Documento*</label>
                 <select class="form-select form-select-sm" required="true" aria-label=".form-select-sm example" id="tipoDeDocumento" name="tipoDedocumento">

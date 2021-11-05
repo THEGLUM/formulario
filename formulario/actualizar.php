@@ -20,7 +20,7 @@ try {
 
 
 
- /*    echo 'esto es id User', $idUser;
+    /*    echo 'esto es id User', $idUser;
     echo '<br>';
     echo "esto es sede: ".$Fk_Sede;
     echo '<br>';

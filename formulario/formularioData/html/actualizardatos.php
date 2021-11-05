@@ -2,29 +2,33 @@
 $conn = require_once('../../conexion.php');
 try {
 
-
   if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
+
     $Fk_NumeroDocumento = trim($_POST["txtCedula"]);
     $CorreoElectronico = trim($_POST["txtCorreo"]);
-    $basesdeDatos = $conn->prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
+
+
+    $basesdeDatos = $conn->prepare("SELECT *  from Personal_almacontact p join  TipoArea ON TipoArea.Id_area = p.Fk_Area join Municipio on Municipio.Id_municipio = p.MunicipioResidencia join Sede ON Sede.Id_sede = p.Fk_Sede join Barrio on Barrio.Id_barrio = p.Barrios WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
     $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_STR);
     $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
     $basesdeDatos->execute();
+    $pasa = true;
     $data = $basesdeDatos->fetchAll();
     foreach ($data as $datos) :
+
       $userID = $datos['Pk_NumeroDocumento'];
-      $Areas = $datos['Fk_Area'];
-      $userSedeLAboral = $datos['Fk_Sede'];
-      $userMunicipios = $datos['MunicipioResidencia'];
-      $userBarrio = $datos['Barrios'];
+      $userSedeLAboral = $datos["Nombre_sede"];
+      $Areas = $datos['Nombre_area'];
+      $userBarrio = $datos['Nombre_barrio'];
       $userDireccion = $datos['NumeroVia'];
       $userInterior = $datos['Interior'];
       $userFijo = $datos['Telefonofijo'];
       $userMovil = $datos['Movil'];
       $userTelefonoDeEmergencia = $datos['TelefonoEmergencia'];
       $userCorreo = $datos['CorreoElectronico'];
+      $userMunicipios = $datos['Nombre_municipio'];
     endforeach;
-  }
+    }
 } catch (PDOException $e) {
   echo $e;
 }
@@ -72,10 +76,10 @@ try {
   </header>
   <section class="contenedor">
     <div class="formulario">
-    <div id="titulo">
-          <p> Actualiza tus datos</p>
-        </div>
-        <form action="../../actualizar.php" method="POST">
+      <div id="titulo">
+        <p> Actualiza tus datos</p>
+      </div>
+      <form action="../../actualizar.php" method="POST">
         <!-- id que se va a utilizar para identificar el usuario -->
         <input type="text" hidden value="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
                                             echo $userID;
@@ -203,9 +207,9 @@ try {
         </input>
 
         <label for="direccion">Direccion*</label>
-        <input class="form-control form-select-sm"  placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
-                                                                      echo $userDireccion;
-                                                                    } ?>" aria-label=".form-select-sm example" id="direccion" required="true" disabled>
+        <input class="form-control form-select-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
+                                                                  echo $userDireccion;
+                                                                } ?>" aria-label=".form-select-sm example" id="direccion" required="true" disabled>
         </input>
         <label for="disabledTextInput"> Interior</label>
         <input type="text" aria-label="Last" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
@@ -228,7 +232,10 @@ try {
                                                                                               } ?>">
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userCorreo;} ?>"></div>
+        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
+                                                                                    echo $userCorreo;
+                                                                                  } ?>">
+      </div>
     </div>
 
 
