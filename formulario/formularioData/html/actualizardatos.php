@@ -12,7 +12,6 @@ try {
     $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_STR);
     $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
     $basesdeDatos->execute();
-    $pasa = true;
     $data = $basesdeDatos->fetchAll();
     foreach ($data as $datos) :
 
@@ -29,6 +28,8 @@ try {
       $userMunicipios = $datos['Nombre_municipio'];
     endforeach;
     }
+
+    header('actualizardatos.php');
 } catch (PDOException $e) {
   echo $e;
 }
@@ -222,19 +223,13 @@ try {
                                                                                         } ?>">
 
         <label for="movil">movil</label>
-        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
-                                                                                    echo $userMovil;
-                                                                                  } ?>">
+        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userMovil;}else{ echo ' ';} ?>">
 
         <label for="telefonoEmergencia">telefono en caso de emergencia</label>
-        <input type="text" id="telefonoEmergencia" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
-                                                                                                echo $userTelefonoDeEmergencia;
-                                                                                              } ?>">
+        <input type="text" id="telefonoEmergencia" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userTelefonoDeEmergencia;} ?>">
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
-                                                                                    echo $userCorreo;
-                                                                                  } ?>">
+        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userCorreo;}else{ echo '';} ?>">
       </div>
     </div>
 

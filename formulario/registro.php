@@ -26,6 +26,7 @@ $Fk_idioma =  trim($_POST["idiomas"]);
 $Guion = "-";
 $NumeroVia = $NumeroViaDos." ".$numeroViaFinal;
 
+
 $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
 
@@ -67,9 +68,11 @@ echo '
 </head>
 <body>
 <div class="alert alert-success" role="alert">
-        Registro exitoso!
+        <Script>
+            alert("Registro Exitoso");
+            window.location.href="/github/formulario/formulario/formularioData/html/home.php";
+        </Script>
 </div>
+
 </body>
 </html>';
-
-

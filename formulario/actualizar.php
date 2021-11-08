@@ -19,52 +19,14 @@ try {
     $NumeroVia = $NumeroViaDos . " " . $numeroViaFinal;
 
 
-
-    /*    echo 'esto es id User', $idUser;
-    echo '<br>';
-    echo "esto es sede: ".$Fk_Sede;
-    echo '<br>';
-    echo $Fk_Area;
-    echo '<br>';
-    echo $Fk_TipoVia;
-    echo '<br>';
-    echo $NumeroVia;
-    echo '<br>';
-    echo $Interior;
-    echo '<br>';
-    echo $Municipio;
-    echo '<br>';
-    echo $Barrios;
-    echo '<br>';
-    echo $Telefonofijo;
-    echo '<br>';
-    echo $Movil;
-    echo '<br>';
-    echo $TelefonoEmergencia;
-    echo '<br>';
-    echo $CorreoElectronico;
-    echo '<br>';
-    echo $NumeroVia; */
-
-
-
-    //hacer una consulta para actualizar con las variables que se obtienen del formulario
-    $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico' WHERE Pk_NumeroDocumento = '$idUser'");
-/* 
-    $query->bindParam(1, $Fk_TipoVia, PDO::PARAM_STR);
-    $query->bindParam(2, $NumeroVia, PDO::PARAM_INT);
-    $query->bindParam(3, $Guion, PDO::PARAM_STR);
-    $query->bindParam(4, $Interior, PDO::PARAM_STR);
-    $query->bindParam(5, $Municipio, PDO::PARAM_STR);
-    $query->bindParam(6, $Barrios, PDO::PARAM_STR);
-    $query->bindParam(7, $Telefonofijo, PDO::PARAM_INT);
-    $query->bindParam(8, $Movil, PDO::PARAM_INT);
-    $query->bindParam(9, $TelefonoEmergencia, PDO::PARAM_INT);
-    $query->bindParam(10, $CorreoElectronico, PDO::PARAM_STR);
-    $query->bindParam(11, $Fk_idioma, PDO::PARAM_STR);
- */
-    $query->execute();
-
+    //validar si CorreoElectronico esta vacio   //validar si TelefonoEmergencia esta vacio  //validar si Telefonofijo esta vacio   //validar si Movil esta vacio
+    if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil)) {
+        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios' WHERE Pk_NumeroDocumento = '$idUser'");
+        $query->execute();
+    } else {
+        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico' WHERE Pk_NumeroDocumento = '$idUser'");
+        $query->execute();
+    }
     echo '
         <!DOCTYPE html>
         <html lang="en">
@@ -78,7 +40,10 @@ try {
         </head>
         <body>
         <div class="alert alert-success" role="alert">
-                Los datos se actualizaron corrextamente.
+        <Script>
+            alert("Datos Actualizados");
+           let re = setTimeout(window.location.href="/github/formulario/formulario/formularioData/html/home.php",5000)
+        </Script>
         </div>
         </body>
         </html>';
