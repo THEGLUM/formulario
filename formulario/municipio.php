@@ -8,6 +8,7 @@ if(isset($id)){
     $res->execute();
     $datos = $res->fetchAll();
     $data = '';
+    echo '<option value="">Seleccione un municipio</option>';
     foreach ($datos as $value) {
         $data = $data . '<option value='.$value['Id_municipio'].'>'.$value['Nombre_municipio'].'</option>';
     }

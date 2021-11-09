@@ -88,7 +88,10 @@ try {
 
 
         <label for="area">Area</label>
-        <select name="Area" id="area" class="form-select form-select-sm">
+        <div id ="sino" style=" font-size: 11px;">
+          si no has cambiado de area por favor ingrese la misma
+        </div>
+        <select name="Area" id="area" class="form-select form-select-sm" required="true">
           <option value="">Selecciona el area</option>
           <?php
           $select = include_once("../../conexion.php");
@@ -106,7 +109,7 @@ try {
 
         <label for="sedeLaboral">Sede Laboral*</label>
         <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
-          <option selected value="">selecciona</option>
+          <option  value="">selecciona sede </option>
           <?php
           $select = include_once("../../conexion.php");
           $select = $conn->prepare("SELECT * FROM Sede");
@@ -125,17 +128,17 @@ try {
                 -->
         <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
         <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
-          <option selected value="">selecciona </option>
+          <option  value="">selecciona el municipio </option>
         </select>
 
 
         <label for="barrio">Barrio*</label>
         <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio">
-          <option selected value="">selecciona </option>
+          <option  value="">selecciona el barrio </option>
         </select>
 
         <label for="direccion">Direccion*</label>
-        <select class="form-select form-select-sm" name="direccion" aria-label=".form-select-sm example" id="direccion" required="true">
+        <select class="form-select form-select-sm" name="direccion"  required="true"   aria-label=".form-select-sm example" id="direccion" required="true">
           <option value="">tipo de avenida</option>
           <?php
           $select = include_once("../../conexion.php");
@@ -150,25 +153,25 @@ try {
         </select>
         <div class="dire input-group input-group-sm">
           <span class="input-group-text"></span>
-          <input type="text" aria-label="First name" class="form-control" name="numeroViaDos">
+          <input type="text" aria-label="First name" class="form-control" name="numeroViaDos" required="true">
           <span class="input-group-text">#</span>
-          <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
+          <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno" required="true">
         </div>
 
         <label for="interiores"> Interior</label>
         <input type="text" aria-label="Last name" class="form-control" name="interior" id="interior">
 
         <label for="telefonoFijo">telefono fijo</label>
-        <input type="text" id="telefonoFijo" class="form-control" name="telefonofijo">
+        <input type="text" id="telefonoFijo" class="form-control" name="telefonofijo" maxlength="10" >
 
         <label for="movil">movil</label>
-        <input type="text" id="movil" class="form-control" name="movil">
+        <input type="text" id="movil" class="form-control" name="movil" maxlength="10">
 
         <label for="telefonoEmergencia">telefono en caso de emergencia</label>
-        <input type="text" id="telefonoEmergencia" class="form-control" name="telefonoEmergencia">
+        <input type="text" id="telefonoEmergencia" class="form-control" name="telefonoEmergencia" maxlength="10">
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control" name="correo">
+        <input type="text" id="correo" class="form-control" name="correo" maxlength="80">
         <button type="submit" class="btn btn-primary" value="enviar">actualizar</button>
         <button type="button" class="btn btn-outline-dark ms-">cancelar</button>
       </form>
@@ -250,7 +253,7 @@ try {
                 <input type="text" class="user-input" name="txtCedula" id="ingreseCedula" required />
               </div>
               <div class="ingreseMovil">
-                <p for="">corroe</p>
+                <p for="">correo</p>
                 <input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" required />
               </div>
 

@@ -9,6 +9,7 @@ if(isset($id)){
     $res->execute();
     $datos = $res->fetchAll();
     $data = '';
+    echo '<option value="">Seleccione un barrio</option>';
     foreach ($datos as $value) {
         $data = $data . '<option value='.$value['Id_barrio'].'>'.$value['Nombre_barrio'].'</option>';
     }

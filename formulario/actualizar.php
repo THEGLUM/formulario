@@ -19,9 +19,17 @@ try {
     $NumeroVia = $NumeroViaDos . " " . $numeroViaFinal;
 
 
-    //validar si CorreoElectronico esta vacio   //validar si TelefonoEmergencia esta vacio  //validar si Telefonofijo esta vacio   //validar si Movil esta vacio
-    if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil)) {
-        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios' WHERE Pk_NumeroDocumento = '$idUser'");
+    //validar si todo esta vacio redireccionar
+    if(empty($idUser)) {
+        header("Location: ./formularioData/html/actualizardatos.php?error=empty");
+        exit();
+    }
+    if ( empty($Interior) && empty($Telefonofijo) && empty($Movil) && empty($TelefonoEmergencia) && empty($CorreoElectronico) && empty($NumeroVia) ) {
+        header("Location: ./formularioData/html/actualizardatos.php");
+        echo '<script> alert("por favor introduzca los de mas datos necesarios")</script>';
+    }
+    if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil) ) {
+        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', MunicipioResidencia = '$Municipio', Barrios = '$Barrios' WHERE Pk_NumeroDocumento = '$idUser'");
         $query->execute();
     } else {
         $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico' WHERE Pk_NumeroDocumento = '$idUser'");
@@ -42,7 +50,7 @@ try {
         <div class="alert alert-success" role="alert">
         <Script>
             alert("Datos Actualizados");
-           let re = setTimeout(window.location.href="/github/formulario/formulario/formularioData/html/home.php",5000)
+            let re = setTimeout(window.location.href="/github/formulario/formulario/formularioData/html/home.php",5000)
         </Script>
         </div>
         </body>

@@ -190,9 +190,9 @@
                     </select>
                     <div class="dire input-group input-group-sm">
                       <span class="input-group-text"></span>
-                      <input type="text" aria-label="First name" class="form-control" name="numeroViaDos">
+                      <input type="text" aria-label="First name" class="form-control" name="numeroViaDos" required="true">
                       <span class="input-group-text">#</span>
-                      <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
+                      <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno" required="true">
                     </div>
 
                     <label for="interiores"> Interior</label>
