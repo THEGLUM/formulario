@@ -16,7 +16,7 @@ try {
     $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
     $CorreoElectronico = trim($_POST["correo"]);
     $Guion = "-";
-    $NumeroVia = $NumeroViaDos . " " . $numeroViaFinal;
+    $NumeroVia = $NumeroViaDos . "#" . $numeroViaFinal;
 
 
     //validar si todo esta vacio redireccionar
@@ -27,9 +27,8 @@ try {
     if ( empty($Interior) && empty($Telefonofijo) && empty($Movil) && empty($TelefonoEmergencia) && empty($CorreoElectronico) && empty($NumeroVia) ) {
         header("Location: ./formularioData/html/actualizardatos.php");
         echo '<script> alert("por favor introduzca los de mas datos necesarios")</script>';
-    }
-    if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil) ) {
-        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', MunicipioResidencia = '$Municipio', Barrios = '$Barrios' WHERE Pk_NumeroDocumento = '$idUser'");
+    }else if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil) ) {
+        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', MunicipioResidencia = '$Municipio', Barrios = '$Barrios' WHERE Pk_NumeroDocumento = '$idUser'");
         $query->execute();
     } else {
         $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico' WHERE Pk_NumeroDocumento = '$idUser'");

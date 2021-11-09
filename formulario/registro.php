@@ -24,7 +24,7 @@ $FechaNacimiento = trim($_POST["fechaNacimiento"]);
 $Fk_Genero = trim($_POST["genero"]);
 $Fk_idioma =  trim($_POST["idiomas"]);
 $Guion = "-";
-$NumeroVia = $NumeroViaDos." ".$numeroViaFinal;
+$NumeroVia = $NumeroViaDos." # ".$numeroViaFinal;
 
 
 $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
