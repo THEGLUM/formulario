@@ -27,7 +27,8 @@ try {
     if ( empty($Interior) && empty($Telefonofijo) && empty($Movil) && empty($TelefonoEmergencia) && empty($CorreoElectronico) && empty($NumeroVia) ) {
         header("Location: ./formularioData/html/actualizardatos.php");
         echo '<script> alert("por favor introduzca los de mas datos necesarios")</script>';
-    }else if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil) ) {
+    }
+    if (empty($CorreoElectronico) || empty($TelefonoEmergencia) || empty($Telefonofijo) || empty($Movil) ) {
         $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', MunicipioResidencia = '$Municipio', Barrios = '$Barrios' WHERE Pk_NumeroDocumento = '$idUser'");
         $query->execute();
     } else {

@@ -176,6 +176,9 @@
                   -->
                   <div class="caja">
                     <label for="direccion">Direccion*</label>
+                    <div id ="sino" style=" font-size: 11px;">
+                        la opcion de interior es totalmente opcional
+                    </div>
                     <select class="form-select form-select-sm" name="direccion"  aria-label=".form-select-sm example" id="direccion" required="true">
                       <option value="">tipo de avenida</option>
                       <?php
@@ -277,6 +280,9 @@
 
                   <div class="caja">
                     <label for="fechaNacimiento">Fecha nacimiento*</label>
+                    <div id ="sino" style=" font-size: 11px;">
+                      tambien puedes introducir tu fecha de nacimiento a mano y un ejemplo (1999-05-14)
+                    </div>
                     <div class="input-group input-group-sm mb-3">
                       <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento" name="fechaNacimiento">
                     </div>
@@ -311,6 +317,9 @@
                         endforeach;
                         ?>
                       </select>
+                      <div id ="sino" style=" font-size: 11px;">
+                        puedes seleccionar los lenguejes que manejes
+                      </div>
                     </div>
 
                     <div class="form-check" >

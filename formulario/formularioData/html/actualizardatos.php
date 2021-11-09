@@ -138,6 +138,9 @@ try {
         </select>
 
         <label for="direccion">Direccion*</label>
+        <div id ="sino" style=" font-size: 11px;">
+          es importante que si cambiaste de recidencia actualices la direccion
+        </div>
         <select class="form-select form-select-sm" name="direccion"  required="true"   aria-label=".form-select-sm example" id="direccion" required="true">
           <option value="">tipo de avenida</option>
           <?php
@@ -153,9 +156,9 @@ try {
         </select>
         <div class="dire input-group input-group-sm">
           <span class="input-group-text"></span>
-          <input type="text" aria-label="First name" class="form-control" name="numeroViaDos" required="true">
+          <input type="text" aria-label="First name" class="form-control" name="numeroViaDos" >
           <span class="input-group-text">#</span>
-          <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno" required="true">
+          <input type="text" aria-label="Last name" class="form-control" name="numeroViaUno">
         </div>
 
         <label for="interiores"> Interior</label>
@@ -242,7 +245,7 @@ try {
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">actualizar datos</h5>
+            <h5 class="modal-title" id="exampleModalLabel">actualiza tus datos</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -250,10 +253,16 @@ try {
 
               <div class="user">
                 <p>cedula</p>
+                <div id ="sino" style=" font-size: 11px;">
+                  pon tu numero de identificacion
+                </div>
                 <input type="text" class="user-input" name="txtCedula" id="ingreseCedula" required />
               </div>
               <div class="ingreseMovil">
                 <p for="">correo</p>
+                <div id ="sino" style=" font-size: 11px;">
+                  introduce tu correo el cual registraste
+                </div>
                 <input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" required />
               </div>
 
