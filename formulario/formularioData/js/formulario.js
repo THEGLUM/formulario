@@ -1,7 +1,7 @@
 $(document).ready(function (e) {
 	$('#fechaNacimiento').datepicker({
 		dateFormat: 'yy-mm-dd',
-		maxDate: '-15y ',
+		maxDate: '-18y ',
 	})
 
 	$('#sedeLaboral').change(function () {

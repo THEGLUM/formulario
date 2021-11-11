@@ -29,6 +29,7 @@ try {
     endforeach;
     }
 
+
     header('actualizardatos.php');
 } catch (PDOException $e) {
   echo $e;
@@ -91,7 +92,7 @@ try {
         <div id ="sino" style=" font-size: 11px;">
           si no has cambiado de area por favor ingrese la misma
         </div>
-        <select name="Area" id="area" class="form-select form-select-sm" required="true">
+        <select name="Area" id="area" class="form-select form-select-sm">
           <option value="">Selecciona el area</option>
           <?php
           $select = include_once("../../conexion.php");
@@ -108,7 +109,7 @@ try {
 
 
         <label for="sedeLaboral">Sede Laboral*</label>
-        <select class="form-select form-select-sm" name="sedeLaboral" required="true" aria-label=".form-select-sm example" id="sedeLaboral">
+        <select class="form-select form-select-sm" name="sedeLaboral" aria-label=".form-select-sm example" id="sedeLaboral">
           <option  value="">selecciona sede </option>
           <?php
           $select = include_once("../../conexion.php");
@@ -127,13 +128,13 @@ try {
                   -----------------
                 -->
         <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
-        <select class="form-select form-select-sm" name="municipioRecidencia" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia">
+        <select class="form-select form-select-sm" name="municipioRecidencia" aria-label=".form-select-sm example" id="municipioDeRecidencia">
           <option  value="">selecciona el municipio </option>
         </select>
 
 
         <label for="barrio">Barrio*</label>
-        <select class="form-select form-select-sm" name="barrio" required="true" aria-label=".form-select-sm example" id="Barrio">
+        <select class="form-select form-select-sm" name="barrio" aria-label=".form-select-sm example" id="Barrio">
           <option  value="">selecciona el barrio </option>
         </select>
 
@@ -141,7 +142,7 @@ try {
         <div id ="sino" style=" font-size: 11px;">
           es importante que si cambiaste de recidencia actualices la direccion
         </div>
-        <select class="form-select form-select-sm" name="direccion"  required="true"   aria-label=".form-select-sm example" id="direccion" required="true">
+        <select class="form-select form-select-sm" name="direccion"    aria-label=".form-select-sm example" id="direccion">
           <option value="">tipo de avenida</option>
           <?php
           $select = include_once("../../conexion.php");
@@ -176,7 +177,7 @@ try {
         <label for="correo">correo electronico</label>
         <input type="text" id="correo" class="form-control" name="correo" maxlength="80">
         <button type="submit" class="btn btn-primary" value="enviar">actualizar</button>
-        <button type="button" class="btn btn-outline-dark ms-">cancelar</button>
+        <a href="./home.php"><button type="button" class="btn btn-outline-dark ms-">atras</button></a>
       </form>
     </div>
 
@@ -197,26 +198,26 @@ try {
         <label for="sedeLaboral">Sede Laboral*</label>
         <input class="form-control form-select-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
                                                                   echo $userSedeLAboral;
-                                                                } ?>" required="true" aria-label=".form-select-sm example" id="sedeLaboral" disabled>
+                                                                } ?>" aria-label=".form-select-sm example" id="sedeLaboral" disabled>
         </input>
 
         <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
         <input type="text" class="form-control form-control-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
                                                                                 echo $userMunicipios;
-                                                                              } ?>" required="true" aria-label=".form-select-sm example" id="municipioDeRecidencia" disabled>
+                                                                              } ?>" aria-label=".form-select-sm example" id="municipioDeRecidencia" disabled>
         </input>
 
 
         <label for="barrio">Barrio*</label>
         <input class="form-control form-control-sm disanble" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
                                                                             echo $userBarrio;
-                                                                          } ?>" required="true" aria-label=".form-select-sm example" id="userBarrio" disabled>
+                                                                          } ?>" aria-label=".form-select-sm example" id="userBarrio" disabled>
         </input>
 
         <label for="direccion">Direccion*</label>
         <input class="form-control form-select-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
                                                                   echo $userDireccion;
-                                                                } ?>" aria-label=".form-select-sm example" id="direccion" required="true" disabled>
+                                                                } ?>" aria-label=".form-select-sm example" id="direccion" disabled>
         </input>
         <label for="disabledTextInput"> Interior</label>
         <input type="text" aria-label="Last" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
@@ -245,33 +246,33 @@ try {
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">actualiza tus datos</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Actualiza tus datos</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form action="./actualizardatos.php" method="POST">
 
               <div class="user">
-                <p>cedula</p>
+                <p>Cedula</p>
                 <div id ="sino" style=" font-size: 11px;">
                   pon tu numero de identificacion
                 </div>
-                <input type="text" class="user-input" name="txtCedula" id="ingreseCedula" required />
+                <input type="text" class="user-input" name="txtCedula" id="ingreseCedula" />
               </div>
               <div class="ingreseMovil">
-                <p for="">correo</p>
+                <p for="">Correo</p>
                 <div id ="sino" style=" font-size: 11px;">
                   introduce tu correo el cual registraste
                 </div>
-                <input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" required />
+                <input type="text" maxlength="" class="movil-input" name="txtCorreo" id="correo" />
               </div>
 
           </div>
-          <div class="modal-footer">
+          
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              cerrar
+              Cerrar
             </button>
-            <button type="submit" class="btn btn-primary">ingresar</button>
+            <button type="submit" class="btn btn-primary">Buscar</button>
           </div>
           </form>
         </div>

@@ -280,11 +280,9 @@
 
                   <div class="caja">
                     <label for="fechaNacimiento">Fecha nacimiento*</label>
-                    <div id ="sino" style=" font-size: 11px;">
-                      tambien puedes introducir tu fecha de nacimiento a mano y un ejemplo (1999-05-14)
-                    </div>
+
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento" name="fechaNacimiento">
+                      <input type="text"  class="form-control" maxlength="10" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento" name="fechaNacimiento">
                     </div>
                   </div>
                   <div class="caja">
@@ -334,7 +332,7 @@
                     BOTONES DEL FORMULARIO
                     -----------------
                   -->
-                  <a href="../html/home.html"><button type="button" class="btn btn-primary">atras</button></a>
+                  <a href="../html/home.php"><button type="button" class="btn btn-primary">atras</button></a>
                   <button type="submit" class="btn btn-primary">crear</button>
                 </form>
                 <script src="../js/formulario.js"></script>

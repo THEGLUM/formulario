@@ -3,20 +3,81 @@ $conn = require_once('conexion.php');
 try {
 
     $idUser = $_POST['idUser'];
-    $Fk_Sede =  trim($_POST["sedeLaboral"]);
-    $Fk_Area = trim($_POST["Area"]);
-    $Fk_TipoVia = trim($_POST["direccion"]);
-    $numeroViaFinal = trim($_POST["numeroViaUno"]);
-    $NumeroViaDos = trim($_POST["numeroViaDos"]);
-    $Interior = trim($_POST["interior"]);
-    $Municipio = trim($_POST["municipioRecidencia"]);
-    $Barrios = trim($_POST["barrio"]);
-    $Telefonofijo = trim($_POST["telefonofijo"]);
-    $Movil = trim($_POST["movil"]);
-    $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
-    $CorreoElectronico = trim($_POST["correo"]);
-    $Guion = "-";
-    $NumeroVia = $NumeroViaDos . "#" . $numeroViaFinal;
+
+    $consul = $conn -> prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = '$idUser' ");
+    $consul -> execute();
+    $data = $consul -> fetchAll();
+    foreach ( $data as $datos):
+        $Fk_Sede1 = $datos["Fk_Sede"];
+        $Fk_Area1 =  $datos['Fk_Area'];
+        $Fk_TipoVia1 = $datos['Fk_TipoVia'];
+        $Interior1 = $datos['Interior'];
+        $Municipio1 = $datos['MunicipioResidencia'];
+        $Barrios1 = $datos['Barrios'];
+        $Telefonofijo1 = $datos['Telefonofijo'];
+        $Movil1 = $datos['Movil'];
+        $TelefonoEmergencia1 = $datos['TelefonoEmergencia'];
+        $CorreoElectronico1 = $datos['CorreoElectronico'];
+        $NumeroVia1 = $datos['NumeroVia'];
+    endforeach;
+
+    //condicionales para verificar si todo fue insertado correctamente
+        $idUser = $_POST['idUser'];
+        if(empty($idUser)) {
+            $idUser = $idUser1;
+        }
+        $Fk_Sede =  trim($_POST["sedeLaboral"]);
+        if(empty($Fk_Sede)) {
+            $Fk_Sede = $Fk_Sede1;
+        }
+        $Fk_Area = trim($_POST["Area"]);
+        if(empty($Fk_Area)) {
+            $Fk_Area = $Fk_Area1;
+        }
+        $Fk_TipoVia = trim($_POST["direccion"]);
+        if(empty($Fk_TipoVia)) {
+            $Fk_TipoVia = $Fk_TipoVia1;
+        }
+
+        $numeroViaFinal = trim($_POST["numeroViaUno"]);
+        $NumeroViaDos = trim($_POST["numeroViaDos"]);
+
+        $Interior = trim($_POST["interior"]);
+        if(empty($Interior)) {
+            $Interior = $Interior1;
+        }
+        $Municipio = trim($_POST["municipioRecidencia"]);
+        if(empty($Municipio)) {
+            $Municipio = $Municipio1;
+        }
+        $Barrios = trim($_POST["barrio"]);
+        if(empty($Barrios)) {
+            $Barrios = $Barrios1;
+        }
+        $Telefonofijo = trim($_POST["telefonofijo"]);
+        if(empty($Telefonofijo)) {
+            $Telefonofijo = $Telefonofijo1;
+        }
+        $Movil = trim($_POST["movil"]);
+        if(empty($Movil)) {
+            $Movil = $Movil1;
+        }
+        echo $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
+        if(empty($TelefonoEmergencia)) {
+            $TelefonoEmergencia = $TelefonoEmergencia1;
+        }
+        $CorreoElectronico = trim($_POST["correo"]);
+        if(empty($CorreoElectronico)) {
+            $CorreoElectronico = $CorreoElectronico1;
+        }
+        $Guion = "-";
+        if(empty($NumeroViaDos) && empty($numeroViaFinal)) {
+            $NumeroVia = $NumeroVia1;
+        }else {
+            $NumeroVia = $NumeroViaDos . "#" . $numeroViaFinal;
+        }
+
+
 
 
     //validar si todo esta vacio redireccionar
