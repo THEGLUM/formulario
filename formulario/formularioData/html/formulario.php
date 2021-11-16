@@ -311,7 +311,7 @@
                         $select->execute();
                         $data = $select->fetchAll();
                         foreach ($data as $valores):
-                      echo '<option value="'.$valores["Id_idioma"].'">'.$valores["Nombre_idiomao"].'</option>';
+                            echo '<option value="'.$valores["Nombre_idiomao"].'">'.$valores["Nombre_idiomao"].'</option>';
                         endforeach;
                         ?>
                       </select>
