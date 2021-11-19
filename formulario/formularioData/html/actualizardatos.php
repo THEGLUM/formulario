@@ -7,7 +7,7 @@ try {
 
     $Fk_NumeroDocumento = trim($_POST["txtCedula"]);
     $CorreoElectronico = trim($_POST["txtCorreo"]);
-            $userMunicipios = '';
+        $userMunicipios = '';
         $userSedeLAboral = '';
         $Areas = '';
         $userBarrio = '';
