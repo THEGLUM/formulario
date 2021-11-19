@@ -2,35 +2,47 @@
 $conn = require_once('../../conexion.php');
 try {
 
-  if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {
+
+  if (!empty(isset($_POST["txtCorreo"])) && !empty(isset($_POST["txtCedula"]))) {
 
     $Fk_NumeroDocumento = trim($_POST["txtCedula"]);
     $CorreoElectronico = trim($_POST["txtCorreo"]);
-
+            $userMunicipios = '';
+        $userSedeLAboral = '';
+        $Areas = '';
+        $userBarrio = '';
+        $userDireccion = '';
+        $userInterior = '';
+        $userFijo = '';
+        $userMovil = '';
+        $userTelefonoDeEmergencia = '';
+        $userCorreo = '';
+        $userMunicipios = '';
 
     $basesdeDatos = $conn->prepare("SELECT *  from Personal_almacontact p join  TipoArea ON TipoArea.Id_area = p.Fk_Area join Municipio on Municipio.Id_municipio = p.MunicipioResidencia join Sede ON Sede.Id_sede = p.Fk_Sede join Barrio on Barrio.Id_barrio = p.Barrios WHERE Pk_NumeroDocumento = ? AND CorreoElectronico = ?;");
     $basesdeDatos->bindParam(1, $Fk_NumeroDocumento, PDO::PARAM_STR);
     $basesdeDatos->bindParam(2, $CorreoElectronico, PDO::PARAM_STR);
     $basesdeDatos->execute();
     $data = $basesdeDatos->fetchAll();
+
     foreach ($data as $datos) :
 
-      $userID = $datos['Pk_NumeroDocumento'];
-      $userSedeLAboral = $datos["Nombre_sede"];
-      $Areas = $datos['Nombre_area'];
-      $userBarrio = $datos['Nombre_barrio'];
-      $userDireccion = $datos['NumeroVia'];
-      $userInterior = $datos['Interior'];
-      $userFijo = $datos['Telefonofijo'];
-      $userMovil = $datos['Movil'];
-      $userTelefonoDeEmergencia = $datos['TelefonoEmergencia'];
-      $userCorreo = $datos['CorreoElectronico'];
-      $userMunicipios = $datos['Nombre_municipio'];
+        $userID = $datos['Pk_NumeroDocumento'];
+        $userMunicipios = $datos['Nombre_municipio'];
+        $userSedeLAboral = $datos["Nombre_sede"];
+        $Areas = $datos['Nombre_area'];
+        $userBarrio = $datos['Nombre_barrio'];
+        $userDireccion = $datos['NumeroVia'];
+        $userInterior = $datos['Interior'];
+        $userFijo = $datos['Telefonofijo'];
+        $userMovil = $datos['Movil'];
+        $userTelefonoDeEmergencia = $datos['TelefonoEmergencia'];
+        $userCorreo = $datos['CorreoElectronico'];
+        $userMunicipios = $datos['Nombre_municipio'];
     endforeach;
-    }
+  }
 
-
-    header('actualizardatos.php');
+  header('actualizardatos.php');
 } catch (PDOException $e) {
   echo $e;
 }
@@ -230,13 +242,13 @@ try {
                                                                                         } ?>">
 
         <label for="movil">movil</label>
-        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userMovil;}else{ echo ' ';} ?>">
+        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userMovil;}else{ echo 'no se encontro';} ?>">
 
         <label for="telefonoEmergencia">telefono en caso de emergencia</label>
-        <input type="text" id="telefonoEmergencia" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userTelefonoDeEmergencia;} ?>">
+        <input type="text" id="telefonoEmergencia" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userTelefonoDeEmergencia;}else{ echo 'no se encontro';}  ?>">
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userCorreo;}else{ echo '';} ?>">
+        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userCorreo;}else{ echo 'no se encontro';} ?>">
       </div>
     </div>
 
