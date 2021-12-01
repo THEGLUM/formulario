@@ -187,7 +187,7 @@
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM TipoArea");
                         $select->execute();
-                        $data = $select->fetchAll(); 
+                        $data = $select->fetchAll();
                         foreach ($data as $valores):
                         echo '<option value="'.$valores["Id_area"].'">'.$valores["Nombre_area"].'</option>';
                         endforeach;
@@ -352,6 +352,9 @@
                         endforeach;
                         ?>
                       </select>
+                      <div id ="sino" style=" font-size: 11px;">
+                          en la selecion puedes escoger multiples veces
+                      </div>
                     </div>
 
                     <div class="form-check" >
