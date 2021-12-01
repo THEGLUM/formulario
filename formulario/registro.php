@@ -23,34 +23,45 @@ $conn = require_once('conexion.php');
     $CorreoElectronico      = trim($_POST["correo"]);
     $FechaNacimiento        = trim($_POST["fechaNacimiento"]);
     $Fk_Genero              = trim($_POST["genero"]);
-    $Fk_idioma              = trim($_POST["idiomas"]);
+    $Fk_idioma2 = '';
+    foreach ($_POST["idiomas"] as $Fk_idioma):
+            $Fk_idioma2 = $Fk_idioma2.$Fk_idioma.",";
+    endforeach;
+    $lugarNacimiento       = trim($_POST["lugarDeNaciemiento"]);
+    $fechaExpedicion        = trim($_POST["expedicion"]);
+    $lugarDeExpedicion      = trim($_POST["lugarDeExpedicionDeLaCedula"]);
+    $estadoCivil            = trim($_POST["estadoCivil"]);
     $Guion                  = "-";
     $NumeroVia              = $NumeroViaDos." # ".$numeroViaFinal;
 
-    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
     $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
     $query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
-    $query->bindParam(3,  $Pk_NumeroDocumento, PDO::PARAM_STR);
-    $query->bindParam(4, $PrimerApellido, PDO::PARAM_STR);
-    $query->bindParam(5, $SegundoApellido, PDO::PARAM_STR);
-    $query->bindParam(6, $PrimerNombre, PDO::PARAM_STR);
-    $query->bindParam(7, $SegundoNombre, PDO::PARAM_STR);
-    $query->bindParam(8, $Fk_Sede, PDO::PARAM_INT);
-    $query->bindParam(9, $Fk_Area, PDO::PARAM_INT);
-    $query->bindParam(10, $Fk_TipoVia, PDO::PARAM_INT);
-    $query->bindParam(11, $NumeroVia, PDO::PARAM_STR);
-    $query->bindParam(12, $Guion, PDO::PARAM_STR);
-    $query->bindParam(13, $Interior, PDO::PARAM_STR);
-    $query->bindParam(14, $Municipio, PDO::PARAM_STR);
-    $query->bindParam(15, $Barrios, PDO::PARAM_STR);
-    $query->bindParam(16, $Telefonofijo, PDO::PARAM_INT);
-    $query->bindParam(17, $TelefonoEmergencia,PDO::PARAM_INT);
-    $query->bindParam(18, $Movil, PDO::PARAM_INT);
-    $query->bindParam(19, $CorreoElectronico, PDO::PARAM_STR);
-    $query->bindParam(20, $FechaNacimiento, PDO::PARAM_STR);
-    $query->bindParam(21, $Fk_Genero, PDO::PARAM_INT);
-    $query->bindParam(22, $Fk_idioma, PDO::PARAM_INT);
+    $query->bindParam(3, $Pk_NumeroDocumento, PDO::PARAM_STR);
+    $query->bindParam(4, $fechaExpedicion, PDO::PARAM_STR);
+    $query->bindParam(5, $lugarDeExpedicion, PDO::PARAM_STR);
+    $query->bindParam(6, $PrimerApellido, PDO::PARAM_STR);
+    $query->bindParam(7, $SegundoApellido, PDO::PARAM_STR);
+    $query->bindParam(8, $PrimerNombre, PDO::PARAM_STR);
+    $query->bindParam(9, $SegundoNombre, PDO::PARAM_STR);
+    $query->bindParam(10, $Fk_Sede, PDO::PARAM_INT);
+    $query->bindParam(11, $Fk_Area, PDO::PARAM_INT);
+    $query->bindParam(12, $Fk_TipoVia, PDO::PARAM_INT);
+    $query->bindParam(13, $NumeroVia, PDO::PARAM_STR);
+    $query->bindParam(14, $Guion, PDO::PARAM_STR);
+    $query->bindParam(15, $Interior, PDO::PARAM_STR);
+    $query->bindParam(16, $Municipio, PDO::PARAM_STR);
+    $query->bindParam(17, $Barrios, PDO::PARAM_STR);
+    $query->bindParam(18, $Telefonofijo, PDO::PARAM_INT);
+    $query->bindParam(19, $TelefonoEmergencia,PDO::PARAM_INT);
+    $query->bindParam(20, $Movil, PDO::PARAM_INT);
+    $query->bindParam(21, $CorreoElectronico, PDO::PARAM_STR);
+    $query->bindParam(22, $FechaNacimiento, PDO::PARAM_STR);
+    $query->bindParam(23, $lugarNacimiento, PDO::PARAM_STR);
+    $query->bindParam(24, $estadoCivil, PDO::PARAM_STR);
+    $query->bindParam(25, $Fk_Genero, PDO::PARAM_INT);
+    $query->bindParam(26, $Fk_idioma2, PDO::PARAM_STR);
 
     $query->execute();
 
@@ -69,7 +80,7 @@ $conn = require_once('conexion.php');
     <div class="alert alert-success" role="alert">
             <Script>
                 alert("Registro Exitoso");
-                window.location.href="/github/formulario/formulario/formularioData/html/home.php";
+                window.location.href="/github/formulario/";
             </Script>
     </div>
 

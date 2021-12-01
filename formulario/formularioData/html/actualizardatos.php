@@ -80,8 +80,8 @@ try {
     <div class="navegator">
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../html/home.php">Almacontact</a>
-          <a href="../html/home.php">
+          <a class="navbar-brand" href="../../../index.php">Almacontact</a>
+          <a href="../../../index.php">
             <img src="../img/logo.png" alt="" width="30px" height="30px">
           </a>
         </div>
@@ -242,13 +242,13 @@ try {
                                                                                         } ?>">
 
         <label for="movil">movil</label>
-        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userMovil;}else{ echo 'no se encontro';} ?>">
+        <input type="text" id="movil" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userMovil;}?>">
 
         <label for="telefonoEmergencia">telefono en caso de emergencia</label>
-        <input type="text" id="telefonoEmergencia" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userTelefonoDeEmergencia;}else{ echo 'no se encontro';}  ?>">
+        <input type="text" id="telefonoEmergencia" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userTelefonoDeEmergencia;}?>">
 
         <label for="correo">correo electronico</label>
-        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userCorreo;}else{ echo 'no se encontro';} ?>">
+        <input type="text" id="correo" class="form-control" disabled placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userCorreo;} ?>">
       </div>
     </div>
 
@@ -280,7 +280,7 @@ try {
               </div>
 
           </div>
-          
+
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Cerrar
             </button>

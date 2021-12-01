@@ -3,6 +3,10 @@ $(document).ready(function (e) {
 		dateFormat: 'yy-mm-dd',
 		maxDate: '-18y ',
 	})
+	$('#expedicion').datepicker({
+		dateFormat: 'yy-mm-dd',
+		maxDate: '-1d ',
+	})
 
 	$('#sedeLaboral').change(function () {
 		let parametros = 'id= ' + $('#sedeLaboral').val()

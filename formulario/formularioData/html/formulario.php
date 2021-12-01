@@ -45,8 +45,8 @@
     <div class="navegator">
       <nav class="navbar navbar-light bg-light">
                     <div class="container-fluid">
-                      <a class="navbar-brand" href="../html/home.php">Almacontact</a>
-                      <a href="../html/home.php">
+                      <a class="navbar-brand" href="../../../index.php">Almacontact</a>
+                      <a href="../../../index.php">
                         <img src="../img/logo.png" alt="" width="30px" height="30px">
                       </a>
                     </div>
@@ -93,10 +93,37 @@
                 </div>
               </div>
 
-              <script>
 
-              </script>
+              <div class="caja">
+                <label for="fechaNacimiento">Fecha de expedicion de la cedula*</label>
 
+                <div class="input-group input-group-sm mb-3">
+                  <input type="text"  class="form-control" maxlength="10" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="expedicion" name="expedicion">
+                </div>
+              </div>
+
+              <div class="caja">
+                <label for="lugarDeExpedicionDeLaCedula">Lugar de expedicion de la cedula*</label>
+                <div  id="input" class="input-group input-group-sm mb-3">
+                  <input type="text" class="form-control" required="true" maxlength="50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="lugarDeExpedicionDeLaCedula" name="lugarDeExpedicionDeLaCedula">
+                </div>
+              </div>
+
+              <div class="caja">
+                    <label for="genero">Estado civil</label>
+                    <select class="form-select form-select-sm" name="estadoCivil" aria-label=".form-select-sm example" id="estadoCivil">
+                      <option selected>Estado Cilvil</option>
+                      <?php
+                        $select = include_once("../../conexion.php");
+                        $select = $conn->prepare("SELECT * FROM EstadoCivil");
+                        $select->execute();
+                        $data = $select->fetchAll();
+                        foreach ($data as $valores):
+                        echo '<option value="'.$valores["Id_estadoCivil"].'">'.$valores["Id_nombreEstadoC"].'</option>';
+                        endforeach;
+                        ?>
+                    </select>
+                  </div>
               <!--
                 -----------------
                 PRIMER APELLIDO
@@ -225,7 +252,8 @@
                     </select>
                   </div>
 
-                <!--  -----------------
+
+                <!-------------------
                   MUNCIPIO DE RECIDENCIA
                   -----------------
                 -->
@@ -285,6 +313,15 @@
                       <input type="text"  class="form-control" maxlength="10" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="fechaNacimiento" name="fechaNacimiento">
                     </div>
                   </div>
+
+                  <div class="caja">
+                    <label for="lugarDeNaciemiento">Lugar de nacimiento*</label>
+
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="text"  class="form-control" maxlength="50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="lugarDeNaciemiento" name="lugarDeNaciemiento">
+                    </div>
+                  </div>
+
                   <div class="caja">
                     <label for="genero">Genero</label>
                     <select class="form-select form-select-sm" name="genero" aria-label=".form-select-sm example" id="genero">
@@ -303,8 +340,8 @@
 
                     <div class="caja">
                       <label for="idiomas">Idiomas*</label>
-                      <select  id="multipleSelect" name="idiomas" class="idiomas" multiple aria-label="multiple select" required="true">
-                        <option value="0">seleciona un idioma</option>
+                      <select  id="multipleSelect" name="idiomas[]" class="idiomas" multiple aria-label="multiple select" required="true">
+                        <option value="">seleciona un idioma</option>
                         <?php
                         $select = include_once("../../conexion.php");
                         $select = $conn->prepare("SELECT * FROM Idioma");
@@ -315,9 +352,6 @@
                         endforeach;
                         ?>
                       </select>
-                      <div id ="sino" style=" font-size: 11px;">
-                        puedes seleccionar los lenguejes que manejes
-                      </div>
                     </div>
 
                     <div class="form-check" >
@@ -336,6 +370,9 @@
                   <button type="submit" class="btn btn-primary">crear</button>
                 </form>
                 <script src="../js/formulario.js"></script>
+                <script>
+
+                </script>
   </body>
 
 </html>

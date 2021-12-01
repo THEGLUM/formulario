@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>home</title>
-		<link rel="icon" href="../img/logo.png" />
+		<link rel="icon" href="formulario/formularioData/img/logo.png" />
 		<!-- conexion con los estilos de boostrap -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
