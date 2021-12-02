@@ -1,0 +1,57 @@
+* {
+	margin: 0%;
+	padding: 0%;
+}
+
+.cajaPadre {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2.5%;
+}
+
+.cajaPadre label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.cajaPadre .cajaHija {
+	margin-bottom: 20px;
+	height: 100px;
+	width: 400px;
+}
+.cajaPadre .cajaHijaMulti {
+	margin-bottom: 40px;
+	height: 150px;
+	width: 400px;
+}
+.cajaPadre .cajaHijaMulti select {
+	border-radius: 50px;
+}
+
+.cajaPadre .cajaHija select {
+	border-radius: 50px;
+}
+
+.cajaPadre .cajaHija .Control {
+	border-radius: 50px;
+}
+
+.cajaPadre .cajaHijaMulti .Control {
+	border-radius: 50px;
+}
+
+.contenedor .img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contenedor .img img {
+	width: 100%;
+	height: 200px;
+}
+
+.contenedor .cajaPadre .bntEnviar {
+	margin-top: 20px;
+}

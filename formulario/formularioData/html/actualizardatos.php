@@ -189,7 +189,8 @@ try {
         <label for="correo">correo electronico</label>
         <input type="text" id="correo" class="form-control" name="correo" maxlength="80">
         <button type="submit" class="btn btn-primary" value="enviar">actualizar</button>
-        <a href="./home.php"><button type="button" class="btn btn-outline-dark ms-">atras</button></a>
+        <a href="../../../index.php"><button type="button" class="btn btn-outline-dark ms-">atras</button></a>
+        <a href="./formularioRH.php"><button type="button" class="btn btn-outline-dark ms-">formulario</button></a>
       </form>
     </div>
 

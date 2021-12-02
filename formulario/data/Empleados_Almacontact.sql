@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-10-2021 a las 12:58:44
+-- Tiempo de generación: 02-12-2021 a las 15:23:47
 -- Versión del servidor: 10.2.36-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -83,6 +83,42 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `AcademicaActual`
+--
+
+DROP TABLE IF EXISTS `AcademicaActual`;
+CREATE TABLE IF NOT EXISTS `AcademicaActual` (
+  `Id_academicaA` int(11) NOT NULL,
+  `Nombre_academica` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Actividades`
+--
+
+DROP TABLE IF EXISTS `Actividades`;
+CREATE TABLE IF NOT EXISTS `Actividades` (
+  `Id_actividades` int(11) NOT NULL,
+  `Nombre_actividad` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Alimentacion`
+--
+
+DROP TABLE IF EXISTS `Alimentacion`;
+CREATE TABLE IF NOT EXISTS `Alimentacion` (
+  `Id_Alimentacion` int(11) NOT NULL,
+  `Id_NombreAlimentacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `Barrio`
 --
 
@@ -91,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `Barrio` (
   `Id_barrio` int(11) NOT NULL,
   `Nombre_barrio` varchar(80) NOT NULL,
   `Fk_id_municipio` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=849 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1008 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `Barrio`
@@ -809,143 +845,382 @@ INSERT INTO `Barrio` (`Id_barrio`, `Nombre_barrio`, `Fk_id_municipio`) VALUES
 (709, 'Triana', 27),
 (710, 'Veredas', 27),
 (711, 'Villa Lia', 27),
-(712, '13 de Noviembre', 28),
-(713, '20 de Julio', 28),
-(714, '8 de Marzo', 28),
-(715, 'Aguacatala', 28),
-(716, 'Alejandría', 28),
-(717, 'Alejandro', 28),
-(718, 'Alfonso López', 28),
-(719, 'Aliadas', 28),
-(720, 'Allende', 28),
-(721, 'Alpinos', 28),
-(722, 'Altavista', 28),
-(723, 'Altavista', 28),
-(724, 'Altos del Poblado', 28),
-(725, 'Andalucía', 28),
-(726, 'Ángeles', 28),
-(727, 'Antonio Nariño', 28),
-(728, 'Antonio Zea', 28),
-(729, 'Apolo', 28),
-(730, 'Aranjuez', 28),
-(731, 'Armero II', 28),
-(732, 'Astorga', 28),
-(733, 'Aures', 28),
-(734, 'Barrio Antioquia', 28),
-(735, 'Barrio Colombia', 28),
-(736, 'Barrio Cristóbal', 28),
-(737, 'Barrio Nuevo', 28),
-(738, 'Belalcázar', 28),
-(739, 'Belén', 28),
-(740, 'Belencito', 28),
-(741, 'Bello Horizonte', 28),
-(742, 'Bello Horizonte', 28),
-(743, 'Berlín', 28),
-(744, 'Bermejal', 28),
-(745, 'Betania', 28),
-(746, 'Betania', 28),
-(747, 'Blanquizal', 28),
-(748, 'Bolivariana', 28),
-(749, 'Bomboná', 28),
-(750, 'Boston', 28),
-(751, 'Boyacá', 28),
-(752, 'Brasil', 28),
-(753, 'Brasilia', 28),
-(754, 'Brisas de Oriente', 28),
-(755, 'Búcaros', 28),
-(756, 'Buenos Aires', 28),
-(757, 'Caicedo', 28),
-(758, 'Calasanz', 28),
-(759, 'Campo Alegre', 28),
-(760, 'Campo Amor', 28),
-(761, 'Campo Valdés 1', 28),
-(762, 'Campo Valdés 2', 28),
-(763, 'Candelaria', 28),
-(764, 'Candelaria', 28),
-(765, 'Candelaria', 28),
-(766, 'Carambolas', 28),
-(767, 'Caribe', 28),
-(768, 'Carlos E. Restrepo', 28),
-(769, 'Carmelo', 28),
-(770, 'Carpinelo', 28),
-(771, 'Castilla', 28),
-(772, 'Castillita', 28),
-(773, 'Castropol', 28),
-(774, 'Cataluña', 28),
-(775, 'Caunces de Oriente', 28),
-(776, 'Cerro El Volador', 28),
-(777, 'Cerros', 28),
-(778, 'Coimita', 28),
-(779, 'Colina del Sur', 28),
-(780, 'Colinas de La', 28),
-(781, 'Colón', 28),
-(782, 'Comuneros 1 (La', 28),
-(783, 'Conquistadores', 28),
-(784, 'Conquistadores', 28),
-(785, 'Corazón de Jesús', 28),
-(786, 'Corazón de Jesús', 28),
-(787, 'Córdoba', 28),
-(788, 'Cristo Rey', 28),
-(789, 'Diego Echavarría', 28),
-(790, 'Doña María', 28),
-(791, 'Echavarría', 28),
-(792, 'El Bosque', 28),
-(793, 'El Castillo', 28),
-(794, 'El Chagualo', 28),
-(795, 'El Coco', 28),
-(796, 'El Compromiso', 28),
-(797, 'El Corazón', 28),
-(798, 'El Cortijo', 28),
-(799, 'El Cucaracho', 28),
-(800, 'El Danubio', 28),
-(801, 'El Día', 28),
-(802, 'El Diamante', 28),
-(803, 'El Edén', 28),
-(804, 'El Enclave', 28),
-(805, 'El Futuro', 28),
-(806, 'El Garabato', 28),
-(807, 'El Jardín', 28),
-(808, 'El Paraíso', 28),
-(809, 'El Playón de los', 28),
-(810, 'El Poblado', 28),
-(811, 'El Pomar', 28),
+(712, 'Aliadas Del Sur', 29),
+(713, 'Ancon Sur', 29),
+(714, 'Betania', 29),
+(715, 'Calle Del Banco', 29),
+(716, 'Calle Larga', 29),
+(717, 'El Carmelo Ii', 29),
+(718, 'Entreamigos', 29),
+(719, 'Holanda', 29),
+(720, 'La Barquereña', 29),
+(721, 'La Doctora', 29),
+(722, 'La Florida', 29),
+(723, 'Las Casitas', 29),
+(724, 'Los Alcázarez', 29),
+(725, 'Los Arias', 29),
+(726, 'Manuel Restrepo', 29),
+(727, 'María Auxiliadora', 29),
+(728, 'Nuestra Señora De Los Dolores', 29),
+(729, 'Paso Ancho', 29),
+(730, 'Playas De María', 29),
+(731, 'Prados De Sabaneta', 29),
+(732, 'Promisión', 29),
+(733, 'Restrepo Naranjo', 29),
+(734, 'Sabaneta Real', 29),
+(735, 'San Joaquín', 29),
+(736, 'San Rafael', 29),
+(737, 'Santa Ana', 29),
+(738, 'Tres Esquinas', 29),
+(739, 'Vegas De La Doctora', 29),
+(740, 'Vegas De San José', 29),
+(741, 'Villas Del Carmen', 29),
+(742, 'Virgen Del Carmen', 29),
+(743, 'Veredas', 29),
+(744, 'Popular Nº 1', 28),
+(745, 'Popular Nº 2', 28),
+(746, 'Santo Domingo Savio Nº 1', 28),
+(747, 'Santo Domingo Savio Nº 2', 28),
+(748, 'Granizal', 28),
+(749, 'Moscú Nº 2', 28),
+(750, 'Villa Guadalupe', 28),
+(751, 'San Pablo', 28),
+(752, 'Aldea Pablo VI', 28),
+(753, 'La Esperanza Nº 2', 28),
+(754, 'El Compromiso', 28),
+(755, 'La Avanzada', 28),
+(756, 'Carpinelo', 28),
+(757, 'Santa Cruz', 28),
+(758, 'La Isla', 28),
+(759, 'El Playón de Los Comuneros', 28),
+(760, 'Pablo VI', 28),
+(761, 'La Frontera', 28),
+(762, 'La Francia', 28),
+(763, 'Andalucía', 28),
+(764, 'Villa del Socorro', 28),
+(765, 'Villa Niza', 28),
+(766, 'Moscú Nº 1', 28),
+(767, 'La Rosa', 28),
+(768, 'La Salle', 28),
+(769, 'Las Granjas', 28),
+(770, 'Campo Valdes Nº 2', 28),
+(771, 'Santa Inés', 28),
+(772, 'El Raizal', 28),
+(773, 'El Pomar', 28),
+(774, 'Manrique Central Nº 2', 28),
+(775, 'Manrique Oriental', 28),
+(776, 'Versalles Nº 1', 28),
+(777, 'Versalles Nº 2', 28),
+(778, 'La Cruz', 28),
+(779, 'La Honda', 28),
+(780, 'Oriente', 28),
+(781, 'Maria Cano – Carambolas', 28),
+(782, 'San José La Cima Nº 1', 28),
+(783, 'San José La Cima Nº', 28),
+(784, 'Aranjuez', 28),
+(785, 'Berlín', 28),
+(786, 'San Isidro', 28),
+(787, 'Palermo', 28),
+(788, 'Bermejal – Los Álamos', 28),
+(789, 'Moravia', 28),
+(790, 'Sevilla', 28),
+(791, 'San Pedro', 28),
+(792, 'Manrique Central Nº 1', 28),
+(793, 'Campo Valdes Nº 1', 28),
+(794, 'Las Esmeraldas', 28),
+(795, 'La Piñuela', 28),
+(796, 'Brasilia', 28),
+(797, 'Miranda', 28),
+(798, 'Castilla', 28),
+(799, 'Toscana', 28),
+(800, 'Héctor Abad Gómez', 28),
+(801, 'La Paralela', 28),
+(802, 'Las Brisas', 28),
+(803, 'Florencia', 28),
+(804, 'Tejelo', 28),
+(805, 'Boyacá', 28),
+(806, 'Belalcazar', 28),
+(807, 'Girardot', 28),
+(808, 'Tricentenario', 28),
+(809, 'Francisco Antonio Zea', 28),
+(810, 'Alfonso López', 28),
+(811, 'Caribe', 28),
 (812, 'El Progreso', 28),
-(813, 'El Progreso', 28),
-(814, 'El Raizal', 28),
-(815, 'El Remanso', 28),
-(816, 'Otro', 28),
-(817, 'Aliadas Del Sur', 29),
-(818, 'Ancon Sur', 29),
-(819, 'Betania', 29),
-(820, 'Calle Del Banco', 29),
-(821, 'Calle Larga', 29),
-(822, 'El Carmelo Ii', 29),
-(823, 'Entreamigos', 29),
-(824, 'Holanda', 29),
-(825, 'La Barquereña', 29),
-(826, 'La Doctora', 29),
-(827, 'La Florida', 29),
-(828, 'Las Casitas', 29),
-(829, 'Los Alcázarez', 29),
-(830, 'Los Arias', 29),
-(831, 'Manuel Restrepo', 29),
-(832, 'María Auxiliadora', 29),
-(833, 'Nuestra Señora De Los Dolores', 29),
-(834, 'Paso Ancho', 29),
-(835, 'Playas De María', 29),
-(836, 'Prados De Sabaneta', 29),
-(837, 'Promisión', 29),
-(838, 'Restrepo Naranjo', 29),
-(839, 'Sabaneta Real', 29),
-(840, 'San Joaquín', 29),
-(841, 'San Rafael', 29),
-(842, 'Santa Ana', 29),
-(843, 'Tres Esquinas', 29),
-(844, 'Vegas De La Doctora', 29),
-(845, 'Vegas De San José', 29),
-(846, 'Villas Del Carmen', 29),
-(847, 'Virgen Del Carmen', 29),
-(848, 'Veredas', 29);
+(813, 'Doce de Octubre Nº 1', 28),
+(814, 'Doce de Octubre Nº 2', 28),
+(815, 'Santander', 28),
+(816, 'Pedregal', 28),
+(817, 'La Esperanza', 28),
+(818, 'San Martín de Porres', 28),
+(819, 'Kennedy', 28),
+(820, 'Picacho', 28),
+(821, 'Picachito', 28),
+(822, 'Mirador del Doce', 28),
+(823, 'El Progreso Nº 2', 28),
+(824, 'El Triunfo', 28),
+(825, 'Robledo', 28),
+(826, 'El Volador', 28),
+(827, 'San Germán', 28),
+(828, 'Barrio Facultad de Minas', 28),
+(829, 'La Pilarica', 28),
+(830, 'Bosques de San Pablo', 28),
+(831, 'Altamira', 28),
+(832, 'Córdoba', 28),
+(833, 'López de Mesa', 28),
+(834, 'El Diamante', 28),
+(835, 'Aures Nº 1', 28),
+(836, 'Aures Nº 2', 28),
+(837, 'Bello Horizonte', 28),
+(838, 'Villa Flora', 28),
+(839, 'Palenque', 28),
+(840, 'Cucaracho', 28),
+(841, 'Fuente Clara', 28),
+(842, 'Santa Margarita', 28),
+(843, 'Olaya Herrera', 28),
+(844, 'Pajarito', 28),
+(845, 'Monteclaro', 28),
+(846, 'Villa de La Iguaná', 28),
+(847, 'La Cuchilla', 28),
+(848, 'La Aurora', 28),
+(849, 'Villa Hermosa', 28),
+(850, 'La Mansión', 28),
+(851, 'San Miguel', 28),
+(852, 'La Ladera', 28),
+(853, 'Golondrinas', 28),
+(854, 'Batallón Girardot', 28),
+(855, 'Llanaditas', 28),
+(856, 'Los Mangos', 28),
+(857, 'Enciso', 28),
+(858, 'Sucre', 28),
+(859, 'El Pinal', 28),
+(860, 'Trece de Noviembre', 28),
+(861, 'La Libertad', 28),
+(862, 'Villatina', 28),
+(863, 'San Antonio', 28),
+(864, 'Las Estancias', 28),
+(865, 'Villa Turbay', 28),
+(866, 'La Sierra', 28),
+(867, 'Villa Lilliam', 28),
+(868, 'Esfuerzos de Paz Nº 1', 28),
+(869, 'Esfuerzos de Paz Nº 2', 28),
+(870, 'Buenos Aires', 28),
+(871, 'Caicedo', 28),
+(872, 'Juan Pablo II', 28),
+(873, 'Ocho de Marzo', 28),
+(874, 'Barrios de Jesús', 28),
+(875, 'Bomboná Nº 2', 28),
+(876, 'Los Cerros – El Vergel', 28),
+(877, 'Alejandro Echavarría', 28),
+(878, 'Miraflores', 28),
+(879, 'Cataluña', 28),
+(880, 'La Milagrosa', 28),
+(881, 'Gerona', 28),
+(882, 'El Salvador', 28),
+(883, 'Loreto', 28),
+(884, 'Asomadera Nº 1', 28),
+(885, 'Asomadera Nº 2', 28),
+(886, 'Asomadera Nº 3', 28),
+(887, 'Quinta Linda', 28),
+(888, 'Barrio Pablo Escobar', 28),
+(889, 'La Candelaria', 28),
+(890, 'Prado', 28),
+(891, 'Jesús Nazareno', 28),
+(892, 'El Chagualo', 28),
+(893, 'Estación Villa', 28),
+(894, 'San Benito', 28),
+(895, 'Guayaquil', 28),
+(896, 'Corazón de Jesús – Barrio Triste', 28),
+(897, 'Calle Nueva', 28),
+(898, 'Perpetuo Socorro', 28),
+(899, 'Barrio Colón', 28),
+(900, 'Las Palmas', 28),
+(901, 'Bomboná Nº 1', 28),
+(902, 'Boston', 28),
+(903, 'Los Ángeles', 28),
+(904, 'Villa Nueva', 28),
+(905, 'San Diego', 28),
+(906, 'Los Conquistadores', 28),
+(907, 'Laureles', 28),
+(908, 'Carlos E. Restrepo', 28),
+(909, 'Suramericana', 28),
+(910, 'Naranjal', 28),
+(911, 'San Joaquín', 28),
+(912, 'Bolivariana', 28),
+(913, 'Las Acacias', 28),
+(914, 'La Castellana', 28),
+(915, 'Lorena', 28),
+(916, 'El Velódromo', 28),
+(917, 'Estadio', 28),
+(918, 'Los Colores', 28),
+(919, 'Cuarta Brigada', 28),
+(920, 'Florida Nueva', 28),
+(921, 'La América', 28),
+(922, 'Ferrini', 28),
+(923, 'Calasanz', 28),
+(924, 'Los Pinos', 28),
+(925, 'La Floresta', 28),
+(926, 'Santa Lucía', 28),
+(927, 'El Danubio', 28),
+(928, 'Campo Alegre', 28),
+(929, 'Santa Mónica', 28),
+(930, 'Barrio Cristóbal', 28),
+(931, 'Simón Bolívar', 28),
+(932, 'Santa Teresita', 28),
+(933, 'Calasanz Parte Alta', 28),
+(934, 'San Javier Nº 1', 28),
+(935, 'San Javier Nº 2', 28),
+(936, 'El Pesebre', 28),
+(937, 'Blanquizal', 28),
+(938, 'Santa Rosa de Lima', 28),
+(939, 'Los Alcázares', 28),
+(940, 'Metropolitano', 28),
+(941, 'La Pradera', 28),
+(942, 'Juan XXIII', 28),
+(943, 'La Divisa', 28),
+(944, 'Veinte de Julio', 28),
+(945, 'Belencito', 28),
+(946, 'Betania', 28),
+(947, 'El Corazón', 28),
+(948, 'Las Independencias', 28),
+(949, 'Nuevos Conquistadores', 28),
+(950, 'El Salado', 28),
+(951, 'Eduardo Santos', 28),
+(952, 'Peñitas', 28),
+(953, 'Antonio Nariño', 28),
+(954, 'El Socorro', 28),
+(955, 'Calasania', 28),
+(956, 'Castropol', 28),
+(957, 'Barrio Colombia', 28),
+(958, 'Villa Carlota', 28),
+(959, 'Lalinde', 28),
+(960, 'Manila', 28),
+(961, 'Las Lomas Nº 1', 28),
+(962, 'Las Lomas Nº 2', 28),
+(963, 'Altos del Poblado', 28),
+(964, 'El Tesoro', 28),
+(965, 'Los Naranjos', 28),
+(966, 'Los Balsos Nº 1', 28),
+(967, 'Los Balsos Nº 2', 28),
+(968, 'San Lucas', 28),
+(969, 'El Diamante', 28),
+(970, 'El Castillo', 28),
+(971, 'Alejandría', 28),
+(972, 'La Florida', 28),
+(973, 'El Poblado', 28),
+(974, 'Astorga', 28),
+(975, 'Patio Bonito', 28),
+(976, 'La Aguacatala', 28),
+(977, 'Santa María de Los Ángeles', 28),
+(978, 'Tenche', 28),
+(979, 'Trinidad', 28),
+(980, 'Santa Fe', 28),
+(981, 'Campo Amor', 28),
+(982, 'Cristo Rey', 28),
+(983, 'Guayabal', 28),
+(984, 'La Colina', 28),
+(985, 'Belén', 28),
+(986, 'Cerro Nutibara', 28),
+(987, 'Fátima', 28),
+(988, 'Rosales', 28),
+(989, 'Granada', 28),
+(990, 'San Bernardo', 28),
+(991, 'Las Playas', 28),
+(992, 'Diego Echavarria', 28),
+(993, 'La Mota', 28),
+(994, 'El Rincón', 28),
+(995, 'La Hondonada', 28),
+(996, 'La Loma de Los Bernal', 28),
+(997, 'La Gloria', 28),
+(998, 'Altavista', 28),
+(999, 'La Palma', 28),
+(1000, 'Zafra', 28),
+(1001, 'Los Alpes', 28),
+(1002, 'Las Violetas', 28),
+(1003, 'Las Mercedes', 28),
+(1004, 'Nueva Villa de Aburrá', 28),
+(1005, 'Miravalle', 28),
+(1006, 'El Nogal – Los Almendros', 28),
+(1007, 'Source: Alcaldía de Medellín', 28);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Compras`
+--
+
+DROP TABLE IF EXISTS `Compras`;
+CREATE TABLE IF NOT EXISTS `Compras` (
+  `Id_compras` int(11) NOT NULL,
+  `Id_almacenCompras` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EstadoCivil`
+--
+
+DROP TABLE IF EXISTS `EstadoCivil`;
+CREATE TABLE IF NOT EXISTS `EstadoCivil` (
+  `Id_estadoCivil` int(11) NOT NULL,
+  `Id_nombreEstadoC` varchar(15) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `EstadoCivil`
+--
+
+INSERT INTO `EstadoCivil` (`Id_estadoCivil`, `Id_nombreEstadoC`) VALUES
+(1, 'Casado'),
+(2, 'Soltero');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `FinanciacionEstudios`
+--
+
+DROP TABLE IF EXISTS `FinanciacionEstudios`;
+CREATE TABLE IF NOT EXISTS `FinanciacionEstudios` (
+  `Id_financiacionEstudio` int(11) NOT NULL,
+  `Nombre_financiacionEstudio` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `FormacionAcademica`
+--
+
+DROP TABLE IF EXISTS `FormacionAcademica`;
+CREATE TABLE IF NOT EXISTS `FormacionAcademica` (
+  `Id_Academico` int(11) NOT NULL,
+  `Id_nombreAcademico` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Frecuencia`
+--
+
+DROP TABLE IF EXISTS `Frecuencia`;
+CREATE TABLE IF NOT EXISTS `Frecuencia` (
+  `Id_frecuencia` int(11) NOT NULL,
+  `Id_nombreFrecuencia` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `Frecuencia`
+--
+
+INSERT INTO `Frecuencia` (`Id_frecuencia`, `Id_nombreFrecuencia`) VALUES
+(1, 'Una vez a la semana'),
+(2, 'Una vez al mes'),
+(3, 'Una vez cada 3 meses'),
+(4, 'Una vez cada 6 meses'),
+(5, 'No lo hago'),
+(6, 'Diario');
 
 -- --------------------------------------------------------
 
@@ -989,6 +1264,18 @@ INSERT INTO `Idioma` (`Id_idioma`, `Nombre_idiomao`) VALUES
 (3, 'Portugués '),
 (4, 'Frances'),
 (5, 'Alemán');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Mascotas`
+--
+
+DROP TABLE IF EXISTS `Mascotas`;
+CREATE TABLE IF NOT EXISTS `Mascotas` (
+  `Id_mascotas` int(11) NOT NULL,
+  `Id_tipoMascota` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1041,6 +1328,30 @@ INSERT INTO `Municipio` (`Id_municipio`, `Nombre_municipio`, `Fk_id_sede`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `Musica`
+--
+
+DROP TABLE IF EXISTS `Musica`;
+CREATE TABLE IF NOT EXISTS `Musica` (
+  `Id_musica` int(11) NOT NULL,
+  `Id_generoMusica` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Nivelidioma`
+--
+
+DROP TABLE IF EXISTS `Nivelidioma`;
+CREATE TABLE IF NOT EXISTS `Nivelidioma` (
+  `Id_nivelidioma` int(11) NOT NULL,
+  `Id_nivel` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `Perfil`
 --
 
@@ -1069,6 +1380,8 @@ CREATE TABLE IF NOT EXISTS `Personal_almacontact` (
   `AutorizaTratamientoDatos` varchar(2) NOT NULL,
   `Fk_TipoDocumento` int(11) NOT NULL,
   `Pk_NumeroDocumento` varchar(15) NOT NULL,
+  `fechaExpedicion` varchar(20) NOT NULL,
+  `lugarDeExpedicion` varchar(20) NOT NULL,
   `PrimerApellido` varchar(60) NOT NULL,
   `SegundoApellido` varchar(60) NOT NULL,
   `PrimerNombre` varchar(60) NOT NULL,
@@ -1080,29 +1393,58 @@ CREATE TABLE IF NOT EXISTS `Personal_almacontact` (
   `Guion` varchar(5) NOT NULL,
   `Interior` varchar(40) DEFAULT NULL,
   `MunicipioResidencia` varchar(80) NOT NULL,
-  `Barrios` varchar(80) NOT NULL,
-  `Telefonofijo` int(8) DEFAULT NULL,
-  `Movil` int(10) NOT NULL,
-  `TelefonoEmergencia` int(10) NOT NULL,
+  `Barrios` int(80) NOT NULL,
+  `Telefonofijo` bigint(15) DEFAULT NULL,
+  `Movil` bigint(15) NOT NULL,
+  `TelefonoEmergencia` varchar(15) NOT NULL,
   `CorreoElectronico` varchar(50) NOT NULL,
   `FechaNacimiento` date NOT NULL,
+  `lugarNacimiento` varchar(50) NOT NULL,
+  `estadoCivil` varchar(20) NOT NULL,
   `Fk_Genero` int(11) NOT NULL,
-  `Fk_Idioma` int(11) NOT NULL
+  `Fk_Idioma` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `Personal_almacontact`
 --
 
-INSERT INTO `Personal_almacontact` (`AutorizaTratamientoDatos`, `Fk_TipoDocumento`, `Pk_NumeroDocumento`, `PrimerApellido`, `SegundoApellido`, `PrimerNombre`, `SegundoNombre`, `Fk_Sede`, `Fk_Area`, `Fk_TipoVia`, `NumeroVia`, `Guion`, `Interior`, `MunicipioResidencia`, `Barrios`, `Telefonofijo`, `Movil`, `TelefonoEmergencia`, `CorreoElectronico`, `FechaNacimiento`, `Fk_Genero`, `Fk_Idioma`) VALUES
-('si', 2, '10005632', 'ceballos', 'deossa', 'santiago', 'adsad', 2, 15, 2, '46c 68-84', '-', 'casa', '22', 'La', 4532, 66666, 1564521031, '2342342a@asdasd', '2006-10-06', 1, 3),
-('si', 2, '10005634', 'ceballos', 'deossa', 'santiago', 'adsad', 1, 15, 2, '46c68-84', '-', 'casa', '17', 'Veredas', 4532, 66666, 1564521031, '2342342a@asdasd', '2006-10-06', 1, 3),
-('si', 1, '10005653', 'ceballos', 'deossa', 'santiago', '', 2, 15, 1, '68-84', '-', 'casa', '22', 'Barrio', 4811590, 12, 213, 'sant@hola', '2001-06-13', 1, 4),
-('si', 1, '100056534', 'ceballos', 'cardona', 'santiago', 'sdasd', 1, 11, 4, '46c', '-', 'edificio', '8', 'Los', 34, 123, 234234, '1231231@hola', '2006-10-06', 2, 2),
-('si', 2, '100056535', 'hola', 'deossa', 'julian', 'dasd', 2, 7, 1, '46c56', '-', 'casa', '22', 'La', 32434, 454545, 3434234, '1231231@hola', '2006-10-02', 1, 4),
-('si', 2, '1000565352', 'ceballos', 'cardona', 'santiago', 'adsad', 2, 2, 1, 'ryr', '-', 'edificio', '21', 'Acevedo', 0, 254545454, 545454545, 'sant@hola', '2021-10-06', 1, 5),
-('si', 1, '104543', 'ceballos', 'deossa', 'santiago', '', 1, 11, 9, 'av46c 68-84Interior205', '-', '205', '13', 'Pablo', 4811590, 3912, 2334, 'santi@gmail.com', '2001-05-22', 2, 2),
-('si', 1, '1053290', 'Velez', 'soto', 'edwin', '', 2, 14, 2, '15 65', '-', 'casa', '23', 'Alto', 54545454, 66666, 98988, '1231231@hola', '2021-10-07', 2, 5);
+INSERT INTO `Personal_almacontact` (`AutorizaTratamientoDatos`, `Fk_TipoDocumento`, `Pk_NumeroDocumento`, `fechaExpedicion`, `lugarDeExpedicion`, `PrimerApellido`, `SegundoApellido`, `PrimerNombre`, `SegundoNombre`, `Fk_Sede`, `Fk_Area`, `Fk_TipoVia`, `NumeroVia`, `Guion`, `Interior`, `MunicipioResidencia`, `Barrios`, `Telefonofijo`, `Movil`, `TelefonoEmergencia`, `CorreoElectronico`, `FechaNacimiento`, `lugarNacimiento`, `estadoCivil`, `Fk_Genero`, `Fk_Idioma`) VALUES
+('si', 2, '1000565350', '2019-06-27', 'itagui', 'ceballos', 'deossa', 'santiago', '', 2, 15, 1, '46c # 68-84', '-', '234', '21', 424, 4811590, 30257505, '3197846786', 'santiceballos@gmail', '2001-06-13', 'medellin', '1', 1, 'Español,Portugués ,'),
+('si', 1, '1000565352', '2019-06-27', 'itagui', 'ceballos', 'deossa', 'santiago', '', 2, 15, 3, 'fg # 45', '-', '234', '25', 646, 4811590, 30257505, '3197846786', 'santiceballos@gmail', '2003-12-01', 'medellin', '1', 1, 'Frances,Alemán,'),
+('si', 1, '1000565359', '2019-06-27', 'itagui', 'ceballos', 'deossa', 'santiago', '', 2, 15, 1, '46c # 68-84', '-', '234', '21', 424, 4811590, 30257505, '3197846786', 'santiceballos@gmail', '2001-06-13', 'medellin', '1', 1, 'Español,Alemán,');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `PreguntaBool`
+--
+
+DROP TABLE IF EXISTS `PreguntaBool`;
+CREATE TABLE IF NOT EXISTS `PreguntaBool` (
+  `Id_Pregunta` int(11) NOT NULL,
+  `Id_RespuestaPregunta` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `PreguntaBool`
+--
+
+INSERT INTO `PreguntaBool` (`Id_Pregunta`, `Id_RespuestaPregunta`) VALUES
+(1, 'Si'),
+(2, 'No');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Restaurante`
+--
+
+DROP TABLE IF EXISTS `Restaurante`;
+CREATE TABLE IF NOT EXISTS `Restaurante` (
+  `Id_restaurante` int(11) NOT NULL,
+  `id_nombreRestaurante` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1123,6 +1465,18 @@ CREATE TABLE IF NOT EXISTS `Sede` (
 INSERT INTO `Sede` (`Id_sede`, `Nombre_sede`) VALUES
 (1, 'Bogota'),
 (2, 'Sabaneta');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TipoAlimentacion`
+--
+
+DROP TABLE IF EXISTS `TipoAlimentacion`;
+CREATE TABLE IF NOT EXISTS `TipoAlimentacion` (
+  `Id_tipoAlimentacion` int(11) NOT NULL,
+  `Nombre_tipoAlimentacion` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1228,9 +1582,61 @@ INSERT INTO `TipoVia` (`Id_tipo_via`, `Nombre_tipo_via`) VALUES
 (10, 'Vía'),
 (11, 'Avenida carrera');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TipoVivienda`
+--
+
+DROP TABLE IF EXISTS `TipoVivienda`;
+CREATE TABLE IF NOT EXISTS `TipoVivienda` (
+  `Id_vivienda` int(11) NOT NULL,
+  `Id_nombreVivienda` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Transporte`
+--
+
+DROP TABLE IF EXISTS `Transporte`;
+CREATE TABLE IF NOT EXISTS `Transporte` (
+  `Id_Transporte` int(11) NOT NULL,
+  `Id_NombreTransporte` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `Transporte`
+--
+
+INSERT INTO `Transporte` (`Id_Transporte`, `Id_NombreTransporte`) VALUES
+(1, 'Carro'),
+(2, 'Moto'),
+(3, 'Transporte publico'),
+(4, 'bicicleta');
+
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `AcademicaActual`
+--
+ALTER TABLE `AcademicaActual`
+  ADD PRIMARY KEY (`Id_academicaA`);
+
+--
+-- Indices de la tabla `Actividades`
+--
+ALTER TABLE `Actividades`
+  ADD PRIMARY KEY (`Id_actividades`);
+
+--
+-- Indices de la tabla `Alimentacion`
+--
+ALTER TABLE `Alimentacion`
+  ADD PRIMARY KEY (`Id_Alimentacion`);
 
 --
 -- Indices de la tabla `Barrio`
@@ -1238,6 +1644,36 @@ INSERT INTO `TipoVia` (`Id_tipo_via`, `Nombre_tipo_via`) VALUES
 ALTER TABLE `Barrio`
   ADD PRIMARY KEY (`Id_barrio`),
   ADD KEY `Barrio_ibfk_1` (`Fk_id_municipio`);
+
+--
+-- Indices de la tabla `Compras`
+--
+ALTER TABLE `Compras`
+  ADD PRIMARY KEY (`Id_compras`);
+
+--
+-- Indices de la tabla `EstadoCivil`
+--
+ALTER TABLE `EstadoCivil`
+  ADD PRIMARY KEY (`Id_estadoCivil`);
+
+--
+-- Indices de la tabla `FinanciacionEstudios`
+--
+ALTER TABLE `FinanciacionEstudios`
+  ADD PRIMARY KEY (`Id_financiacionEstudio`);
+
+--
+-- Indices de la tabla `FormacionAcademica`
+--
+ALTER TABLE `FormacionAcademica`
+  ADD PRIMARY KEY (`Id_Academico`);
+
+--
+-- Indices de la tabla `Frecuencia`
+--
+ALTER TABLE `Frecuencia`
+  ADD PRIMARY KEY (`Id_frecuencia`);
 
 --
 -- Indices de la tabla `Genero`
@@ -1259,6 +1695,12 @@ ALTER TABLE `Municipio`
   ADD KEY `Fk_id_sede` (`Fk_id_sede`);
 
 --
+-- Indices de la tabla `Musica`
+--
+ALTER TABLE `Musica`
+  ADD PRIMARY KEY (`Id_musica`);
+
+--
 -- Indices de la tabla `Perfil`
 --
 ALTER TABLE `Perfil`
@@ -1269,18 +1711,30 @@ ALTER TABLE `Perfil`
 --
 ALTER TABLE `Personal_almacontact`
   ADD PRIMARY KEY (`Pk_NumeroDocumento`),
-  ADD KEY `Fk_TipoDocumento` (`Fk_TipoDocumento`),
-  ADD KEY `Fk_Area` (`Fk_Area`),
-  ADD KEY `Fk_TipoVia` (`Fk_TipoVia`),
-  ADD KEY `Fk_Sede` (`Fk_Sede`),
-  ADD KEY `Fk_Genero` (`Fk_Genero`),
-  ADD KEY `Fk_Idioma` (`Fk_Idioma`);
+  ADD KEY `Fk_Idioma` (`Fk_Idioma`),
+  ADD KEY `Personal_almacontact_ibfk_1` (`Fk_TipoDocumento`),
+  ADD KEY `Personal_almacontact_ibfk_2` (`Fk_Area`),
+  ADD KEY `Personal_almacontact_ibfk_3` (`Fk_TipoVia`),
+  ADD KEY `Personal_almacontact_ibfk_4` (`Fk_Sede`),
+  ADD KEY `Personal_almacontact_ibfk_5` (`Fk_Genero`);
+
+--
+-- Indices de la tabla `PreguntaBool`
+--
+ALTER TABLE `PreguntaBool`
+  ADD PRIMARY KEY (`Id_Pregunta`);
 
 --
 -- Indices de la tabla `Sede`
 --
 ALTER TABLE `Sede`
   ADD PRIMARY KEY (`Id_sede`);
+
+--
+-- Indices de la tabla `TipoAlimentacion`
+--
+ALTER TABLE `TipoAlimentacion`
+  ADD PRIMARY KEY (`Id_tipoAlimentacion`);
 
 --
 -- Indices de la tabla `TipoArea`
@@ -1307,14 +1761,66 @@ ALTER TABLE `TipoVia`
   ADD PRIMARY KEY (`Id_tipo_via`);
 
 --
+-- Indices de la tabla `TipoVivienda`
+--
+ALTER TABLE `TipoVivienda`
+  ADD PRIMARY KEY (`Id_vivienda`);
+
+--
+-- Indices de la tabla `Transporte`
+--
+ALTER TABLE `Transporte`
+  ADD PRIMARY KEY (`Id_Transporte`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `AcademicaActual`
+--
+ALTER TABLE `AcademicaActual`
+  MODIFY `Id_academicaA` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `Actividades`
+--
+ALTER TABLE `Actividades`
+  MODIFY `Id_actividades` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `Alimentacion`
+--
+ALTER TABLE `Alimentacion`
+  MODIFY `Id_Alimentacion` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `Barrio`
 --
 ALTER TABLE `Barrio`
-  MODIFY `Id_barrio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=849;
+  MODIFY `Id_barrio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1008;
+--
+-- AUTO_INCREMENT de la tabla `Compras`
+--
+ALTER TABLE `Compras`
+  MODIFY `Id_compras` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `EstadoCivil`
+--
+ALTER TABLE `EstadoCivil`
+  MODIFY `Id_estadoCivil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `FinanciacionEstudios`
+--
+ALTER TABLE `FinanciacionEstudios`
+  MODIFY `Id_financiacionEstudio` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `FormacionAcademica`
+--
+ALTER TABLE `FormacionAcademica`
+  MODIFY `Id_Academico` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `Frecuencia`
+--
+ALTER TABLE `Frecuencia`
+  MODIFY `Id_frecuencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `Genero`
 --
@@ -1331,15 +1837,30 @@ ALTER TABLE `Idioma`
 ALTER TABLE `Municipio`
   MODIFY `Id_municipio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
+-- AUTO_INCREMENT de la tabla `Musica`
+--
+ALTER TABLE `Musica`
+  MODIFY `Id_musica` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `Perfil`
 --
 ALTER TABLE `Perfil`
   MODIFY `Id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT de la tabla `PreguntaBool`
+--
+ALTER TABLE `PreguntaBool`
+  MODIFY `Id_Pregunta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `Sede`
 --
 ALTER TABLE `Sede`
   MODIFY `Id_sede` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `TipoAlimentacion`
+--
+ALTER TABLE `TipoAlimentacion`
+  MODIFY `Id_tipoAlimentacion` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `TipoArea`
 --
@@ -1360,6 +1881,16 @@ ALTER TABLE `TipoRegistro`
 --
 ALTER TABLE `TipoVia`
   MODIFY `Id_tipo_via` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT de la tabla `TipoVivienda`
+--
+ALTER TABLE `TipoVivienda`
+  MODIFY `Id_vivienda` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `Transporte`
+--
+ALTER TABLE `Transporte`
+  MODIFY `Id_Transporte` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --
@@ -1384,8 +1915,7 @@ ALTER TABLE `Personal_almacontact`
   ADD CONSTRAINT `Personal_almacontact_ibfk_2` FOREIGN KEY (`Fk_Area`) REFERENCES `TipoArea` (`Id_area`),
   ADD CONSTRAINT `Personal_almacontact_ibfk_3` FOREIGN KEY (`Fk_TipoVia`) REFERENCES `TipoVia` (`Id_tipo_via`),
   ADD CONSTRAINT `Personal_almacontact_ibfk_4` FOREIGN KEY (`Fk_Sede`) REFERENCES `Sede` (`Id_sede`),
-  ADD CONSTRAINT `Personal_almacontact_ibfk_5` FOREIGN KEY (`Fk_Genero`) REFERENCES `Genero` (`Id_genero`),
-  ADD CONSTRAINT `Personal_almacontact_ibfk_6` FOREIGN KEY (`Fk_Idioma`) REFERENCES `Idioma` (`Id_idioma`);
+  ADD CONSTRAINT `Personal_almacontact_ibfk_5` FOREIGN KEY (`Fk_Genero`) REFERENCES `Genero` (`Id_genero`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
