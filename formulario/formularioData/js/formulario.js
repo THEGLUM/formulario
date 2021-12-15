@@ -1,13 +1,21 @@
+/* JAVASCRIPT DEL FORMULARIO PRINCIPAL */
+
+/* funcion que procede a dar un calendario en formato que lo pueda leer SQL
+	esto tiene un formato de yy-mm-dd
+*/
 $(document).ready(function (e) {
 	$('#fechaNacimiento').datepicker({
 		dateFormat: 'yy-mm-dd',
 		maxDate: '-18y ',
 	})
+	/* esta es para la fecha de expedicion */
 	$('#expedicion').datepicker({
 		dateFormat: 'yy-mm-dd',
 		maxDate: '-1d ',
 	})
 
+	/* funcion que maneja todo el apardo del combo box ya que esto cambia segun escucha un evento  */
+	/* SEDE LABORAL PARA SACAR EL MUNICIPIO*/
 	$('#sedeLaboral').change(function () {
 		let parametros = 'id= ' + $('#sedeLaboral').val()
 		$.ajax({
@@ -23,6 +31,8 @@ $(document).ready(function (e) {
 			},
 		})
 	})
+
+	/* MUNICIPIO DE RECIDENCIA PARA SACAR EL BARRIO */
 
 	$('#municipioDeRecidencia').change(function () {
 		let parametros = 'id_municipio= ' + $('#municipioDeRecidencia').val()
@@ -41,34 +51,34 @@ $(document).ready(function (e) {
 	})
 })
 
+/* funciones para los campos de texto se introdusca correctamente los valores designado */
 jQuery(document).ready(function () {
-	// Listen for the input event.
+	// numero de documento
 	jQuery('#numeroDeDocumento').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
 				.replace(/[^0-9]/g, '')
 		)
 	})
+	// telefono de emergencia
 	jQuery('#telefonoEmergencia').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
 				.replace(/[^0-9]/g, '')
 		)
 	})
+	//movil
 	jQuery('#Movil').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
 				.replace(/[^0-9]/g, '')
 		)
 	})
+	//telefono
 	jQuery('#telefono').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
@@ -76,8 +86,8 @@ jQuery(document).ready(function () {
 		)
 	})
 
+	//primer apellido
 	jQuery('#PrimerApellido').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
@@ -85,8 +95,8 @@ jQuery(document).ready(function () {
 		)
 	})
 
+	//segundo nombre
 	jQuery('#segundoNombre').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
@@ -94,8 +104,8 @@ jQuery(document).ready(function () {
 		)
 	})
 
+	//segundo apellido
 	jQuery('#segundoApellido').on('input', function (evt) {
-		// Allow only numbers.
 		jQuery(this).val(
 			jQuery(this)
 				.val()
@@ -104,11 +114,19 @@ jQuery(document).ready(function () {
 	})
 })
 
+//primer nombre
 jQuery('#primeroNombre').on('input', function (evt) {
-	// Allow only numbers.
 	jQuery(this).val(
 		jQuery(this)
 			.val()
 			.replace(/[^aA-zZ]/g, '')
 	)
+})
+
+//seleccion multiple
+$(function () {
+	$('#multipleSelect').selectpicker()
+})
+$(function () {
+	$('#lugarDeExpedicionDeLaCedula').selectpicker()
 })

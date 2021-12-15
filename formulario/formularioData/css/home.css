@@ -1,9 +1,15 @@
+/*
+	ESTILOS DE DEL INDEX (HOME)
+*/
+
+/* estilo universales de home */
 * {
 	margin: 0;
 	padding: 0;
 	font-family: 'Poppins', sans-serif;
 }
 
+/* esto del contenedor */
 .contenedor {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -14,6 +20,7 @@
 	justify-content: center;
 }
 
+/* estilos de botones */
 .botones {
 	display: flex;
 	flex-direction: column;
@@ -63,16 +70,18 @@
 	margin-left: 150px;
 }
 
+/* estilos de la barra de  desplazamiento de web */
+
 body::-webkit-scrollbar {
-	width: 12px; /* width of the entire scrollbar */
+	width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-	background: rgb(248, 248, 248); /* color of the tracking area */
+	background: rgb(248, 248, 248);
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: rgba(107, 104, 104, 0.548); /* color of the scroll thumb */
-	border-radius: 20px; /* roundness of the scroll thumb */
-	border: 3px solid rgb(241, 241, 241); /* creates padding around scroll thumb */
+	background-color: rgba(107, 104, 104, 0.548);
+	border-radius: 20px;
+	border: 3px solid rgb(241, 241, 241);
 }

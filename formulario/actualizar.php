@@ -1,12 +1,19 @@
 <?php
+// IMPORTACION DE LA CONEXION
 $conn = require_once('conexion.php');
-try {
 
+
+//COMIENZO DEL TRY CACHT PARA MANERJAR ERRRRES
+try {
+    //OBTENCION DEL LOS VALORES DEL BUSCAR PARA EJECUTAR EN MYSQL
     $idUser = $_POST['idUser'];
 
+    // PREPARACION DEL SCRIPT DE MYSQL
     $consul = $conn -> prepare("SELECT * FROM Personal_almacontact WHERE Pk_NumeroDocumento = '$idUser' ");
-    $consul -> execute();
-    $data = $consul -> fetchAll();
+    $consul -> execute(); //EJECUCION
+    $data = $consul -> fetchAll(); //asignacion de a que pase a todo un array
+
+    //comienzo del apartado for each para recorer toda la matriz para asginar a las variables
     foreach ( $data as $datos):
         $Fk_Sede1 = $datos["Fk_Sede"];
         $Fk_Area1 =  $datos['Fk_Area'];
@@ -19,6 +26,8 @@ try {
         $TelefonoEmergencia1 = $datos['TelefonoEmergencia'];
         $CorreoElectronico1 = $datos['CorreoElectronico'];
         $NumeroVia1 = $datos['NumeroVia'];
+        $ultimaModificacion1 = $datos['ultima_modificacion'];
+
     endforeach;
 
     //condicionales para verificar si todo fue insertado correctamente
@@ -62,7 +71,7 @@ try {
         if(empty($Movil)) {
             $Movil = $Movil1;
         }
-        echo $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
+        $TelefonoEmergencia = trim($_POST["telefonoEmergencia"]);
         if(empty($TelefonoEmergencia)) {
             $TelefonoEmergencia = $TelefonoEmergencia1;
         }
@@ -75,6 +84,12 @@ try {
             $NumeroVia = $NumeroVia1;
         }else {
             $NumeroVia = $NumeroViaDos . "#" . $numeroViaFinal;
+        }
+        $ultimaModificacion = date('Y-m-d');
+        if ($ultimaModificacion != $ultimaModificacion1) {
+            $ultimaModificacion;
+        }else{
+            $ultimaModificacion = $ultimaModificacion1;
         }
 
 
@@ -89,9 +104,10 @@ try {
         header("Location: ./formularioData/html/actualizardatos.php");
         echo '<script> alert("por favor introduzca los de mas datos necesarios")</script>';
     }else {
-        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico' WHERE Pk_NumeroDocumento = '$idUser'");
+        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico', ultima_modificacion = '$ultimaModificacion' WHERE Pk_NumeroDocumento = '$idUser'");
         $query->execute();
     }
+    //REDIRECCIN SI TODO FUE CORRECTAMENTE
     echo '
         <!DOCTYPE html>
         <html lang="en">

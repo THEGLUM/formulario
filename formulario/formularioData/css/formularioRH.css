@@ -1,8 +1,15 @@
+/* 
+-------------------------
+ESTILO DEL FORMULARIO DE RH
+-------------------------
+*/
+
 * {
 	margin: 0%;
 	padding: 0%;
 }
 
+/* estilos de caja padre */
 .cajaPadre {
 	display: flex;
 	flex-direction: column;

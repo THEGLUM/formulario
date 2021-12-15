@@ -1,3 +1,7 @@
+<!-- 
+    COMIENZO DEL HTML DEL FORMULARIO DE LA GENTE DE RECUSOS HUMANOS
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +25,7 @@
 </head>
 <body>
 <header>
+    <!-- ESTE PEDAZO DE CODIGO ES LA PARTE MENU  -->
         <div class="navegator">
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
@@ -32,16 +37,26 @@
         </nav>
         </div>
     </header>
+
+    <!-- ESTO ES EL CONTENEDOR QUE TIENE TODO EL APARTADO DEL FORMULARIO DE LOS DE RECUSOS HUMANOS -->
     <section class='contenedor'>
         <div class="img">
             <img src="../img/formularioRH.svg" alt="">
         </div>
         <form action="../../formularioPR.php" method="post">
-            <div class="cajaPadre">
-                <div class= 'cajaHija'>
+            <!-- ACA LO SECCIONO POR UNOS DIV QUE ME VAN A DAR MEJOR ESTRUCTURA Y LEGIBILIDAD AL PROYECTO -->
+            <div class="cajaPadre"> <!-- ACA COMIENZA LA CAJA PADRE Y QUE LA ESTRUCTURA COMO TAL -->
+                <div class= 'cajaHija'><!-- ESTA ES LA CLASE QUE PUEDE TENER UN DIV Y SE PUEDE DUPLICAR LA CLASE PARA TENER UNA INFOMACION QUE SE LE INDIQUE -->
+
+                <!-- 
+                    ----------------------------
+                        PREGUNTA DE TRANSPORTE
+                    ---------------------------
+                 -->
                 <label for="medioTransporte">¿Cual es el medio de transporte que utilizas para ir a  tu trabjo?</label>
                 <select name="medioTransporte" id="medioTransporte" class = 'form-select form-select-mb 2'>
                     <option slected value="">seleccione un medio de transporte</option>
+                    <!-- EN ESTE TROZO DE CODIGO HAGO UNA CONSULTA PARA QUE ME TRAIGA TODO LO QUE SERIA LA INFOMACION SEGUN LO QUE SE NECESITE -->
                     <?php
                         $select = include_once ('../../conexion.php');
                         $select = $conn -> prepare('SELECT * FROM Transporte');
@@ -53,10 +68,16 @@
                     ?>
                 </select>
                 </div>
+                <!-- 
+                    ----------------------------
+                        PREGUNTA DE CONSUMO
+                    ---------------------------
+                 -->
                 <div class= 'cajaHija'>
                 <label for="frecuenciaFumar">¿Con que frecuencia fumas?</label>
                 <select name="frecuenciaFumar" id="frecuenciaFumar" class = 'form-select form-select-mb'>
                     <option slected value="">seleccione la frecuencia con la que fumas</option>
+                    <!-- EN ESTE TROZO DE CODIGO HAGO UNA CONSULTA PARA QUE ME TRAIGA TODO LO QUE SERIA LA INFOMACION SEGUN LO QUE SE NECESITE -->
                     <?php
                         $select = include_once ('../../conexion.php');
                         $select = $conn -> prepare('SELECT * FROM Frecuencia');
@@ -72,6 +93,7 @@
                 <label for="frecuenciaBebes">¿Con que frecuencia bebes?</label>
                 <select name="frecuenciaBebes" id="frecuenciaBebes" class = 'form-select form-select-mb'>
                     <option slected value="">seleccione la frecuencia con la que bebes</option>
+                    <!-- EN ESTE TROZO DE CODIGO HAGO UNA CONSULTA PARA QUE ME TRAIGA TODO LO QUE SERIA LA INFOMACION SEGUN LO QUE SE NECESITE -->
                     <?php
                         $select = include_once ('../../conexion.php');
                         $select = $conn -> prepare('SELECT * FROM Frecuencia');
@@ -138,6 +160,7 @@
                 <button type="submit" class = 'bntEnviar btn btn-outline-success'>enviar</button>
             </div>
         </form>
+</div>
     </section>
     <footer class = 'piePagina'>
 

@@ -12,8 +12,9 @@ $conn = require_once('conexion.php');
     $Fk_Sede                = trim($_POST["sedeLaboral"]);
     $Fk_Area                = trim($_POST["area"]);
     $Fk_TipoVia             = trim($_POST["direccion"]);
-    $numeroViaFinal         = trim($_POST["numeroViaUno"]);
-    $NumeroViaDos           = trim($_POST["numeroViaDos"]);
+    $numeroVia              = trim($_POST["numeroVia"]);
+    $letraVia               = trim($_POST["letraVia"]);
+    $numeroCasa             = trim($_POST["numeroCasa"]);
     $Interior               = trim($_POST["interior"]);
     $Municipio              = trim($_POST["municipioRecidencia"]);
     $Barrios                = trim( $_POST["barrio"]);
@@ -25,16 +26,17 @@ $conn = require_once('conexion.php');
     $Fk_Genero              = trim($_POST["genero"]);
     $Fk_idioma2 = '';
     foreach ($_POST["idiomas"] as $Fk_idioma):
-            $Fk_idioma2 = $Fk_idioma2.$Fk_idioma.",";
+        $Fk_idioma2 = $Fk_idioma2.$Fk_idioma.",";
     endforeach;
     $lugarNacimiento       = trim($_POST["lugarDeNaciemiento"]);
     $fechaExpedicion        = trim($_POST["expedicion"]);
     $lugarDeExpedicion      = trim($_POST["lugarDeExpedicionDeLaCedula"]);
     $estadoCivil            = trim($_POST["estadoCivil"]);
     $Guion                  = "-";
-    $NumeroVia              = $NumeroViaDos." # ".$numeroViaFinal;
+    $DireccionFinal              = $numeroVia.$letraVia." # ".$numeroCasa;
+    $fechaActual = date('Y-m-d');
 
-    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma,ultima_modificacion) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
     $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
     $query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
@@ -48,7 +50,7 @@ $conn = require_once('conexion.php');
     $query->bindParam(10, $Fk_Sede, PDO::PARAM_INT);
     $query->bindParam(11, $Fk_Area, PDO::PARAM_INT);
     $query->bindParam(12, $Fk_TipoVia, PDO::PARAM_INT);
-    $query->bindParam(13, $NumeroVia, PDO::PARAM_STR);
+    $query->bindParam(13, $DireccionFinal, PDO::PARAM_STR);
     $query->bindParam(14, $Guion, PDO::PARAM_STR);
     $query->bindParam(15, $Interior, PDO::PARAM_STR);
     $query->bindParam(16, $Municipio, PDO::PARAM_STR);
@@ -62,6 +64,7 @@ $conn = require_once('conexion.php');
     $query->bindParam(24, $estadoCivil, PDO::PARAM_STR);
     $query->bindParam(25, $Fk_Genero, PDO::PARAM_INT);
     $query->bindParam(26, $Fk_idioma2, PDO::PARAM_STR);
+    $query->bindParam(27, $fechaActual, PDO::PARAM_STR);
 
     $query->execute();
 

@@ -1,7 +1,14 @@
+/* 
+-------------------------
+ESTILO DEL FORMULARIO ACTUALIZAR
+-------------------------
+*/
+
 * {
 	font-family: 'Poppins', sans-serif;
 }
 
+/* estilos de contenedor */
 .contenedor {
 	margin-top: 0;
 	display: grid;
@@ -10,10 +17,12 @@
 	width: 100%;
 	margin-bottom: 100px;
 }
+/* estilos de contenedor imagen */
 
 .img img {
 	grid-column: 2;
 }
+/* posicionamiento del formulario con estilos */
 
 .formulario {
 	display: flex;
@@ -53,6 +62,8 @@
 	font-size: 12px;
 	color: blue;
 }
+
+/* configuracion de la barra lateral del formulario */
 body::-webkit-scrollbar {
 	width: 12px; /* width of the entire scrollbar */
 }

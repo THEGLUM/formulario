@@ -1,5 +1,5 @@
 <?php
-
+// algoritmo para traer lo que seria todo los barrio
 $id = $_POST['id_municipio'];
 $html='';
 if(isset($id)){

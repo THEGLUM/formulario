@@ -1,5 +1,5 @@
+/* FUNCIONES PARA QUE SOLAMENTE EL TEXBOX SOLO TENGA NUMEROS */
 jQuery('#telefonoFijo').on('input', function (evt) {
-	// Allow only numbers.
 	jQuery(this).val(
 		jQuery(this)
 			.val()
@@ -7,7 +7,6 @@ jQuery('#telefonoFijo').on('input', function (evt) {
 	)
 })
 jQuery('#movil').on('input', function (evt) {
-	// Allow only numbers.
 	jQuery(this).val(
 		jQuery(this)
 			.val()
@@ -15,7 +14,6 @@ jQuery('#movil').on('input', function (evt) {
 	)
 })
 jQuery('#telefonoEmergencia').on('input', function (evt) {
-	// Allow only numbers.
 	jQuery(this).val(
 		jQuery(this)
 			.val()
@@ -23,6 +21,15 @@ jQuery('#telefonoEmergencia').on('input', function (evt) {
 	)
 })
 
+jQuery('#ingreseCedula').on('input', function (evt) {
+	jQuery(this).val(
+		jQuery(this)
+			.val()
+			.replace(/[^0-9]/g, '')
+	)
+})
+
+/* FUNCION PARA QUE EL COMBO BOX ACTIVE CUANDO HALLA UN CAMBIO */
 $('#sedeLaboral').change(function () {
 	let parametros = 'id= ' + $('#sedeLaboral').val()
 	$.ajax({
@@ -38,7 +45,7 @@ $('#sedeLaboral').change(function () {
 		},
 	})
 })
-
+// esta funcion es el seguimiento de la funcion de arriba para cuando escuche un evento
 $('#municipioDeRecidencia').change(function () {
 	let parametros = 'id_municipio= ' + $('#municipioDeRecidencia').val()
 	$.ajax({
