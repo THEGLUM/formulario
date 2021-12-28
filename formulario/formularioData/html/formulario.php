@@ -96,7 +96,7 @@
               <div class="caja">
               <i class="bi bi-credit-card-2-front"></i> <label for="numeroDeDocumento">Numero de Documento*</label>
                 <div  id="input" class="input-group input-group-sm mb-3">
-                  <input type="text" class="form-control" required="true" maxlength="50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
+                  <input type="text" class="form-control" required="true" maxlength="15" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="numeroDeDocumento" name="numeroDeDocumento">
                 </div>
               </div>
 
@@ -229,7 +229,6 @@
                     </select>
 
                   </div>
-
                   <!--
                     -----------------
                     DIRECCION
@@ -256,7 +255,7 @@
                       <span class="input-group-text"></span>
                       <select class="form-select" name="numeroVia" required="true">
                         <option value=''>selecciona</option>
-                        <?php 
+                        <?php
                           $a = 1;
                           while ($a <= 150) {
                             echo "<option value='$a'>$a</option>";
@@ -387,6 +386,18 @@
 
                     <!--
                     ----------------------------
+                        NOMBRE DE LA PERSONA DE MI PARENTEZCO
+                    ---------------------------
+                    -->
+                  <div class="caja">
+                  <i class="bi bi-person"></i> <label for="nombreEmergencia">Nombre de parentesco de mi numero de emergencia*</label>
+                    <div class="input-group input-group-sm mb-3">
+                      <input type="text" name="NombreEmergencia" maxlength="20" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="nombreEmergencia">
+                    </div>
+                  </div>
+
+                    <!--
+                    ----------------------------
                         CORREO ELECTRONICO
                     ---------------------------
                     -->
@@ -413,13 +424,22 @@
                         LUGAR DE NACIEMIENTO
                     ---------------------------
                     -->
-                  <div class="caja">
-                  <i class="bi bi-geo-alt"></i> <label for="lugarDeNaciemiento">Lugar de nacimiento*</label>
+                <div class="caja">
+                <i class="bi bi-people"></i><label for="lugarDeNaciemiento">lugar de nacimiento*</label>
+                  <select class="selectpicker form-control " name="lugarDeNaciemiento" data-live-search="true"  required="true" aria-label=".form-select-sm example" id="lugarDeNaciemiento">
+                    <option value=""> selecciona</option>
+                      <?php
+                          $select = include_once("../../conexion.php");
+                          $select = $conn->prepare("SELECT * FROM LugarExpedicion");
+                          $select->execute();
+                          $data = $select->fetchAll();
+                          foreach ($data as $valores):
+                          echo '<option value="'.$valores["Id_lugarExpedicion"].'">'.$valores["Nombre_lugarExpedicion"].'</option>';
+                          endforeach;
+                          ?>
+                      </select>
 
-                    <div class="input-group input-group-sm mb-3">
-                      <input type="text"  class="form-control" maxlength="50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required="true" id="lugarDeNaciemiento" name="lugarDeNaciemiento">
                     </div>
-                  </div>
                     <!--
                     ----------------------------
                         GENERO
@@ -468,7 +488,7 @@
                     <div class="form-check" >
                     <input class="form-check-input" type="checkbox" value="si" id="flexCheckIndeterminate" required="true" name= "autorizacion"  >
                     <label class="form-check-label" for="flexCheckIndeterminate" >
-                      <a  href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos</a>
+                      <a  href="https://almacontact-my.sharepoint.com/:w:/g/personal/jbecerra_almacontactcol_co/EcIpeut13BxBg9G3AUuanUQBWP0OtvJUMzXcKByr0Ru28Q?e=oYk4VO" target="_blank" class="tratamientosDatos" > Autorizo el tratamiento de datos y autorizo clausula de confidencialidad</a>
                     </label>
                   </div>
 

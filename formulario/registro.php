@@ -21,6 +21,7 @@ $conn = require_once('conexion.php');
     $Telefonofijo           = trim($_POST["telefono"]);
     $Movil                  = trim($_POST["movil"]);
     $TelefonoEmergencia     = trim($_POST["telefonoEmergencia"]);
+    $nombreEmergencia       = trim($_POST["NombreEmergencia"]);
     $CorreoElectronico      = trim($_POST["correo"]);
     $FechaNacimiento        = trim($_POST["fechaNacimiento"]);
     $Fk_Genero              = trim($_POST["genero"]);
@@ -36,7 +37,7 @@ $conn = require_once('conexion.php');
     $DireccionFinal              = $numeroVia.$letraVia." # ".$numeroCasa;
     $fechaActual = date('Y-m-d');
 
-    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma,ultima_modificacion) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,nombre_parentesco,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma,ultima_modificacion) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
     $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
     $query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
@@ -57,14 +58,15 @@ $conn = require_once('conexion.php');
     $query->bindParam(17, $Barrios, PDO::PARAM_STR);
     $query->bindParam(18, $Telefonofijo, PDO::PARAM_INT);
     $query->bindParam(19, $TelefonoEmergencia,PDO::PARAM_INT);
-    $query->bindParam(20, $Movil, PDO::PARAM_INT);
-    $query->bindParam(21, $CorreoElectronico, PDO::PARAM_STR);
-    $query->bindParam(22, $FechaNacimiento, PDO::PARAM_STR);
-    $query->bindParam(23, $lugarNacimiento, PDO::PARAM_STR);
-    $query->bindParam(24, $estadoCivil, PDO::PARAM_STR);
-    $query->bindParam(25, $Fk_Genero, PDO::PARAM_INT);
-    $query->bindParam(26, $Fk_idioma2, PDO::PARAM_STR);
-    $query->bindParam(27, $fechaActual, PDO::PARAM_STR);
+    $query->bindParam(20, $nombreEmergencia,PDO::PARAM_STR);
+    $query->bindParam(21, $Movil, PDO::PARAM_INT);
+    $query->bindParam(22, $CorreoElectronico, PDO::PARAM_STR);
+    $query->bindParam(23, $FechaNacimiento, PDO::PARAM_STR);
+    $query->bindParam(24, $lugarNacimiento, PDO::PARAM_STR);
+    $query->bindParam(25, $estadoCivil, PDO::PARAM_STR);
+    $query->bindParam(26, $Fk_Genero, PDO::PARAM_INT);
+    $query->bindParam(27, $Fk_idioma2, PDO::PARAM_STR);
+    $query->bindParam(28, $fechaActual, PDO::PARAM_STR);
 
     $query->execute();
 

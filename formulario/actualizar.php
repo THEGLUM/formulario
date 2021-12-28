@@ -15,7 +15,6 @@ try {
 
     //comienzo del apartado for each para recorer toda la matriz para asginar a las variables
     foreach ( $data as $datos):
-        $Fk_Sede1 = $datos["Fk_Sede"];
         $Fk_Area1 =  $datos['Fk_Area'];
         $Fk_TipoVia1 = $datos['Fk_TipoVia'];
         $Interior1 = $datos['Interior'];
@@ -34,10 +33,6 @@ try {
         $idUser = $_POST['idUser'];
         if(empty($idUser)) {
             $idUser = $idUser1;
-        }
-        $Fk_Sede =  trim($_POST["sedeLaboral"]);
-        if(empty($Fk_Sede)) {
-            $Fk_Sede = $Fk_Sede1;
         }
         $Fk_Area = trim($_POST["Area"]);
         if(empty($Fk_Area)) {
@@ -104,7 +99,7 @@ try {
         header("Location: ./formularioData/html/actualizardatos.php");
         echo '<script> alert("por favor introduzca los de mas datos necesarios")</script>';
     }else {
-        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Sede = '$Fk_Sede', Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico', ultima_modificacion = '$ultimaModificacion' WHERE Pk_NumeroDocumento = '$idUser'");
+        $query = $conn ->prepare("UPDATE Personal_almacontact SET Fk_Area = '$Fk_Area', Fk_TipoVia = '$Fk_TipoVia', NumeroVia = '$NumeroVia', Interior = '$Interior', MunicipioResidencia = '$Municipio', Barrios = '$Barrios', Telefonofijo = '$Telefonofijo', Movil = '$Movil', TelefonoEmergencia = '$TelefonoEmergencia', CorreoElectronico = '$CorreoElectronico', ultima_modificacion = '$ultimaModificacion' WHERE Pk_NumeroDocumento = '$idUser'");
         $query->execute();
     }
     //REDIRECCIN SI TODO FUE CORRECTAMENTE

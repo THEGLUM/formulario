@@ -133,25 +133,6 @@ try {
 
           <!--
           -----------------
-          SEDE LABORAL
-          -----------------
-          -->
-        <label for="sedeLaboral">Sede Laboral*</label>
-        <select class="form-select form-select-sm" name="sedeLaboral" aria-label=".form-select-sm example" id="sedeLaboral">
-          <option  value="">selecciona sede </option>
-          <?php
-          $select = include_once("../../conexion.php");
-          $select = $conn->prepare("SELECT * FROM Sede");
-          $select->execute();
-          $data = $select->fetchAll();
-          foreach ($data as $valores) :
-            echo '<option value="' . $valores["Id_sede"] . '">' . $valores["Nombre_sede"] . '</option>';
-            $sede = $valores;
-          endforeach;
-          ?>
-        </select>
-          <!--
-          -----------------
           MUNICIPIO DE RECIDENCIA
           -----------------
           -->
@@ -252,15 +233,6 @@ try {
                                                                                       } ?>">
         </input>
 
-
-          <!--
-          -----------------
-          SEDE LABORAL
-          -----------------
-          -->
-        <label for="sedeLaboral">Sede Laboral*</label>
-        <input class="form-control form-select-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userSedeLAboral;} ?>" aria-label=".form-select-sm example" id="sedeLaboral" disabled>
-        </input>
           <!--
           -----------------
           MUNICIPIO DE RECIDENCIA

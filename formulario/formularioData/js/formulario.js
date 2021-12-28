@@ -122,11 +122,23 @@ jQuery('#primeroNombre').on('input', function (evt) {
 			.replace(/[^aA-zZ]/g, '')
 	)
 })
-
+//perosona de parentesco
+jQuery('#nombreEmergencia').on('input', function (evt) {
+	jQuery(this).val(
+		jQuery(this)
+			.val()
+			.replace(/[^aA-zZ]/g, '')
+	)
+})
 //seleccion multiple
 $(function () {
 	$('#multipleSelect').selectpicker()
 })
+//lufar de expedicion
 $(function () {
 	$('#lugarDeExpedicionDeLaCedula').selectpicker()
+})
+
+$(function () {
+	$('#lugarDeNaciemiento').selectpicker()
 })
