@@ -32,6 +32,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="../js/multi.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
 
 
 <script src="../js/query/jquery-ui.min.js"></script>
@@ -66,6 +67,8 @@
               <form action="../../registro.php" method="POST" >
               <div class="titulo">Sistema de creación de usuario</div>
               <img src="../img/formulario.svg" alt="imagen de formulario" height="300px" width="600px">
+
+              <input type="text" hidden name="uuid" id='uuid' value = '' ></input>
               <!--
                 -----------------
                 TIPO DE DOCUMENTO
@@ -390,7 +393,7 @@
                     ---------------------------
                     -->
                   <div class="caja">
-                  <i class="bi bi-person"></i> <label for="nombreEmergencia">Nombre de parentesco de mi numero de emergencia*</label>
+                  <i class="bi bi-person"></i> <label for="nombreEmergencia">parentesco de mi numero de emergencia*</label>
                     <div class="input-group input-group-sm mb-3">
                       <input type="text" name="NombreEmergencia" maxlength="20" required="true" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="nombreEmergencia">
                     </div>

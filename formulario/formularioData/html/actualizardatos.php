@@ -131,27 +131,6 @@ try {
         </select>
 
 
-          <!--
-          -----------------
-          MUNICIPIO DE RECIDENCIA
-          -----------------
-          -->
-        <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
-        <select class="form-select form-select-sm" name="municipioRecidencia" aria-label=".form-select-sm example" id="municipioDeRecidencia">
-          <option  value="">selecciona el municipio </option>
-        </select>
-
-
-
-          <!--
-          -----------------
-          BARRIO
-          -----------------
-          -->
-        <label for="barrio">Barrio*</label>
-        <select class="form-select form-select-sm" name="barrio" aria-label=".form-select-sm example" id="Barrio">
-          <option  value="">selecciona el barrio </option>
-        </select>
 
 
           <!--
@@ -233,23 +212,6 @@ try {
                                                                                       } ?>">
         </input>
 
-          <!--
-          -----------------
-          MUNICIPIO DE RECIDENCIA
-          -----------------
-          -->
-        <label for="municipioDeRecidencia">Municipio de Recidencia*</label>
-        <input type="text" class="form-control form-control-sm" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userMunicipios;} ?>" aria-label=".form-select-sm example" id="municipioDeRecidencia" disabled>
-        </input>
-
-          <!--
-          -----------------
-          BARRIO
-          -----------------
-          -->
-        <label for="barrio">Barrio*</label>
-        <input class="form-control form-control-sm disanble" placeholder="<?php if (isset($_POST["txtCorreo"]) && !empty(isset($_POST["txtCorreo"]))) {echo $userBarrio;} ?>" aria-label=".form-select-sm example" id="userBarrio" disabled>
-        </input>
           <!--
           -----------------
           DIRECCION

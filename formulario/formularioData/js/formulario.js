@@ -142,3 +142,5 @@ $(function () {
 $(function () {
 	$('#lugarDeNaciemiento').selectpicker()
 })
+
+document.getElementById('uuid').value = uuid.v4()
