@@ -255,7 +255,6 @@
                         ?>
                     </select>
                     <div class="dire input-group input-group-sm">
-                      <span class="input-group-text"></span>
                       <select class="form-select" name="numeroVia" required="true">
                         <option value=''>selecciona</option>
                         <?php
@@ -463,6 +462,37 @@
                         ?>
                     </select>
                   </div>
+
+                  <!--
+                    --------------------------
+                        Esquema de vacunacion
+                    -------------------------
+                    -->
+                  <div class="caja">
+                  </select>
+                  <i class="bi bi-bandaid"></i> <label for="genero">¿Te has vacunado?</label>
+                  <select class="form-select" name="vacunaCovid1" >
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="dire input-group input-group-sm">
+                      <select class="form-select" name="vacunaCovid2" >
+                      <option value=''>cual vacuna</option>
+                        <option value="Paizer">Paizer</option>
+                        <option value="Moderna">Moderna</option>
+                        <option value="Moderna">Sinovac</option>
+                        <option value="Moderna">astrazeneca</option>
+                        <option value=""></option>
+                      </select>
+                      <select class="form-select" name="vacunaCovid3" >
+                        <option value=' ' >Cuantas dosis</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+                    </select>
+                  </div>
+
 
                     <!--
                     ----------------------------

@@ -37,8 +37,20 @@ $conn = require_once('conexion.php');
     $DireccionFinal              = $numeroVia.$letraVia." # ".$numeroCasa;
     $fechaActual = date('Y-m-d');
     $uuid = ($_POST['uuid']);
+    if ($_POST['vacunaCovid1'] == 'No'){
+        $VacunaCovid1 = 'NO APLICA';
+        $VacunaCovid2 = 'NO APLICA';
+        $VacunaCovid3 = 'NO APLICA';
+        $VacunaCovid4 = $VacunaCovid1.','.$VacunaCovid2.','.$VacunaCovid3;
+    }else {
 
-    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,nombre_parentesco,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma,ultima_modificacion, uuid) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+        $VacunaCovid1 = trim($_POST['vacunaCovid1']);
+        $VacunaCovid2 = trim($_POST['vacunaCovid2']);
+        $VacunaCovid3 = trim($_POST['vacunaCovid3']);
+        $VacunaCovid4 = $VacunaCovid1.','.$VacunaCovid2.','.$VacunaCovid3;
+    }
+
+    $query = $conn->prepare('INSERT INTO Personal_almacontact(AutorizaTratamientoDatos, Fk_TipoDocumento, Pk_NumeroDocumento,fechaExpedicion,lugarDeExpedicion, PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Fk_Sede,Fk_Area,Fk_TipoVia,NumeroVia,Guion,Interior,MunicipioResidencia, Barrios,Telefonofijo,Movil,nombre_parentesco,TelefonoEmergencia,CorreoElectronico,FechaNacimiento,lugarNacimiento,estadoCivil,Fk_Genero,Fk_Idioma,ultima_modificacion, uuid, Esquemacovid) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
     $query->bindParam(1, $AutorizaTratamiento, PDO::PARAM_STR);
     $query->bindParam(2, $Fk_TipoDocumento, PDO::PARAM_INT);
@@ -69,6 +81,7 @@ $conn = require_once('conexion.php');
     $query->bindParam(27, $Fk_idioma2, PDO::PARAM_STR);
     $query->bindParam(28, $fechaActual, PDO::PARAM_STR);
     $query->bindParam(29, $uuid, PDO::PARAM_STR);
+    $query->bindParam(30, $VacunaCovid4, PDO::PARAM_STR);
     $query->execute();
 
     echo '
